@@ -1,537 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robotic Hacking Community — DEF CON 34</title>
-  <style>
-    :root {
-      --green:  #39ff14;
-      --cyan:   #00e5ff;
-      --purple: #bf5fff;
-      --dark:   #060606;
-      --card:   #0d0d0d;
-      --border: #1a1a1a;
-      --muted:  #555;
-      --text:   #c8c8c8;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robotic Hacking Community — DEF CON 34</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a {
+    color: #444;
+    font-size: 11px;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
 
-    html { scroll-behavior: smooth; }
+  /* HERO */
+  .hero {
+    padding: 72px 24px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-logo {
+    width: clamp(220px, 40vw, 480px);
+    height: auto;
+    display: block;
+    margin-bottom: 44px;
+    animation: float 4s ease-in-out infinite;
+    filter:
+      drop-shadow(0 0 20px rgba(57,255,20,0.35))
+      drop-shadow(0 0 50px rgba(191,95,255,0.2));
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .hero-tagline {
+    font-size: 13px;
+    color: #555;
+    line-height: 2;
+    max-width: 480px;
+    text-align: center;
+    margin-bottom: 44px;
+    letter-spacing: 0.03em;
+  }
+  .info-bar {
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(57,255,20,0.08);
+    border-bottom: 1px solid rgba(57,255,20,0.08);
+    width: 100%;
+    max-width: 700px;
+  }
+  .info-item { display: flex; gap: 10px; align-items: baseline; }
+  .info-label { font-size: 10px; color: #39ff14; letter-spacing: 0.15em; text-transform: uppercase; }
+  .info-value { font-size: 12px; color: #888; letter-spacing: 0.06em; font-weight: bold; }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 72px;
+  }
+  .btn-green {
+    padding: 13px 36px;
+    background: #39ff14;
+    color: #050505;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid #39ff14;
+    transition: opacity 0.2s;
+  }
+  .btn-green:hover { opacity: 0.85; }
+  .btn-outline {
+    padding: 13px 36px;
+    background: transparent;
+    color: #ccc;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
 
-    body {
-      background: var(--dark);
-      color: var(--text);
-      font-family: 'Courier New', Courier, monospace;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+  /* ACTIVITIES */
+  .activities { padding: 64px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
+  .section-label {
+    font-size: 10px;
+    color: #39ff14;
+    letter-spacing: 0.25em;
+    margin-bottom: 32px;
+    opacity: 0.7;
+  }
+  .activity-featured {
+    border: 1px solid rgba(57,255,20,0.45);
+    border-top: 2px solid #39ff14;
+    background: rgba(57,255,20,0.03);
+    padding: 36px 32px;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+  }
+  .activity-featured:hover { background: rgba(57,255,20,0.05); }
+  .activity-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .activity-card {
+    border: 1px solid rgba(57,255,20,0.35);
+    border-top: 2px solid #39ff14;
+    background: rgba(255,255,255,0.02);
+    padding: 32px 28px;
+    transition: background 0.2s;
+  }
+  .activity-card:hover { background: rgba(57,255,20,0.03); }
+  .card-type {
+    font-size: 10px;
+    color: #39ff14;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+  .card-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .activity-featured .card-title { font-size: 32px; }
+  .card-desc { font-size: 14px; color: #666; line-height: 1.9; margin-bottom: 20px; }
+  .card-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill {
+    font-size: 10px;
+    color: #39ff14;
+    border: 1px solid rgba(57,255,20,0.25);
+    padding: 4px 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
 
-    /* ── Scanline overlay ── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0,0,0,.08) 2px,
-        rgba(0,0,0,.08) 4px
-      );
-      pointer-events: none;
-      z-index: 9999;
-    }
+  /* CTA */
+  .cta-section { padding: 80px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
+  .cta-eyebrow {
+    font-size: 10px;
+    color: #39ff14;
+    letter-spacing: 0.25em;
+    margin-bottom: 24px;
+    opacity: 0.7;
+  }
+  .cta-heading {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(28px, 3.2vw, 44px);
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.1;
+    max-width: 960px;
+    margin-bottom: 28px;
+  }
+  .cta-body { font-size: 14px; color: #666; line-height: 1.9; max-width: 960px; margin-bottom: 36px; }
+  .cta-body p { margin-bottom: 8px; }
+  .deadline-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 12px 20px;
+    border: 1px solid rgba(57,255,20,0.25);
+    background: rgba(57,255,20,0.03);
+  }
+  .deadline-label { font-size: 10px; color: #444; letter-spacing: 0.15em; text-transform: uppercase; }
+  .deadline-date { font-size: 12px; color: #39ff14; }
 
-    a { color: var(--green); text-decoration: none; }
-    a:hover { color: var(--cyan); }
+  /* FOOTER */
+  footer {
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+  .footer-text { font-size: 11px; color: #2a2a2a; letter-spacing: 0.08em; }
 
-    /* ── NAV ── */
+  /* MOBILE */
+  @media (max-width: 768px) {
     nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .9rem 2.5rem;
-      background: rgba(6,6,6,.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
+      flex-direction: column;
+      gap: 14px;
+      padding: 14px 20px;
     }
+    .nav-logo-img { height: 40px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
 
-    .nav-brand {
-      font-size: .85rem;
-      font-weight: 700;
-      color: var(--green);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      display: flex; align-items: center; gap: .6rem;
+    .hero { padding: 48px 20px 0; }
+    .hero-eyebrow { font-size: 10px; margin-bottom: 20px; }
+    .hero-logo { margin-bottom: 32px; }
+    .hero-tagline { font-size: 12px; margin-bottom: 32px; line-height: 1.9; }
+
+    .info-bar {
+      flex-direction: column;
+      gap: 14px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
     }
+    .info-item { justify-content: center; gap: 8px; }
 
-    .nav-brand img {
-      height: 32px;
-      width: 32px;
-      object-fit: contain;
-      image-rendering: crisp-edges;
+    .hero-buttons {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      padding-bottom: 56px;
     }
-
-    nav ul {
-      display: flex; gap: 2rem; list-style: none;
-    }
-
-    nav a {
-      font-size: .78rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color .2s;
-    }
-    nav a:hover { color: var(--green); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 7rem 2rem 5rem;
-      position: relative;
-    }
-
-    /* grid bg */
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(57,255,20,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(57,255,20,.04) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
-
-    .hero-logo {
-      width: clamp(220px, 40vw, 480px);
-      margin-bottom: 2.4rem;
-      animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 20px rgba(57,255,20,.35))
-               drop-shadow(0 0 50px rgba(191,95,255,.2));
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-10px); }
-    }
-
-    .hero-eyebrow {
-      font-size: .72rem;
-      letter-spacing: .25em;
-      color: var(--cyan);
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-
-    h1 {
-      font-size: clamp(2.4rem, 7vw, 5.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -.01em;
-      text-transform: uppercase;
-      margin-bottom: 1.4rem;
-    }
-
-    h1 .line1 { color: #fff; }
-    h1 .line2 { color: var(--green); text-shadow: 0 0 20px var(--green); }
-    h1 .line3 { color: #fff; }
-
-    .hero-sub {
-      max-width: 540px;
-      color: var(--text);
-      font-size: 1rem;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
-
-    .hero-meta {
-      display: flex; gap: 2.5rem; flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2.8rem;
-      font-size: .78rem;
-    }
-
-    .hero-meta span strong {
-      color: var(--green);
-      letter-spacing: .1em;
-      margin-right: .4rem;
-    }
-
-    .btn-row {
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: .7rem 1.8rem;
-      font-family: inherit;
-      font-size: .8rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-weight: 700;
-      border: 2px solid;
-      cursor: pointer;
-      transition: all .2s;
-    }
-
-    .btn-primary {
-      border-color: var(--green);
-      color: var(--dark);
-      background: var(--green);
-      box-shadow: 0 0 16px rgba(57,255,20,.4);
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--green);
-      box-shadow: 0 0 28px rgba(57,255,20,.6);
-    }
-
-    .btn-outline {
-      border-color: var(--muted);
-      color: var(--text);
-      background: transparent;
-    }
-    .btn-outline:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
-    }
-
-    /* ── SECTION BASE ── */
-    section {
-      padding: 6rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    hr.divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: .7rem;
-      letter-spacing: .2em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-      font-weight: 800;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .section-sub {
-      color: var(--muted);
-      font-size: .9rem;
-      margin-bottom: 3rem;
-      max-width: 600px;
-    }
-
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
-
-    .about-body p {
-      margin-bottom: 1rem;
-      font-size: .9rem;
-      color: var(--text);
-    }
-
-    .about-body em { color: var(--green); font-style: normal; }
-
-    .about-list {
-      list-style: none;
-      display: flex; flex-direction: column; gap: .7rem;
-    }
-
-    .about-list li {
-      font-size: .85rem;
-      color: var(--text);
-      padding-left: 1.2rem;
-      position: relative;
-    }
-
-    .about-list li::before {
-      content: '▸';
-      position: absolute; left: 0;
-      color: var(--green);
-    }
-
-    /* ── ACTIVITIES ── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 1.8rem 1.5rem;
-      transition: border-color .2s, transform .2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--green), var(--cyan));
-      opacity: 0;
-      transition: opacity .2s;
-    }
-
-    .card:hover { border-color: var(--green); transform: translateY(-3px); }
-    .card:hover::before { opacity: 1; }
-
-    .card-icon { font-size: 1.8rem; margin-bottom: .8rem; }
-
-    .card-title {
-      font-size: .95rem;
-      font-weight: 700;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: .6rem;
-    }
-
-    .card-body { font-size: .82rem; color: var(--muted); line-height: 1.6; }
-
-    .card-badge {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: .2rem .7rem;
-      font-size: .65rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      border: 1px solid var(--green);
-      color: var(--green);
-    }
-
-    /* ── SCOPE ── */
-    .scope-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: .8rem;
-    }
-
-    .scope-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: .9rem 1.2rem;
-      font-size: .78rem;
-      color: var(--muted);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      transition: all .2s;
-    }
-
-    .scope-item:hover {
-      border-color: var(--purple);
-      color: var(--purple);
-    }
-
-    /* ── CTA ── */
-    #cta {
+    .btn-green, .btn-outline {
+      width: 100%;
+      padding: 13px 20px;
       text-align: center;
     }
 
-    #cta h2 { margin-bottom: .8rem; }
-    #cta p { max-width: 560px; margin: 0 auto 2.5rem; font-size: .9rem; color: var(--muted); }
+    .activities { padding: 48px 20px; }
+    .section-label { margin-bottom: 24px; }
+    .activity-featured { padding: 24px 20px; }
+    .activity-featured .card-title { font-size: 24px; }
+    .activity-row { grid-template-columns: 1fr; }
+    .activity-card { padding: 24px 20px; }
+    .card-title { font-size: 22px; }
+    .card-desc { font-size: 13px; line-height: 1.8; }
 
-    /* ── CONTACT ── */
-    #contact {
-      text-align: center;
+    .cta-section { padding: 56px 20px; }
+    .cta-heading { font-size: clamp(22px, 6vw, 30px); }
+    .cta-body { font-size: 13px; line-height: 1.8; }
+    .cta-section > div[style*="inline-flex"] { display: flex !important; width: 100%; }
+    .deadline-bar {
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      padding: 12px 16px;
     }
+    .deadline-date { font-size: 11px; }
 
-    .contact-email {
-      font-size: 1.1rem;
-      color: var(--cyan);
-      letter-spacing: .05em;
-      margin: 1rem 0;
-    }
-
-    .contact-email:hover { color: var(--green); }
-
-    .contact-url {
-      font-size: .8rem;
-      color: var(--muted);
-      margin-top: .5rem;
-    }
-
-    /* ── FOOTER ── */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 2.5rem;
+      flex-direction: column;
+      gap: 10px;
+      padding: 24px 20px;
       text-align: center;
-      font-size: .72rem;
-      color: var(--muted);
-      letter-spacing: .08em;
     }
-
-    footer span { color: var(--green); }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-brand">
-    <img src="logo.png" alt="RHC Logo">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Robotic Hacking Community" class="nav-logo-img">
     [ RHC ]
   </a>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#activities">Activities</a></li>
-    <li><a href="#scope">Scope</a></li>
-    <li><a href="#cta">Speak</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="cfp.html">Call for Papers</a>
+    <a href="program.html">Program</a>
+    <a href="about.html">About</a>
+  </div>
 </nav>
 
-<!-- HERO -->
-<div id="hero">
-  <img class="hero-logo" src="logo.png" alt="Robotic Hacking Community Logo">
-  <p class="hero-eyebrow">DEF CON 34 · Las Vegas</p>
-  <h1>
-    <span class="line1">ROBOTIC</span><br>
-    <span class="line2">HACKING</span><br>
-    <span class="line3">COMMUNITY</span>
-  </h1>
-  <p class="hero-sub">
-    Where Physical AI meets offensive security.<br>
-    Robots that move, sense, decide, and act — are they safe?
+<div class="hero">
+  <div class="hero-eyebrow">DEF CON 34 · Las Vegas, NV</div>
+  <img src="logo.png" alt="Robotic Hacking Community" class="hero-logo">
+  <h1 class="visually-hidden" style="position:absolute;left:-9999px;">Robotic Hacking Community</h1>
+  <p class="hero-tagline">
+    Real robots. Real exploits.<br>
+    Come break things.
   </p>
-  <div class="hero-meta">
-    <span><strong>DATE</strong>August 6–9, 2026</span>
-    <span><strong>LOCATION</strong>Las Vegas, NV</span>
-    <span><strong>EVENT</strong>DEF CON 34</span>
+  <div class="info-bar">
+    <div class="info-item"><span class="info-label">Date</span><span class="info-value">Aug 6–9, 2026</span></div>
+    <div class="info-item"><span class="info-label">Location</span><span class="info-value">Las Vegas, NV</span></div>
+    <div class="info-item"><span class="info-label">Event</span><span class="info-value">DEF CON 34</span></div>
   </div>
-  <div class="btn-row">
-    <a href="#cta" class="btn btn-primary">Submit a Talk</a>
-    <a href="#activities" class="btn btn-outline">View Activities</a>
+  <div class="hero-buttons">
+    <a href="cfp.html" class="btn-green">Submit a Talk</a>
+    <a href="program.html" class="btn-outline">View Activities</a>
   </div>
 </div>
 
-<hr class="divider">
+<section class="activities">
+  <div class="section-label">// activities</div>
 
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label">// about</p>
-  <h2>What Is Robotic Hacking Community?</h2>
-  <div class="about-grid">
-    <div class="about-body">
-      <p>A dedicated DEF CON community focused on the <em>security and safety</em> of physical AI systems and robotics — machines that move, sense, decide, and act in the real world.</p>
-      <p>We bring together security researchers, hackers, engineers, and industry to explore the attack surface of the next generation of intelligent machines. Because a compromise is not just a data breach — it can cause physical harm.</p>
+  <div class="activity-featured">
+    <div class="card-type">Workshop</div>
+    <div class="card-title">Hands-on Hacking</div>
+    <div class="card-desc">Get your hands on real robotic systems. No lecture-only sessions. Scheduled sessions walk you from first principles to live exploitation. Pick your entry point and go.</div>
+    <div class="card-pills">
+      <span class="pill">101: How robots work</span>
+      <span class="pill">Robot Exploitation</span>
+      <span class="pill">AI Model Attacks</span>
     </div>
-    <ul class="about-list">
-      <li>Robots are no longer science fiction — they are in factories, warehouses, hospitals, and homes</li>
-      <li>Physical AI systems introduce an entirely new and underexplored attack surface</li>
-      <li>Security research must keep pace with the speed of deployment</li>
-      <li>Safety and security must be engineered in — not bolted on</li>
-      <li>The hacker community is best positioned to find what defenders miss</li>
-    </ul>
   </div>
-</section>
 
-<hr class="divider">
-
-<!-- ACTIVITIES -->
-<section id="activities">
-  <p class="section-label">// activities</p>
-  <h2>What's Happening at RHC</h2>
-  <p class="section-sub">Four tracks designed for every skill level — from first-time robot hackers to seasoned embedded security researchers.</p>
-  <div class="cards">
-    <div class="card">
-      <div class="card-icon">🎤</div>
-      <div class="card-title">Call for Speakers</div>
-      <div class="card-body">Submit your research on robotics attack and defense. All skill levels welcome. Original, unpublished work preferred.</div>
-      <span class="card-badge">CFP Open</span>
+  <div class="activity-row">
+    <div class="activity-card">
+      <div class="card-type">CTF</div>
+      <div class="card-title">Robotic Hacking CTF</div>
+      <div class="card-desc">Attack the stack. Find the flag.</div>
+      <div class="card-pills">
+        <span class="pill">All experience levels · Details coming soon</span>
+      </div>
     </div>
-    <div class="card">
-      <div class="card-icon">🏁</div>
-      <div class="card-title">CTF</div>
-      <div class="card-body">Capture the Flag competition targeting real robotic systems and Physical AI platforms. Designed for all experience levels.</div>
-      <span class="card-badge">Competition</span>
-    </div>
-    <div class="card">
-      <div class="card-icon">🤖</div>
-      <div class="card-title">Physical AI Game</div>
-      <div class="card-body">Team-based challenges on physical AI platforms. Exploit, defend, and demonstrate impact in a controlled environment.</div>
-      <span class="card-badge">Team Event</span>
-    </div>
-    <div class="card">
-      <div class="card-icon">🛠</div>
-      <div class="card-title">Physical AI Hacking 101</div>
-      <div class="card-body">Hands-on beginner playground. Learn to hack robots — safely. No prior experience required.</div>
-      <span class="card-badge">Beginner Friendly</span>
+    <div class="activity-card">
+      <div class="card-type">Talks</div>
+      <div class="card-title">Expert Research</div>
+      <div class="card-desc">The people at the frontier.<br><br>Researchers and engineers sharing what they found in robot systems. Techniques, vulnerabilities, and attack chains the field has barely started to document.</div>
+      <div class="card-pills">
+        <span class="pill">CFP + Invited Speakers · TBA</span>
+      </div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- SCOPE -->
-<section id="scope">
-  <p class="section-label">// scope</p>
-  <h2>Our Focus Areas</h2>
-  <p class="section-sub">Physical AI &amp; Robotics Security — covering the full stack from silicon to cloud.</p>
-  <div class="scope-grid">
-    <div class="scope-item">// Hardware &amp; Firmware</div>
-    <div class="scope-item">// ROS2 / Middleware</div>
-    <div class="scope-item">// AI Model Integrity</div>
-    <div class="scope-item">// Sensor Spoofing</div>
-    <div class="scope-item">// Network &amp; Cloud APIs</div>
-    <div class="scope-item">// Supply Chain Risks</div>
-    <div class="scope-item">// Autonomous Decision Logic</div>
-    <div class="scope-item">// Safety-Critical Vulnerabilities</div>
-    <div class="scope-item">// Physical Manipulation</div>
-    <div class="scope-item">// Adversarial ML</div>
+<section class="cta-section">
+  <div class="cta-eyebrow">// speak at DEF CON 34</div>
+  <h2 class="cta-heading">You spent the last year breaking robot systems and told no one.</h2>
+  <div class="cta-body">
+    <p>That stops here.</p>
+    <p>Submit your research to Robotic Hacking Community at DEF CON 34. We want to hear it.</p>
+  </div>
+  <div style="display:inline-flex;flex-direction:column;gap:0;">
+    <a href="cfp.html" class="btn-green" style="display:block;text-align:center;">Read the CFP</a>
+    <div class="deadline-bar" style="width:100%;">
+      <span class="deadline-label">submissions close</span>
+      <span class="deadline-date">June 14, 2026 · 23:59 PST</span>
+    </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- CTA -->
-<section id="cta">
-  <p class="section-label">// call for speakers</p>
-  <h2>Share Your Research at DEF CON 34</h2>
-  <p>Have you found a vulnerability in a robotic system, Physical AI platform, or autonomous device? We want to hear from you. All research stages welcome — from initial findings to full exploits.</p>
-  <div class="btn-row">
-    <a href="mailto:robotichackingcommunity@proton.me" class="btn btn-primary">Submit a Talk</a>
-    <a href="mailto:robotichackingcommunity@proton.me" class="btn btn-outline">Get Involved</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <p class="section-label">// contact</p>
-  <h2>Get In Touch</h2>
-  <p class="section-sub" style="margin:0 auto .5rem;">Questions about speaking, sponsorship, volunteering, or the CTF?</p>
-  <a href="mailto:robotichackingcommunity@proton.me" class="contact-email">robotichackingcommunity@proton.me</a>
-  <p class="contact-url">www.RoboticHackingCommunity.com</p>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <span>[ RHC ]</span> Robotic Hacking Community · DEF CON 34 · Las Vegas · August 6–9, 2026
+  <div class="footer-text">ROBOTIC HACKING COMMUNITY · DEF CON 34</div>
+  <div class="footer-text">A community-driven, vendor-neutral Village</div>
 </footer>
 
 </body>

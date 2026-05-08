@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program — Robotic Hacking Community @ DEF CON 34</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 64px 48px 48px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
+  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; }
+  .tbd-note { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
+  .tbd-dot { width: 6px; height: 6px; background: #39ff14; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .tbd-text { font-size: 13px; color: #555; }
+  .tbd-text span { color: #888; }
+
+  /* SECTION */
+  .section { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .section-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 32px; opacity: 0.8; }
+
+  /* SCHEDULE */
+  .schedule { display: grid; grid-template-columns: 2fr 1px 1fr; gap: 0; max-width: 900px; }
+  .sessions-col { padding-right: 40px; }
+  .ctf-divider { width: 1px; background: rgba(57,255,20,0.15); margin: 0 40px 0 0; }
+  .time-label { font-size: 12px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; padding: 24px 0 14px; opacity: 0.85; }
+  .time-label.first { padding-top: 0; }
+  .session-card { padding: 18px 20px; border: 1px solid rgba(57,255,20,0.2); background: rgba(255,255,255,0.02); margin-bottom: 6px; border-left-width: 3px; border-left-style: solid; }
+  .session-card.workshop  { border-left-color: rgba(57,255,20,0.6); }
+  .session-card.talk      { border-left-color: rgba(100,180,255,0.6); }
+  .session-card.ceremony  { border-left-color: rgba(255,180,50,0.6); }
+  .session-card.opening   { border-left-color: #39ff14; }
+  .session-type { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+  .workshop  .session-type { color: rgba(57,255,20,0.7); }
+  .talk      .session-type { color: rgba(100,180,255,0.7); }
+  .ceremony  .session-type { color: rgba(255,180,50,0.7); }
+  .opening   .session-type { color: rgba(57,255,20,0.9); }
+  .session-name { font-family: 'Courier New', Courier, monospace; font-size: 13px; font-weight: 700; color: #e0e0e0; }
+  .session-note { font-size: 12px; color: #555; margin-top: 6px; line-height: 1.5; }
+  .day-separator { height: 1px; background: rgba(57,255,20,0.15); margin: 32px 0; }
+
+  /* CTF BLOCK */
+  .ctf-block { height: 100%; display: flex; align-items: stretch; }
+  .ctf-inner {
+    border: 1px solid rgba(57,255,20,0.25);
+    background: rgba(57,255,20,0.04);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    min-height: 520px;
+  }
+  .ctf-runs-label { font-size: 9px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; opacity: 0.7; }
+  .ctf-name { font-family: 'Courier New', Courier, monospace; font-size: 24px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 20px; text-transform: uppercase; }
+  .ctf-desc { font-size: 12px; color: #555; line-height: 1.8; max-width: 150px; margin-bottom: 20px; }
+  .ctf-span { display: inline-block; font-size: 9px; color: rgba(57,255,20,0.5); letter-spacing: 0.15em; border: 1px solid rgba(57,255,20,0.2); padding: 4px 12px; }
+
+  /* FOOTER */
+  footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.04); }
+  .footer-text { font-size: 11px; color: #2a2a2a; letter-spacing: 0.08em; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      gap: 14px;
+      padding: 14px 20px;
+    }
+    .nav-logo-img { height: 40px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+
+    .page-header { padding: 48px 20px 40px; }
+    .page-title { font-size: clamp(40px, 14vw, 64px); }
+    .tbd-note { margin-top: 20px; padding: 10px 14px; }
+    .tbd-text { font-size: 12px; }
+
+    .section { padding: 40px 20px; }
+    .section-label { margin-bottom: 24px; }
+
+    .schedule {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .sessions-col { padding-right: 0; }
+    .ctf-divider { display: none; }
+    .ctf-inner { min-height: auto; padding: 28px 20px; }
+    .ctf-desc { max-width: 100%; }
+    .time-label { font-size: 11px; letter-spacing: 0.15em; }
+    .session-card { padding: 16px 18px; }
+    .day-separator { margin: 24px 0; }
+
+    footer {
+      flex-direction: column;
+      gap: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Robotic Hacking Community" class="nav-logo-img">
+    [ RHC ]
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="cfp.html">Call for Papers</a>
+    <a href="program.html" class="active">Program</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="eyebrow">// DEF CON 34 · August 2026 · Las Vegas</div>
+  <h1 class="page-title">Program</h1>
+  <div class="tbd-note">
+    <div class="tbd-dot"></div>
+    <div class="tbd-text"><span>Schedule in progress</span> — exact times published closer to the event</div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-label">// schedule overview</div>
+  <div class="schedule">
+    <div class="sessions-col">
+
+      <div class="time-label first">Day 1 &nbsp;·&nbsp; Morning</div>
+      <div class="session-card opening">
+        <div class="session-type">Opening</div>
+        <div class="session-name">CTF Kickoff &amp; Rules Briefing</div>
+        <div class="session-note">All CTF participants. Covers rules, scoring, and target systems.</div>
+      </div>
+      <div class="session-card workshop">
+        <div class="session-type">Workshop</div>
+        <div class="session-name">Hands-on Workshop Session</div>
+        <div class="session-note">Details TBD — topics announced after CFP closes.</div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="time-label">Day 1 &nbsp;·&nbsp; Afternoon</div>
+      <div class="session-card talk">
+        <div class="session-type">Talks</div>
+        <div class="session-name">Research Presentations</div>
+        <div class="session-note">Number of slots adjusted based on CFP submissions received.</div>
+      </div>
+      <div class="session-card workshop">
+        <div class="session-type">Workshop</div>
+        <div class="session-name">Hands-on Workshop Session</div>
+        <div class="session-note">Details TBD — topics announced after CFP closes.</div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="time-label">Day 2 &nbsp;·&nbsp; Morning</div>
+      <div class="session-card workshop">
+        <div class="session-type">Workshop</div>
+        <div class="session-name">Hands-on Workshop Session</div>
+        <div class="session-note">Details TBD — topics announced after CFP closes.</div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="time-label">Day 2 &nbsp;·&nbsp; Afternoon</div>
+      <div class="session-card talk">
+        <div class="session-type">Talks</div>
+        <div class="session-name">Research Presentations</div>
+        <div class="session-note">Number of slots adjusted based on CFP submissions received.</div>
+      </div>
+      <div class="session-card workshop">
+        <div class="session-type">Workshop</div>
+        <div class="session-name">Hands-on Workshop Session</div>
+        <div class="session-note">Details TBD — topics announced after CFP closes.</div>
+      </div>
+
+      <div class="day-separator"></div>
+
+      <div class="time-label">Day 3 &nbsp;·&nbsp; Morning</div>
+      <div class="session-card ceremony">
+        <div class="session-type">Closing</div>
+        <div class="session-name">CTF Award Ceremony</div>
+        <div class="session-note">Results announced. Top teams recognized.</div>
+      </div>
+
+    </div>
+
+    <div class="ctf-divider"></div>
+
+    <div class="ctf-col">
+      <div class="ctf-block">
+        <div class="ctf-inner">
+          <div class="ctf-runs-label">Runs throughout</div>
+          <div class="ctf-name">Robotic<br>Hacking<br>CTF</div>
+          <div class="ctf-desc">Open from Day 1 kickoff through Day 3 closing ceremony. Attack, score, repeat.</div>
+          <div class="ctf-span">Day 1 → Day 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-text">ROBOTIC HACKING COMMUNITY · DEF CON 34</div>
+  <div class="footer-text">A community-driven, vendor-neutral Village</div>
+</footer>
+
+</body>
+</html>
