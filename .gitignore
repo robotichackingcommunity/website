@@ -1,0 +1,8 @@
+# SSH keys - never commit
+id_ed25519_RHC/
+*.pem
+id_ed25519*
+id_rsa*
+
+# macOS
+.DS_Store
