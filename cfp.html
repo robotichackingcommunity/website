@@ -120,7 +120,7 @@
     left: 5px;
     right: 5px;
     height: 1px;
-    background: linear-gradient(to right, #39ff14 25%, rgba(57,255,20,0.2) 100%);
+    background: linear-gradient(to right, #39ff14 65%, rgba(57,255,20,0.2) 100%);
   }
   .timeline-item { position: relative; padding: 28px 20px 0 0; }
   .timeline-dot {
@@ -147,6 +147,7 @@
     50% { box-shadow: 0 0 14px rgba(57,255,20,1), 0 0 28px rgba(57,255,20,0.6); }
   }
   .timeline-item.current .timeline-event strong { color: #39ff14; }
+  .done-badge { display: inline-block; font-size: 9px; color: #39ff14; border: 1px solid rgba(57,255,20,0.3); padding: 2px 8px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; opacity: 0.6; }
   .current-badge {
     display: inline-block;
     font-size: 9px;
@@ -184,6 +185,31 @@
   .submit-btn { display: inline-block; padding: 14px 48px; background: #39ff14; color: #050505; font-family: 'Share Tech Mono', Courier, monospace; font-size: 13px; letter-spacing: 0.1em; text-decoration: none; font-weight: 700; transition: opacity 0.2s; }
   .submit-btn:hover { opacity: 0.85; }
   .submit-note { margin-top: 20px; font-size: 11px; color: #444; }
+
+
+  /* CONTACT */
+  .contact-section { padding: 56px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 680px; }
+  .contact-card {
+    padding: 28px 32px;
+    border: 1px solid rgba(57,255,20,0.25);
+    border-top: 2px solid #39ff14;
+    background: rgba(57,255,20,0.03);
+    transition: background 0.2s;
+  }
+  .contact-card:hover { background: rgba(57,255,20,0.05); }
+  .contact-type { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.8; }
+  .contact-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    word-break: break-all;
+  }
+  .contact-value:hover { color: #39ff14; }
+  .contact-note { font-size: 11px; color: #555; margin-top: 8px; line-height: 1.6; }
 
   /* FOOTER */
   footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.04); }
@@ -236,6 +262,10 @@
     .submit-btn { display: block; padding: 14px 20px; }
     .submit-note { font-size: 10px; line-height: 1.7; }
 
+    .contact-section { padding: 40px 20px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-card { padding: 22px 20px; }
+
     footer {
       flex-direction: column;
       gap: 10px;
@@ -266,13 +296,7 @@
   <div class="intro-text">
     <p>Robot systems are everywhere. The security research is not. That gap is where you come in. AI and autonomy attacks are our headline area. But if you've broken something in the robot stack, we want to hear about it. ROS 2, DDS, VLM-driven autonomy stacks, sensor pipelines. The attack surface is open. Submit what you found. Talks run 30 or 45 minutes with Q&A, in person, Las Vegas.</p>
   </div>
-  <div style="display: inline-flex; flex-direction: column; gap: 0;">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfEeFOcc1J6hA460idSC8o1XN1UIkWCEjVOrY8YLNGWdzGmeA/viewform" class="btn-green" style="display: block; text-align: center; margin-top: 28px;">Submit Your Research</a>
-    <div class="deadline-bar" style="width: 100%;">
-      <span class="deadline-label">submissions close</span>
-      <span class="deadline-date">June 14, 2026 &nbsp;·&nbsp; 23:59 PST</span>
-    </div>
-  </div>
+  <span class="btn-green" style="display: inline-block; text-align: center; margin-top: 28px; opacity: 0.45; cursor: default; user-select: none;">Submissions Closed</span>
 </header>
 
 <section class="section">
@@ -341,20 +365,22 @@
 <section class="section">
   <div class="section-label">// timeline</div>
   <div class="timeline">
-    <div class="timeline-item current">
+    <div class="timeline-item">
       <div class="timeline-dot active"></div>
-      <div class="current-badge">Now open</div>
+      <div class="done-badge">Done</div>
       <div class="timeline-date">Accepting submissions</div>
-      <div class="timeline-event"><strong>CFP open</strong><span>Submit through the form below</span></div>
+      <div class="timeline-event"><strong>CFP open</strong><span>Closed June 14, 2026</span></div>
     </div>
 
     <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-date">June 14, 2026 · 23:59 PST</div>
-      <div class="timeline-event"><strong>Submissions close</strong><span>No extensions</span></div>
+      <div class="timeline-dot active"></div>
+      <div class="done-badge">Done</div>
+      <div class="timeline-date">June 14, 2026</div>
+      <div class="timeline-event"><strong>Submissions closed</strong><span>No extensions</span></div>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
+    <div class="timeline-item current">
+      <div class="timeline-dot active"></div>
+      <div class="current-badge">In progress</div>
       <div class="timeline-date">July 3, 2026</div>
       <div class="timeline-event"><strong>Acceptance notifications</strong><span>All submitters notified regardless of outcome</span></div>
     </div>
@@ -366,13 +392,23 @@
   </div>
 </section>
 
-<div class="submit-section">
-  <h2 class="submit-heading">Ready to submit?</h2>
-  <p class="submit-sub">Fill out the form. Include everything.</p>
-  <a class="submit-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfEeFOcc1J6hA460idSC8o1XN1UIkWCEjVOrY8YLNGWdzGmeA/viewform">Submit via Google Form</a>
-  <p class="submit-note">Questions: <a href="mailto:robotichackingcommunity@proton.me" style="color: #39ff14; text-decoration: none;">robotichackingcommunity@proton.me</a> &nbsp;·&nbsp; Talks are recorded and published post-event unless you opt out at submission</p>
-</div>
 
+<section class="contact-section">
+  <div class="section-label">// get in touch</div>
+  <p style="font-size: 14px; color: #555; margin-bottom: 28px; max-width: 480px; line-height: 1.7;">Questions about speaking, sponsorship, or the CTF?</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-type">Email</div>
+      <a class="contact-value" href="mailto:robotichackingcommunity@proton.me">robotichackingcommunity<br>@proton.me</a>
+      <div class="contact-note">Speaking, sponsorship, CTF inquiries</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-type">X / Twitter</div>
+      <a class="contact-value" href="https://x.com/RobotHackComm" target="_blank">@RobotHackComm</a>
+      <div class="contact-note">Announcements and updates</div>
+    </div>
+  </div>
+</section>
 <footer>
   <div class="footer-text">ROBOTIC HACKING COMMUNITY · DEF CON 34</div>
   <div class="footer-text">A community-driven, vendor-neutral Village</div>

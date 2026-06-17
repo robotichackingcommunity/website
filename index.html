@@ -291,6 +291,31 @@
   .deadline-label { font-size: 10px; color: #444; letter-spacing: 0.15em; text-transform: uppercase; }
   .deadline-date { font-size: 12px; color: #39ff14; }
 
+
+  /* CONTACT */
+  .contact-section { padding: 56px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 680px; }
+  .contact-card {
+    padding: 28px 32px;
+    border: 1px solid rgba(57,255,20,0.25);
+    border-top: 2px solid #39ff14;
+    background: rgba(57,255,20,0.03);
+    transition: background 0.2s;
+  }
+  .contact-card:hover { background: rgba(57,255,20,0.05); }
+  .contact-type { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.8; }
+  .contact-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    word-break: break-all;
+  }
+  .contact-value:hover { color: #39ff14; }
+  .contact-note { font-size: 11px; color: #555; margin-top: 8px; line-height: 1.6; }
+
   /* FOOTER */
   footer {
     padding: 28px 48px;
@@ -367,6 +392,10 @@
     }
     .deadline-date { font-size: 11px; }
 
+    .contact-section { padding: 40px 20px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-card { padding: 22px 20px; }
+
     footer {
       flex-direction: column;
       gap: 10px;
@@ -401,12 +430,12 @@
   </p>
   <div class="info-bar">
     <div class="info-item"><span class="info-label">Date</span><span class="info-value">Aug 6–9, 2026</span></div>
-    <div class="info-item"><span class="info-label">Location</span><span class="info-value">Las Vegas, NV</span></div>
-    <div class="info-item"><span class="info-label">Event</span><span class="info-value">DEF CON 34</span></div>
+    <div class="info-item"><span class="info-label">Venue</span><span class="info-value">Las Vegas Convention Center</span></div>
+    <div class="info-item"><span class="info-label">Room</span><span class="info-value">West Hall 4 · Level 1 · Room 1309</span></div>
   </div>
   <div class="hero-buttons">
-    <a href="cfp.html" class="btn-green">Submit a Talk</a>
-    <a href="program.html" class="btn-outline">View Activities</a>
+    <a href="program.html" class="btn-green">View Activities</a>
+    <a href="cfp.html" class="btn-outline">CFP Closed</a>
   </div>
 </div>
 
@@ -451,15 +480,26 @@
     <p>That stops here.</p>
     <p>Submit your research to Robotic Hacking Community at DEF CON 34. We want to hear it.</p>
   </div>
-  <div style="display:inline-flex;flex-direction:column;gap:0;">
-    <a href="cfp.html" class="btn-green" style="display:block;text-align:center;">Read the CFP</a>
-    <div class="deadline-bar" style="width:100%;">
-      <span class="deadline-label">submissions close</span>
-      <span class="deadline-date">June 14, 2026 · 23:59 PST</span>
+  <a href="cfp.html" class="btn-outline">View the CFP</a>
+  <p style="margin-top:16px;font-size:12px;color:#555;letter-spacing:0.05em;">Submissions are closed. We'll reach out to all applicants by email.</p>
+</section>
+
+<section class="contact-section">
+  <div class="section-label">// get in touch</div>
+  <p style="font-size: 14px; color: #555; margin-bottom: 28px; max-width: 480px; line-height: 1.7;">Questions about speaking, sponsorship, or the CTF?</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-type">Email</div>
+      <a class="contact-value" href="mailto:robotichackingcommunity@proton.me">robotichackingcommunity<br>@proton.me</a>
+      <div class="contact-note">Speaking, sponsorship, CTF inquiries</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-type">X / Twitter</div>
+      <a class="contact-value" href="https://x.com/RobotHackComm" target="_blank">@RobotHackComm</a>
+      <div class="contact-note">Announcements and updates</div>
     </div>
   </div>
 </section>
-
 <footer>
   <div class="footer-text">ROBOTIC HACKING COMMUNITY · DEF CON 34</div>
   <div class="footer-text">A community-driven, vendor-neutral Village</div>
