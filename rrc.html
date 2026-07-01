@@ -7,25 +7,25 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<title>Program — Robotic Hacking Community @ DEF CON 34</title>
-<meta name="description" content="Program and activities for the Robotic Hacking Community at DEF CON 34 — workshops, CTF, and talks on robot exploitation and AI model attacks in Las Vegas.">
-<meta name="keywords" content="Robotic Hacking Community, DEF CON 34, program, schedule, workshops, CTF, talks, robot exploitation, AI model attacks, Las Vegas">
+<title>Rogue Robot Challenge — Robotic Hacking Community @ DEF CON 34</title>
+<meta name="description" content="Rogue Robot Challenge — make any AI-powered robot break its own rules, on camera, in front of everyone. A new challenge drops every two weeks from the Robotic Hacking Community.">
+<meta name="keywords" content="Robotic Hacking Community, DEF CON 34, Rogue Robot Challenge, RRC, Physical AI, robot hacking, prompt injection, sensor manipulation, social engineering, cybersecurity">
 <meta name="author" content="Robotic Hacking Community">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://robotichackingcommunity.com/program.html">
+<link rel="canonical" href="https://robotichackingcommunity.com/rrc.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Robotic Hacking Community">
-<meta property="og:title" content="Program — Robotic Hacking Community @ DEF CON 34">
-<meta property="og:description" content="Workshops, CTF, and talks on robot exploitation and AI model attacks in Las Vegas.">
-<meta property="og:url" content="https://robotichackingcommunity.com/program.html">
+<meta property="og:title" content="Rogue Robot Challenge — Robotic Hacking Community @ DEF CON 34">
+<meta property="og:description" content="Make any AI-powered robot break its own rules, on camera, in front of everyone. Five challenges, five real Physical AI attack vectors.">
+<meta property="og:url" content="https://robotichackingcommunity.com/rrc.html">
 <meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Program — Robotic Hacking Community @ DEF CON 34">
-<meta name="twitter:description" content="Workshops, CTF, and talks on robot exploitation and AI model attacks in Las Vegas.">
+<meta name="twitter:title" content="Rogue Robot Challenge — Robotic Hacking Community @ DEF CON 34">
+<meta name="twitter:description" content="Make any AI-powered robot break its own rules, on camera, in front of everyone. Five challenges, five real Physical AI attack vectors.">
 <meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -59,121 +59,84 @@
   /* PAGE HEADER */
   .page-header { padding: 64px 48px 48px; border-bottom: 1px solid rgba(57,255,20,0.1); }
   .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
-  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; }
-  .tbd-note { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
-  .tbd-dot { width: 6px; height: 6px; background: #39ff14; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-  .tbd-text { font-size: 13px; color: #555; }
-  .tbd-text span { color: #888; }
-
-  /* SECTION */
-  .section { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
-  .section-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 32px; opacity: 0.8; }
-
-  /* SCHEDULE */
-  .schedule { display: grid; grid-template-columns: 2fr 1px 1fr; gap: 0; max-width: 900px; }
-  .sessions-col { padding-right: 40px; }
-  .ctf-divider { width: 1px; background: rgba(57,255,20,0.15); margin: 0 40px 0 0; }
-  .day-title { font-size: 12px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; padding: 24px 0 4px; opacity: 0.85; }
-  .day-title.first { padding-top: 0; }
-  .day-subtitle { font-size: 11px; color: #555; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
-  .session-card { padding: 18px 20px; border: 1px solid rgba(57,255,20,0.2); background: rgba(255,255,255,0.02); margin-bottom: 6px; border-left-width: 3px; border-left-style: solid; }
-  .session-card.workshop   { border-left-color: rgba(57,255,20,0.6); }
-  .session-card.talk       { border-left-color: rgba(100,180,255,0.6); }
-  .session-card.ceremony   { border-left-color: rgba(255,180,50,0.6); }
-  .session-card.opening    { border-left-color: #39ff14; }
-  .session-card.special    { border-left-color: rgba(191,95,255,0.6); }
-  .session-card.ctf        { border-left-color: rgba(255,90,170,0.6); }
-  .session-card.logistics  { border-left-color: rgba(255,255,255,0.25); }
-  .session-time { font-size: 9px; letter-spacing: 0.1em; color: #fff; text-transform: uppercase; float: right; }
-  .session-type { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
-  .workshop  .session-type { color: rgba(57,255,20,0.7); }
-  .talk      .session-type { color: rgba(100,180,255,0.7); }
-  .ceremony  .session-type { color: rgba(255,180,50,0.7); }
-  .opening   .session-type { color: rgba(57,255,20,0.9); }
-  .special   .session-type { color: rgba(191,95,255,0.8); }
-  .ctf       .session-type { color: rgba(255,90,170,0.8); }
-  .logistics .session-type { color: rgba(255,255,255,0.45); }
-  .session-name { font-family: 'Courier New', Courier, monospace; font-size: 13px; font-weight: 700; color: #e0e0e0; }
-  .session-note { font-size: 12px; color: #555; margin-top: 6px; line-height: 1.5; }
-  .session-note a { color: rgba(191,95,255,0.85); text-decoration: none; border-bottom: 1px solid rgba(191,95,255,0.3); }
-  .session-note a:hover { color: #bf5fff; }
-  .day-separator { height: 1px; background: rgba(57,255,20,0.15); margin: 32px 0; }
-
-  /* CTF / RUNS-THROUGHOUT BLOCKS */
-  .ctf-col { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 24px; align-self: start; }
-  .ctf-block { display: flex; align-items: stretch; }
-  .ctf-inner {
-    border: 1px solid rgba(57,255,20,0.25);
-    background: rgba(57,255,20,0.04);
-    padding: 28px 22px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-  }
-  .ctf-inner.secondary { border-color: rgba(57,255,20,0.25); background: rgba(57,255,20,0.04); }
-  .ctf-runs-label { font-size: 9px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; opacity: 0.7; }
-  .ctf-inner.secondary .ctf-runs-label { color: #39ff14; }
-  .ctf-name { font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px; text-transform: uppercase; }
-  .ctf-desc { font-size: 12px; color: #aaa; line-height: 1.8; max-width: 170px; margin-bottom: 16px; }
-  .ctf-span { display: inline-block; font-size: 9px; color: rgba(57,255,20,0.5); letter-spacing: 0.15em; border: 1px solid rgba(57,255,20,0.2); padding: 4px 12px; }
-  .ctf-inner.secondary .ctf-span { color: rgba(57,255,20,0.5); border-color: rgba(57,255,20,0.2); }
-
-  /* MODAL */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-  }
-  .modal-overlay.open { display: flex; }
-  .modal-box {
-    background: #0a0a0a;
-    border: 1px solid rgba(57,255,20,0.25);
-    border-top: 2px solid #39ff14;
-    max-width: 680px;
-    width: 100%;
-    max-height: 85vh;
-    overflow-y: auto;
-    padding: 40px;
-    position: relative;
-  }
-  .modal-close {
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-family: 'Share Tech Mono', Courier, monospace;
-    font-size: 18px;
-    color: #444;
-    cursor: pointer;
-    background: none;
-    border: none;
+  .page-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80px;
+    font-weight: 700;
     line-height: 1;
-    transition: color 0.2s;
+    color: #fff;
+    margin-bottom: 32px;
+    text-transform: uppercase;
   }
-  .modal-close:hover { color: #39ff14; }
-  .modal-eyebrow { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.8; }
-  .modal-title { font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 28px; }
-  .modal-section-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; opacity: 0.7; }
-  .modal-body { font-size: 13px; color: #888; line-height: 1.9; margin-bottom: 28px; }
-  .modal-body strong { color: #e0e0e0; }
-  .modal-divider { height: 1px; background: rgba(57,255,20,0.1); margin-bottom: 28px; }
-  .modal-speaker-name { font-family: 'Courier New', Courier, monospace; font-size: 16px; font-weight: 700; color: #e0e0e0; margin-bottom: 12px; }
+  .intro-text { max-width: 720px; font-size: 15px; line-height: 1.8; color: #888; }
+  .intro-text p { margin-bottom: 12px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+  .info-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 32px;
+    border-top: 1px solid rgba(57,255,20,0.15);
+    border-bottom: 1px solid rgba(57,255,20,0.15);
+    max-width: 820px;
+  }
+  .info-item { flex: 1 1 160px; padding: 14px 24px 14px 0; border-right: 1px solid rgba(57,255,20,0.1); }
+  .info-item:last-child { border-right: none; }
+  .info-label { display: block; font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.85; margin-bottom: 6px; }
+  .info-value { display: block; font-size: 13px; color: #fff; letter-spacing: 0.04em; }
+  .btn-green {
+    padding: 13px 36px;
+    background: #39ff14;
+    color: #050505;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid #39ff14;
+    transition: opacity 0.2s;
+    display: inline-block;
+    margin-top: 28px;
+  }
+  .btn-green:hover { opacity: 0.85; }
 
-  /* Clickable session card */
-  .session-card.clickable { cursor: pointer; transition: background 0.2s, border-color 0.2s; }
-  .session-card.clickable:hover { background: rgba(57,255,20,0.05); border-color: rgba(57,255,20,0.4); }
-  .session-card.clickable .session-name::after { content: " ↗"; font-size: 10px; color: rgba(57,255,20,0.5); }
-  .ongoing-list { display: flex; flex-wrap: wrap; gap: 10px; max-width: 900px; }
-  .ongoing-pill { font-size: 12px; color: #888; border: 1px solid rgba(57,255,20,0.2); padding: 10px 18px; letter-spacing: 0.03em; background: rgba(255,255,255,0.02); }
+  /* SECTIONS */
+  .section { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .section-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 8px; opacity: 0.8; }
+  .section-intro { font-size: 14px; color: #555; margin-bottom: 28px; max-width: 720px; line-height: 1.7; }
+  .body-text { font-size: 14px; color: #888; line-height: 1.9; max-width: 760px; }
+  .body-text p { margin-bottom: 16px; }
+  .body-text p:last-child { margin-bottom: 0; }
+  .body-text strong { color: #e0e0e0; font-weight: 700; }
 
+  /* CRITERIA (how it works steps) */
+  .criteria-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+  .criteria-card { padding: 24px; border: 1px solid rgba(57,255,20,0.1); background: rgba(255,255,255,0.02); }
+  .criteria-num { font-family: 'Courier New', Courier, monospace; font-size: 32px; font-weight: 700; color: rgba(57,255,20,0.2); line-height: 1; margin-bottom: 12px; }
+  .criteria-title { font-size: 13px; color: #e0e0e0; margin-bottom: 10px; }
+  .criteria-body { font-size: 13px; color: #666; line-height: 1.7; }
+
+  /* MECHANICS LIST */
+  .mechanics-list { list-style: none; max-width: 760px; }
+  .mechanics-list li { font-size: 14px; color: #888; line-height: 1.8; padding: 14px 0 14px 28px; position: relative; border-bottom: 1px solid rgba(57,255,20,0.07); }
+  .mechanics-list li:last-child { border-bottom: none; }
+  .mechanics-list li::before { content: ">"; color: #39ff14; position: absolute; left: 0; top: 14px; font-size: 13px; }
+  .mechanics-list li strong { color: #e0e0e0; }
+  .hashtag-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 16px 28px; }
+  .hashtag { font-size: 12px; color: #39ff14; border: 1px solid rgba(57,255,20,0.35); padding: 5px 14px; letter-spacing: 0.05em; }
+
+  /* PRIZES */
+  .prize-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .prize-card { padding: 24px 28px; border: 1px solid rgba(57,255,20,0.25); border-top: 2px solid #39ff14; background: rgba(57,255,20,0.03); transition: background 0.2s; }
+  .prize-card:hover { background: rgba(57,255,20,0.05); }
+  .prize-card.full-width { grid-column: 1 / -1; }
+  .prize-week { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.85; }
+  .prize-name { font-family: 'Courier New', Courier, monospace; font-size: 18px; font-weight: 700; color: #fff; }
+
+  /* PARTICIPANTS */
+  .participant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .participant-card { padding: 22px 26px; border-left: 3px solid rgba(57,255,20,0.4); background: rgba(255,255,255,0.02); font-size: 13px; color: #888; line-height: 1.7; }
 
   /* CONTACT */
   .contact-section { padding: 56px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
@@ -215,28 +178,27 @@
     .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
 
     .page-header { padding: 48px 20px 40px; }
-    .page-title { font-size: clamp(40px, 14vw, 64px); }
-    .tbd-note { margin-top: 20px; padding: 10px 14px; }
-    .tbd-text { font-size: 12px; }
+    .page-title { font-size: clamp(40px, 12vw, 64px); margin-bottom: 24px; }
+    .intro-text { font-size: 13px; line-height: 1.8; }
+    .info-bar { flex-direction: column; }
+    .info-item { border-right: none; border-bottom: 1px solid rgba(57,255,20,0.08); padding: 12px 0; }
+    .info-item:last-child { border-bottom: none; }
+    .page-header .btn-green { width: 100%; text-align: center; }
 
     .section { padding: 40px 20px; }
-    .section-label { margin-bottom: 24px; }
+    .section-intro { font-size: 13px; line-height: 1.7; }
+    .body-text { font-size: 13px; }
 
-    .schedule {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    .sessions-col { padding-right: 0; }
-    .ctf-divider { display: none; }
-    .ctf-col { position: static; gap: 12px; }
-    .ctf-inner { padding: 24px 20px; }
-    .ctf-desc { max-width: 100%; }
-    .day-title { font-size: 11px; letter-spacing: 0.15em; }
-    .session-card { padding: 16px 18px; }
-    .day-separator { margin: 24px 0; }
+    .criteria-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 24px; }
+    .criteria-card { padding: 20px; }
 
-    .ongoing-list { gap: 8px; }
-    .ongoing-pill { font-size: 11px; padding: 8px 14px; }
+    .mechanics-list li { font-size: 13px; padding-left: 22px; }
+    .hashtag-row { margin-left: 22px; }
+
+    .prize-grid { grid-template-columns: 1fr; }
+    .prize-card { padding: 20px; }
+
+    .participant-grid { grid-template-columns: 1fr; }
 
     .contact-section { padding: 40px 20px; }
     .contact-grid { grid-template-columns: 1fr; }
@@ -262,155 +224,108 @@
     <a href="index.html">Home</a>
     <a href="cfp.html">Call for Papers</a>
     <a href="ctf.html">CTF</a>
-    <a href="rrc.html">RRC</a>
-    <a href="program.html" class="active">Program</a>
+    <a href="rrc.html" class="active">RRC</a>
+    <a href="program.html">Program</a>
     <a href="about.html">About</a>
   </div>
 </nav>
 
 <header class="page-header">
-  <div class="eyebrow">// DEF CON 34 · August 2026 · Las Vegas</div>
-  <h1 class="page-title">Program</h1>
-  <div class="tbd-note">
-    <div class="tbd-dot"></div>
-    <div class="tbd-text"><span>Updated schedule</span> — times and activities below, subject to minor changes</div>
+  <div class="eyebrow">// Robotic Hacking Community · Community Activation</div>
+  <h1 class="page-title">Rogue Robot<br>Challenge</h1>
+  <div class="intro-text">
+    <p>Robots are shipping faster than the security around them. Every two weeks, we hand the community a new way to prove it — make any AI-powered robot break its own rules, on camera, in front of everyone.</p>
+    <p>The Rogue Robot Challenge takes attack categories that usually live in research papers and turns them into something anyone can watch happen in real time. If a hacker can pull this off for a prize, an attacker can pull it off for profit. The gap between "funny clip" and "security incident" is smaller than most people think.</p>
+    <p><strong>Five challenges. Five real Physical AI attack vectors, made visible.</strong></p>
   </div>
+  <div class="info-bar">
+    <div class="info-item"><span class="info-label">DEF CON 34</span><span class="info-value">Aug 6–9, 2026</span></div>
+    <div class="info-item"><span class="info-label">Featured Day</span><span class="info-value">Day 2 · August 8, 2026</span></div>
+    <div class="info-item"><span class="info-label">New Challenge Drops</span><span class="info-value">Every 2 weeks on X</span></div>
+    <div class="info-item"><span class="info-label">Where</span><span class="info-value">@RobotHackComm</span></div>
+  </div>
+  <a href="https://x.com/RobotHackComm" target="_blank" class="btn-green">Submit Your Entry on X</a>
 </header>
 
 <section class="section">
-  <div class="section-label">// schedule overview</div>
-  <div class="schedule">
-    <div class="sessions-col">
-
-      <div class="day-title first">Day 0 &nbsp;·&nbsp; Thursday, August 6</div>
-      <div class="session-card ctf">
-        <span class="session-time">13:00</span>
-        <div class="session-type">CTF</div>
-        <div class="session-name">Venue Setup / Registration Open</div>
-        <div class="session-note">Registration for both the CTF and workshops is available on-site only. While setting up the venue, available staff members will also assist participants with the registration process.</div>
-      </div>
-
-      <div class="day-separator"></div>
-
-      <div class="day-title">Day 1 &nbsp;·&nbsp; Friday, August 7</div>
-      <div class="session-card opening">
-        <span class="session-time">9:30</span>
-        <div class="session-type">Opening</div>
-        <div class="session-name">Community Opens</div>
-      </div>
-      <div class="session-card special">
-        <span class="session-time">10:00</span>
-        <div class="session-type">Community</div>
-        <div class="session-name">🤖 Robot Cheerleaders</div>
-      </div>
-      <div class="session-card opening">
-        <span class="session-time">11:00</span>
-        <div class="session-type">Opening</div>
-        <div class="session-name">Opening Program</div>
-        <div class="session-note">Welcome message from Max Cheng, VicOne Lab R7 CEO.</div>
-      </div>
-      <div class="session-card talk clickable" onclick="openModal('spoofbuster')">
-        <span class="session-time">14:00</span>
-        <div class="session-type">Talk</div>
-        <div class="session-name">SpoofBuster: GPS Spoofing Detection via Hierarchical LTE Identity Analysis</div>
-        <div class="session-note">A research presentation by Moshe "Mo" Satt.</div>
-      </div>
-      <div class="session-card ctf">
-        <span class="session-time">14:00</span>
-        <div class="session-type">CTF</div>
-        <div class="session-name">CTF Registration Closes</div>
-      </div>
-      <div class="session-card ctf">
-        <span class="session-time">14:05</span>
-        <div class="session-type">CTF</div>
-        <div class="session-name">CTF Competition Begins</div>
-      </div>
-      <div class="session-card talk">
-        <span class="session-time">15:00</span>
-        <div class="session-type">Talk</div>
-        <div class="session-name">VIP Keynote</div>
-      </div>
-
-      <div class="day-separator"></div>
-
-      <div class="day-title">Day 2 &nbsp;·&nbsp; Saturday, August 8</div>
-      <div class="session-card opening">
-        <span class="session-time">9:30</span>
-        <div class="session-type">Opening</div>
-        <div class="session-name">Community Opens</div>
-      </div>
-      <div class="session-card special">
-        <span class="session-time">10:00</span>
-        <div class="session-type">Community</div>
-        <div class="session-name">🤖 Robot Cheerleaders</div>
-      </div>
-      <div class="session-card special">
-        <span class="session-time">11:00</span>
-        <div class="session-type">Community</div>
-        <div class="session-name">Rogue Robot Challenge Kick-off</div>
-        <div class="session-note">See the <a href="rrc.html">Rogue Robot Challenge</a> for rules and prizes.</div>
-      </div>
-      <div class="session-card ctf">
-        <span class="session-time">18:00</span>
-        <div class="session-type">CTF</div>
-        <div class="session-name">CTF Competition Ends</div>
-        <div class="session-note">Score finalization begins.</div>
-      </div>
-
-      <div class="day-separator"></div>
-
-      <div class="day-title">Day 3 &nbsp;·&nbsp; Sunday, August 9</div>
-      <div class="session-card opening">
-        <span class="session-time">9:30</span>
-        <div class="session-type">Opening</div>
-        <div class="session-name">Community Opens</div>
-      </div>
-      <div class="session-card ceremony">
-        <span class="session-time">10:00–12:00</span>
-        <div class="session-type">Closing</div>
-        <div class="session-name">CTF Awards, Community Celebration, and Closing Remarks</div>
-      </div>
-
+  <div class="section-label">// how it works</div>
+  <div class="criteria-grid">
+    <div class="criteria-card">
+      <div class="criteria-num">01</div>
+      <div class="criteria-title">A new challenge drops.</div>
+      <div class="criteria-body">Every 2 weeks, Robotic Hacking Community (RHC) on X drops a new challenge.</div>
     </div>
-
-    <div class="ctf-divider"></div>
-
-    <div class="ctf-col">
-      <div class="ctf-block">
-        <div class="ctf-inner">
-          <div class="ctf-runs-label">Runs throughout</div>
-          <div class="ctf-name">Robotic<br>Hacking<br>CTF</div>
-          <div class="ctf-desc">Open from Day 1 registration close through Day 2 score finalization. Attack, score, repeat.</div>
-          <div class="ctf-span">Day 1, 14:00 → Day 2, 18:00</div>
-        </div>
-      </div>
-      <div class="ctf-block">
-        <div class="ctf-inner secondary">
-          <div class="ctf-runs-label">Runs throughout</div>
-          <div class="ctf-name">Open<br>Workshop</div>
-          <div class="ctf-desc">Hands-on workshop sessions, open to all attendees.</div>
-          <div class="ctf-span">Day 1, 10:00 → Day 2, 18:00</div>
-        </div>
-      </div>
-      <div class="ctf-block clickable" onclick="openModal('tengu')" style="cursor:pointer;">
-        <div class="ctf-inner secondary">
-          <div class="ctf-runs-label">Runs throughout</div>
-          <div class="ctf-name">Tengu<br>Marauders</div>
-          <div class="ctf-desc">Hands-on workshop — attack real robots using Tengu Marauder units. By L3xiC0n / Ex Machina Parlor. (Tentative)</div>
-          <div class="ctf-span">Day 1, 10:00 → Day 2, 18:00</div>
-        </div>
-      </div>
+    <div class="criteria-card">
+      <div class="criteria-num">02</div>
+      <div class="criteria-title">Make it happen.</div>
+      <div class="criteria-body">Make any AI-powered robot perform the assigned behavior.</div>
+    </div>
+    <div class="criteria-card">
+      <div class="criteria-num">03</div>
+      <div class="criteria-title">Post your entry.</div>
+      <div class="criteria-body">RHC reposts the best ones.</div>
+    </div>
+    <div class="criteria-card">
+      <div class="criteria-num">04</div>
+      <div class="criteria-title">Most shares wins.</div>
+      <div class="criteria-body">Engagement on the RHC repost decides the winner of each weekly challenge.</div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="section-label">// ongoing activities</div>
-  <div class="ongoing-list">
-    <div class="ongoing-pill">Open Workshops (Day 1 and Day 2 only)</div>
-    <div class="ongoing-pill">Robot Demonstrations</div>
-    <div class="ongoing-pill">Sponsor Showcase</div>
-    <div class="ongoing-pill">Community Networking</div>
+  <div class="section-label">// mechanics</div>
+  <ul class="mechanics-list">
+    <li><strong>Any robot, any device.</strong> Any robot. Any AI-powered device.</li>
+    <li><strong>Any method.</strong> Prompt injection, sensor manipulation, social engineering — all fair game.</li>
+    <li><strong>Record everything.</strong> Sound or movement must be clearly observable on camera.</li>
+    <li>
+      <strong>Submit your entry</strong> by posting the clip on X with:
+      <div class="hashtag-row">
+        <span class="hashtag">#RogueRobotChallenge</span>
+        <span class="hashtag">#RogueRobotChallengeWeek1</span>
+        <span class="hashtag">#RHC2026</span>
+      </div>
+    </li>
+    <li><strong>RHC reposts</strong> the strongest entries.</li>
+    <li><strong>Most shares</strong> on the RHC repost wins.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <div class="section-label">// prizes</div>
+  <div class="section-intro">Five weeks, five prizes — built around real Physical AI hardware.</div>
+  <div class="prize-grid">
+    <div class="prize-card">
+      <div class="prize-week">Week 1</div>
+      <div class="prize-name">SO101ARM Kit</div>
+    </div>
+    <div class="prize-card">
+      <div class="prize-week">Week 2</div>
+      <div class="prize-name">Reachy Mini Lite</div>
+    </div>
+    <div class="prize-card">
+      <div class="prize-week">Week 3</div>
+      <div class="prize-name">Jetson Orin Nano Super Dev Kit</div>
+    </div>
+    <div class="prize-card">
+      <div class="prize-week">Week 4</div>
+      <div class="prize-name">SO101ARM Kit</div>
+    </div>
+    <div class="prize-card full-width">
+      <div class="prize-week">Week 5</div>
+      <div class="prize-name">Lekiwi Full Set</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-bottom: none;">
+  <div class="section-label">// who this is for</div>
+  <div class="participant-grid">
+    <div class="participant-card">Hackers looking for a public stage for serious work disguised as fun.</div>
+    <div class="participant-card">Security researchers building intuition on Physical AI attack surfaces.</div>
+    <div class="participant-card">Robotics teams ready to see, not just read, how their assumptions break.</div>
+    <div class="participant-card">Anyone who has ever looked at a robot demo and thought "I bet I could make that do something it's not supposed to."</div>
   </div>
 </section>
 
@@ -434,76 +349,6 @@
   <div class="footer-text">ROBOTIC HACKING COMMUNITY · DEF CON 34</div>
   <div class="footer-text">A community-driven, vendor-neutral Village</div>
 </footer>
-
-<!-- MODALS -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
-  <div class="modal-box" id="modal-box">
-    <button class="modal-close" onclick="closeModal()">[ × ]</button>
-    <div id="modal-content"></div>
-  </div>
-</div>
-
-<script>
-const modals = {
-  spoofbuster: {
-    eyebrow: 'Research Presentation · Day 1 · 14:00',
-    title: 'SpoofBuster: GPS Spoofing Detection via Hierarchical LTE Identity Analysis',
-    abstract: `GPS spoofing attacks displace vehicle navigation using counterfeit signals costing under $300. SpoofBuster is a hierarchical GPS spoofing detection algorithm combining three LTE cellular identifiers — eNodeB (eNB) coverage, uplink band, and cell identifier — without device access, software on the target, or network cooperation.
-<br><br>
-Evaluated on 982 LTE observations across three carriers in a US urban test area, the three-tier algorithm achieves an operational detection rate of 69.5% at 200 m, rising to 93.5% at 500 m (the geofence-defeating offset range), and 100% mapped detection at ≥200 m at 37.2% FP.
-<br><br>
-The cascade's value is architectural: the eNB tier catches large-offset spoofs that cell-ID structurally misses, and the band tier provides a passive, no-device-access path. A $175 two-truck pilot demonstrates a 20-minute installation path.`,
-    speakerName: 'Moshe "Mo" Satt',
-    speakerBio: `Moshe "Mo" Satt is a cybersecurity leader, researcher, entrepreneur, inventor, and educator with over 25 years of public sector service. As CISO at the New York City Department of Sanitation (DSNY), he protects the largest municipal sanitation agency in the world from cyber threats.
-<br><br>
-He is the founder and CEO of Mobile Defender Inc. and the inventor of affordable, portable, and scalable cybersecurity solutions to protect vehicles from hidden GPS trackers and GPS spoofing.
-<br><br>
-Moshe is a PhD candidate in Computer Science at the NYU Center for Cybersecurity and NYU Tandon School of Engineering, where he conducts research on privacy and security. He also teaches graduate and undergraduate courses in application security, computer security, network security, and information security and privacy. He holds multiple certifications including C|CISO, CISSP, and CISM, and is a member of the SANS CISO Network.`
-  },
-  tengu: {
-    eyebrow: 'Hands-On Workshop · Day 1 & Day 2 · 10:00–18:00 (Tentative)',
-    title: 'Tengu Marauders: Hack My Bot',
-    abstract: `A full-scale hands-on lab where participants use Tengu Marauder units to attack commercially available robots — including robot dogs, hexapods, and WiFi-controlled mini drones. There is also a virtualized IoT range where participants use the bots to bypass doors and barriers.
-<br><br>
-The arena is approximately 4×4 feet. Each Tengu Marauder unit is a different generation of build: the <strong>Vanguard</strong> for basic defense and learning, and the <strong>Stryker</strong> units, which are larger and more complex in their attack methods. All units have an ESP32 Marauder, with some featuring the C5 chip for 5GHz and WPA3 attacks.
-<br><br>
-This is a BYOD lab — anyone with a device capable of connecting to WiFi or wiring into a switch can access a unit. Setup takes approximately 45 minutes. Winners receive a custom SAO badge (the game Cyclone).
-<br><br>
-<strong>GitHub:</strong> <a href="https://github.com/ExMachinaParlor/HackMyBot" target="_blank" style="color:rgba(57,255,20,0.7);text-decoration:none;">ExMachinaParlor/HackMyBot</a>`,
-    speakerName: 'L3xiC0n (Lexie)',
-    speakerBio: `Lexie has worked in cybersecurity for ten years in various positions, developing a strong affinity for electrical engineering, programming, and robotics engineering. Despite not having a traditional academic background, she has extensive hands-on experience from eight years in the US Air Force, specializing in cybersecurity and tactical networks for aircraft missions and operations.
-<br><br>
-Her focus on securing and testing the security of autonomous systems stems from these experiences, and she is passionate about sharing the techniques she has learned. She currently runs a local hackerspace in Philadelphia in support of DC215, called the Ex Machina Parlor.`
-  }
-};
-
-function openModal(id) {
-  const m = modals[id];
-  document.getElementById('modal-content').innerHTML = `
-    <div class="modal-eyebrow">${m.eyebrow}</div>
-    <div class="modal-title">${m.title}</div>
-    <div class="modal-section-label">// abstract</div>
-    <div class="modal-body">${m.abstract}</div>
-    <div class="modal-divider"></div>
-    <div class="modal-section-label">// speaker profile</div>
-    <div class="modal-speaker-name">${m.speakerName}</div>
-    <div class="modal-body">${m.speakerBio}</div>
-  `;
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeModal();
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-</script>
 
 </body>
 </html>

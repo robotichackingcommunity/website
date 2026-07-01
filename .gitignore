@@ -4,5 +4,8 @@ id_ed25519_RHC/
 id_ed25519*
 id_rsa*
 
+# Environment variables
+.env
+
 # macOS
 .DS_Store
