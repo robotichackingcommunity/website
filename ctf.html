@@ -135,6 +135,15 @@
   .platform-name { font-family: 'Courier New', Courier, monospace; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
   .platform-desc { font-size: 13px; color: #666; line-height: 1.7; }
 
+  /* PRIZES */
+  .prize-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; max-width: 900px; }
+  .prize-card { padding: 28px; border: 1px solid rgba(57,255,20,0.25); border-top: 2px solid #39ff14; background: rgba(57,255,20,0.03); }
+  .prize-card-third { border-top-color: rgba(57,255,20,0.4); }
+  .prize-place { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; opacity: 0.85; }
+  .prize-items { display: flex; flex-direction: column; gap: 10px; }
+  .prize-item { font-family: 'Courier New', Courier, monospace; font-size: 14px; font-weight: 700; color: #e0e0e0; line-height: 1.4; }
+  .prize-or { font-size: 10px; color: #555; letter-spacing: 0.1em; text-transform: uppercase; font-weight: normal; margin: 0 6px; }
+
   /* DISCLAIMER */
   .disclaimer-block { padding: 20px 24px; border-left: 3px solid rgba(255,200,50,0.4); background: rgba(255,200,50,0.03); max-width: 760px; }
   .disclaimer-label { font-size: 10px; color: rgba(255,200,80,0.8); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 10px; }
@@ -215,6 +224,7 @@
     .criteria-card { padding: 20px; }
 
     .platform-grid { grid-template-columns: 1fr; }
+    .prize-grid { grid-template-columns: 1fr; }
     .platform-card { padding: 20px; }
 
     .contact-section { padding: 40px 20px; }
@@ -297,6 +307,33 @@
       <div class="criteria-num">04</div>
       <div class="criteria-title">Bring your own agent.</div>
       <div class="criteria-body">The format encourages automated solves — autonomous prompt-injection or adversarial-patch search — over constant manual play.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">// prizes</div>
+  <div class="prize-grid">
+    <div class="prize-card">
+      <div class="prize-place">1st Place</div>
+      <div class="prize-items">
+        <div class="prize-item">Lekiwi Full Set</div>
+        <div class="prize-item">Reachy Mini Lite</div>
+        <div class="prize-item">Jetson Orin Nano Super Developer Kit</div>
+      </div>
+    </div>
+    <div class="prize-card">
+      <div class="prize-place">2nd Place</div>
+      <div class="prize-items">
+        <div class="prize-item">Reachy Mini Lite</div>
+        <div class="prize-item">Jetson Orin Nano Super Developer Kit</div>
+      </div>
+    </div>
+    <div class="prize-card prize-card-third">
+      <div class="prize-place">3rd Place</div>
+      <div class="prize-items">
+        <div class="prize-item">Reachy Mini Lite</div>
+      </div>
     </div>
   </div>
 </section>
