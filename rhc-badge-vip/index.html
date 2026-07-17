@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RHC Badge · VIP Image Studio</title>
+<style>
+  :root{--bg:#0b0f14;--card:#141b24;--card2:#1b2531;--line:#243244;--tx:#e6edf3;
+        --mut:#8aa0b6;--acc:#f5b942;--acc2:#2dd4bf;--ok:#22c55e;--bad:#ef4444;}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 620px at 18% -12%,#20180a,var(--bg));
+       color:var(--tx);font:15px/1.45 ui-sans-serif,system-ui,Segoe UI,Roboto,sans-serif}
+  header{display:flex;align-items:center;gap:14px;padding:18px 26px;border-bottom:1px solid var(--line);
+         position:sticky;top:0;background:rgba(11,15,20,.86);backdrop-filter:blur(8px);z-index:5}
+  .crest{width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;
+         font-weight:800;font-size:15px;color:#2a1c00;
+         background:linear-gradient(145deg,#ffd77a,var(--acc));box-shadow:0 0 18px rgba(245,185,66,.45)}
+  header h1{font-size:18px;margin:0;letter-spacing:.6px;font-weight:680}
+  header .sub{color:var(--mut);font-size:12px}
+  .pill{font-size:11px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:3px 11px}
+  main{max-width:1080px;margin:0 auto;padding:24px;display:grid;
+       grid-template-columns:minmax(320px,1fr) minmax(300px,420px);gap:20px;align-items:start}
+  @media(max-width:820px){main{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);
+        border-radius:16px;padding:20px}
+  .card h2{margin:0 0 16px;font-size:12.5px;text-transform:uppercase;letter-spacing:1.5px;color:var(--acc)}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:13px 0}
+  label{color:var(--mut);font-size:13px;min-width:70px}
+  .val{font:12px/1 ui-monospace,Menlo,Consolas,monospace;color:var(--tx);min-width:44px;text-align:right}
+  select{background:#0e1620;border:1px solid var(--line);color:var(--tx);border-radius:10px;padding:8px 11px;font-size:14px}
+  input[type=range]{flex:1;accent-color:var(--acc)}
+  input[type=checkbox]{accent-color:var(--acc);width:16px;height:16px}
+  button{cursor:pointer;border:1px solid var(--line);background:#0e1620;color:var(--tx);
+         border-radius:10px;padding:10px 15px;font-size:14px;transition:.12s;font-weight:560}
+  button:hover{border-color:var(--acc);color:var(--acc)}
+  button:active{transform:translateY(1px)}
+  button.acc{background:linear-gradient(145deg,#ffd77a,var(--acc));color:#2a1c00;border-color:var(--acc);font-weight:680}
+  button.sm{padding:6px 10px;font-size:13px}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  #drop{border:1.5px dashed var(--line);border-radius:14px;padding:26px;text-align:center;color:var(--mut);
+        transition:.15s;cursor:pointer;background:#0e1620}
+  #drop.hot{border-color:var(--acc);color:var(--acc);background:#161206}
+  #drop b{color:var(--tx)}
+  .previewWrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+  canvas#view{width:360px;height:360px;max-width:100%;border:1px solid var(--line);border-radius:10px;
+        image-rendering:pixelated;background:#fff}
+  .foot{color:var(--mut);font-size:12px;margin-top:6px}
+  code{background:#0a0e13;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:12.5px}
+  .badge-ok{color:var(--ok)} .badge-bad{color:var(--bad)}
+</style></head><body>
+<header>
+  <span class="crest">VIP</span>
+  <div><h1>RHC BADGE&nbsp;· IMAGE STUDIO</h1>
+       <div class="sub">Pick an image, tune it, export a 200×200 <code>imagedata.cpp</code> for the badge firmware</div></div>
+  <span class="pill" id="stat" style="margin-left:auto">no image</span>
+</header>
+<main>
+  <section class="card">
+    <h2>Source &amp; adjustments</h2>
+    <div id="drop">
+      <div style="font-size:26px;margin-bottom:6px">🖼️</div>
+      <b>Drop an image here</b> or click to choose<br>
+      <span style="font-size:12px">PNG · JPG · GIF · WEBP — any size, any aspect ratio</span>
+      <input type="file" id="file" accept="image/*" hidden>
+    </div>
+
+    <div class="row"><label>Fit</label>
+      <select id="fit"><option>contain</option><option>cover</option><option>stretch</option></select>
+      <label style="min-width:auto">Dither</label>
+      <select id="dith"><option>floyd</option><option>atkinson</option><option>ordered</option><option>none</option></select></div>
+
+    <div class="row"><label>Threshold</label>
+      <input type="range" id="thr" min="0" max="255" value="128">
+      <span class="val" id="thrV">128</span></div>
+    <div class="row"><label>Brightness</label>
+      <input type="range" id="bri" min="0.2" max="2" step="0.05" value="1">
+      <span class="val" id="briV">1.00</span></div>
+    <div class="row"><label>Contrast</label>
+      <input type="range" id="con" min="0.2" max="3" step="0.05" value="1">
+      <span class="val" id="conV">1.00</span></div>
+    <div class="row"><label>Gamma</label>
+      <input type="range" id="gam" min="0.2" max="3" step="0.05" value="1">
+      <span class="val" id="gamV">1.00</span></div>
+
+    <div class="row"><label style="min-width:auto"><input type="checkbox" id="inv"> Invert (swap black / white)</label></div>
+    <div class="row"><button class="sm" onclick="resetAll()">Reset adjustments</button></div>
+    <div class="foot">Threshold applies to the <b>none</b> mode; the dither modes use a fixed
+      128 cut. These are the same knobs as <code>badge.py image</code>.</div>
+  </section>
+
+  <section class="card">
+    <h2>Preview &amp; export</h2>
+    <div class="previewWrap">
+      <canvas id="view" width="200" height="200"></canvas>
+      <div class="foot">200 × 200 · 1-bpp · 5000 bytes · white = lit pixel</div>
+      <div class="row" style="justify-content:center;width:100%">
+        <button class="acc" id="btnExport" onclick="exportCpp()" disabled>⬇ Export imagedata.cpp</button>
+        <button class="sm" id="btnPng" onclick="exportPng()" disabled>Save preview PNG</button>
+      </div>
+      <div class="foot" id="exp"></div>
+    </div>
+  </section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const W=200,H=200,BYTES=(W>>3)+ (W%8?1:0);   // 25 bytes/row
+const ROWB=Math.ceil(W/8);                     // 25
+const FBLEN=ROWB*H;                            // 5000
+const view=$('view'), ctx=view.getContext('2d');
+let srcImg=null, fb=null;
+
+// 8x8 Bayer matrix (0..63) for ordered dither — identical to badge.py's _BAYER8.
+const BAYER8=[[0,48,12,60,3,51,15,63],[32,16,44,28,35,19,47,31],
+  [8,56,4,52,11,59,7,55],[40,24,36,20,43,27,39,23],
+  [2,50,14,62,1,49,13,61],[34,18,46,30,33,17,45,29],
+  [10,58,6,54,9,57,5,53],[42,26,38,22,41,25,37,21]];
+const clamp=v=>v<0?0:v>255?255:v;
+
+// PIL-style tone adjust: Brightness scales, Contrast pivots on the mean grey,
+// Gamma maps out=(in/255)^(1/g). Same order/behaviour as badge.py _tone_adjust.
+function toneAdjust(g,bri,con,gam){
+  if(bri!==1)for(let i=0;i<g.length;i++)g[i]=clamp(g[i]*bri);
+  if(con!==1){let m=0;for(let i=0;i<g.length;i++)m+=g[i];m=Math.round(m/g.length);
+    for(let i=0;i<g.length;i++)g[i]=clamp(m+(g[i]-m)*con);}
+  if(gam!==1){const inv=1/gam;for(let i=0;i<g.length;i++)g[i]=clamp(Math.pow(g[i]/255,inv)*255);}
+}
+
+// ---- load ----
+function loadFile(f){
+  if(!f||!f.type.startsWith('image/')){$('stat').textContent='not an image';return;}
+  const im=new Image();
+  im.onload=()=>{srcImg=im;$('stat').textContent=im.naturalWidth+'×'+im.naturalHeight+' loaded';
+    $('btnExport').disabled=false;$('btnPng').disabled=false;render();};
+  im.onerror=()=>{$('stat').textContent='failed to load';};
+  im.src=URL.createObjectURL(f);
+}
+const drop=$('drop');
+drop.onclick=()=>$('file').click();
+$('file').onchange=e=>loadFile(e.target.files[0]);
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('hot');}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('hot');}));
+drop.addEventListener('drop',e=>{const f=e.dataTransfer.files[0];if(f)loadFile(f);});
+window.addEventListener('paste',e=>{const it=[...(e.clipboardData?.items||[])].find(i=>i.type.startsWith('image/'));
+  if(it)loadFile(it.getAsFile());});
+
+// ---- render: fit -> invert -> tone adjust -> dither/threshold -> pack ----
+// Byte-for-byte identical to badge.py image_to_fb(): MSB=leftmost pixel,
+// bit 1 = white, bit 0 = black, rows padded to a byte (25 bytes/row).
+function render(){
+  ctx.fillStyle='#fff';ctx.fillRect(0,0,W,H);
+  if(srcImg){const fit=$('fit').value;let dw=W,dh=H,dx=0,dy=0;
+    const ar=srcImg.width/srcImg.height;
+    if(fit==='contain'){if(ar>1){dh=W/ar;dy=(H-dh)/2;}else{dw=H*ar;dx=(W-dw)/2;}}
+    else if(fit==='cover'){if(ar>1){dw=H*ar;dx=(W-dw)/2;}else{dh=W/ar;dy=(H-dh)/2;}}
+    ctx.drawImage(srcImg,dx,dy,dw,dh);}
+  const d=ctx.getImageData(0,0,W,H).data, g=new Float32Array(W*H);
+  for(let i=0;i<W*H;i++){g[i]=0.299*d[i*4]+0.587*d[i*4+1]+0.114*d[i*4+2];}
+  const inv=$('inv').checked, thr=+$('thr').value, dith=$('dith').value, out=new Uint8Array(W*H);
+  if(inv)for(let i=0;i<g.length;i++)g[i]=255-g[i];
+  toneAdjust(g,+$('bri').value,+$('con').value,+$('gam').value);
+  if(dith==='floyd'){
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=y*W+x;const old=g[i];const nw=old<128?0:255;
+      out[i]=nw>=128?1:0;const err=old-nw;
+      if(x+1<W)g[i+1]+=err*7/16;
+      if(y+1<H){if(x>0)g[i+W-1]+=err*3/16;g[i+W]+=err*5/16;if(x+1<W)g[i+W+1]+=err*1/16;}}
+  }else if(dith==='atkinson'){
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=y*W+x;const old=g[i];const nw=old>=128?255:0;
+      out[i]=nw>=128?1:0;const err=(old-nw)/8;
+      if(x+1<W)g[i+1]+=err; if(x+2<W)g[i+2]+=err;
+      if(y+1<H){if(x>0)g[i+W-1]+=err;g[i+W]+=err;if(x+1<W)g[i+W+1]+=err;}
+      if(y+2<H)g[i+2*W]+=err;}
+  }else if(dith==='ordered'){
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=y*W+x;
+      const t=(BAYER8[y&7][x&7]*255)/63; out[i]=g[i]>t?1:0;}
+  }else{ for(let i=0;i<g.length;i++)out[i]=g[i]>=thr?1:0; }
+  // pack + preview
+  fb=new Uint8Array(FBLEN);
+  const pv=ctx.createImageData(W,H);
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){const w=out[y*W+x];
+    if(w)fb[y*ROWB+(x>>3)]|=(0x80>>(x&7));
+    const c=w?255:0,o=(y*W+x)*4;pv.data[o]=pv.data[o+1]=pv.data[o+2]=c;pv.data[o+3]=255;}
+  ctx.putImageData(pv,0,0);
+}
+
+// live re-render on any control change
+['fit','dith','inv'].forEach(id=>$(id).addEventListener('change',render));
+[['thr','thrV',v=>v],['bri','briV',v=>(+v).toFixed(2)],
+ ['con','conV',v=>(+v).toFixed(2)],['gam','gamV',v=>(+v).toFixed(2)]].forEach(([id,lbl,fmt])=>{
+  $(id).addEventListener('input',()=>{$(lbl).textContent=fmt($(id).value);render();});
+});
+function resetAll(){$('fit').value='contain';$('dith').value='floyd';$('inv').checked=false;
+  $('thr').value=128;$('thrV').textContent='128';
+  $('bri').value=1;$('briV').textContent='1.00';
+  $('con').value=1;$('conV').textContent='1.00';
+  $('gam').value=1;$('gamV').textContent='1.00';render();}
+
+// ---- export ----
+// Emit exactly: const unsigned char IMAGE_DATA[] PROGMEM = { ...5000 bytes... };
+// No comments anywhere. Uppercase hex, 16 bytes/line, matching the badge's
+// existing imagedata.cpp style so it drops straight in.
+function toCpp(buf){
+  const lines=[];
+  for(let r=0;r<buf.length;r+=16){
+    const chunk=[];
+    for(let i=r;i<Math.min(r+16,buf.length);i++) chunk.push('0x'+buf[i].toString(16).toUpperCase().padStart(2,'0'));
+    lines.push('    '+chunk.join(', ')+(r+16<buf.length?',':''));
+  }
+  return 'const unsigned char IMAGE_DATA[] PROGMEM = {\n'+lines.join('\n')+'\n};\n';
+}
+function download(name,text,mime){
+  const b=new Blob([text],{type:mime||'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;
+  document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function exportCpp(){
+  if(!fb){$('exp').textContent='pick an image first';return;}
+  download('imagedata.cpp',toCpp(fb),'text/x-c');
+  $('exp').innerHTML='<span class="badge-ok">✓ exported</span> imagedata.cpp — '+fb.length+' bytes';
+}
+function exportPng(){
+  if(!srcImg){return;}
+  view.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);
+    a.download='badge_preview.png';document.body.appendChild(a);a.click();a.remove();});
+}
+render();
+</script>
+</body></html>
