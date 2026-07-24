@@ -63,6 +63,42 @@
   .nav-links a.active { color: #39ff14; }
   .nav-links a:hover { color: #ccc; }
 
+  /* ROOM BANNER */
+  .room-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 18px 40px;
+    border: 1px solid rgba(57,255,20,0.5);
+    border-top: 3px solid #39ff14;
+    background: rgba(57,255,20,0.05);
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+  }
+  .room-banner-label {
+    font-size: 10px;
+    color: #39ff14;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .room-banner-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.06em;
+    text-shadow: 0 0 24px rgba(57,255,20,0.45);
+  }
+  .room-banner-sub {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
   /* HERO */
   .hero {
     min-height: calc(100vh - 81px);
@@ -164,38 +200,39 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  .btn-green {
-    padding: 17px 48px;
-    background: #39ff14;
-    color: #050505;
-    font-family: 'Share Tech Mono', Courier, monospace;
-    font-size: 13px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    text-decoration: none;
+  .hero-buttons { display: flex; flex-direction: column; gap: 16px; align-items: center; margin-top: 32px; }
+  .hero-win-headline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 36px;
     font-weight: 700;
-    border: 2px solid #39ff14;
-    transition: opacity 0.2s, box-shadow 0.2s, transform 0.2s;
-    box-shadow: 0 0 0 rgba(57,255,20,0);
-  }
-  .btn-green:hover {
-    opacity: 0.9;
-    box-shadow: 0 0 32px rgba(57,255,20,0.6);
-    transform: translateY(-1px);
-  }
-  .btn-outline {
-    padding: 17px 48px;
-    background: transparent;
-    color: #ccc;
-    font-family: 'Share Tech Mono', Courier, monospace;
-    font-size: 13px;
-    letter-spacing: 0.2em;
+    color: #39ff14;
     text-transform: uppercase;
-    text-decoration: none;
-    border: 2px solid rgba(255,255,255,0.25);
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
   }
-  .btn-outline:hover { border-color: rgba(57,255,20,0.6); color: #fff; background: rgba(57,255,20,0.04); }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-promo-card {
+    flex: 1;
+    min-width: 260px;
+    text-decoration: none;
+    padding: 20px 32px;
+    border: 1px solid rgba(57,255,20,0.4);
+    border-top: 3px solid #39ff14;
+    background: rgba(57,255,20,0.04);
+    text-align: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .hero-promo-card:hover { background: rgba(57,255,20,0.08); border-color: rgba(57,255,20,0.7); }
+  .hero-promo-card--secondary { border-top-color: rgba(57,255,20,0.5); border-color: rgba(57,255,20,0.2); background: rgba(57,255,20,0.02); }
+  .hero-promo-big {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .hero-promo-sub { font-size: 12px; color: #39ff14; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
 
   /* ACTIVITIES */
   .activities { padding: 64px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
@@ -258,39 +295,55 @@
     opacity: 0.8;
   }
 
-  /* CTA */
-  .cta-section { padding: 80px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
-  .cta-eyebrow {
-    font-size: 10px;
-    color: #39ff14;
-    letter-spacing: 0.25em;
-    margin-bottom: 24px;
-    opacity: 0.7;
+  /* BADGE FEATURES */
+  .badge-section { padding: 64px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
+  .badge-intro {
+    max-width: 720px;
+    margin-bottom: 36px;
   }
-  .cta-heading {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: clamp(28px, 3.2vw, 44px);
-    font-weight: 700;
-    color: #fff;
-    text-transform: uppercase;
-    line-height: 1.1;
-    max-width: 960px;
-    margin-bottom: 28px;
+  .badge-intro p { font-size: 14px; color: #666; line-height: 1.9; }
+  .badge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
-  .cta-body { font-size: 14px; color: #666; line-height: 1.9; max-width: 960px; margin-bottom: 36px; }
-  .cta-body p { margin-bottom: 8px; }
-  .deadline-bar {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    margin-top: 24px;
-    padding: 12px 20px;
+  .badge-feature {
     border: 1px solid rgba(57,255,20,0.25);
-    background: rgba(57,255,20,0.03);
+    border-top: 2px solid rgba(57,255,20,0.6);
+    background: rgba(57,255,20,0.02);
+    padding: 24px 22px;
+    transition: background 0.2s, border-color 0.2s;
   }
-  .deadline-label { font-size: 10px; color: #444; letter-spacing: 0.15em; text-transform: uppercase; }
-  .deadline-date { font-size: 12px; color: #39ff14; }
-
+  .badge-feature:hover { background: rgba(57,255,20,0.04); border-color: rgba(57,255,20,0.5); }
+  .badge-feature-icon {
+    font-size: 22px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .badge-feature-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #39ff14;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+  .badge-feature-desc {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.75;
+  }
+  .badge-feature-desc a {
+    color: rgba(57,255,20,0.7);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(57,255,20,0.25);
+  }
+  .badge-feature-desc a:hover { color: #39ff14; border-color: #39ff14; }
+  .badge-feature--highlight {
+    border-top-color: #39ff14;
+    background: rgba(57,255,20,0.04);
+  }
 
   /* CONTACT */
   .contact-section { padding: 56px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
@@ -366,12 +419,6 @@
       gap: 12px;
       width: 100%;
     }
-    .btn-green, .btn-outline {
-      width: 100%;
-      padding: 14px 20px;
-      text-align: center;
-    }
-
     .activities { padding: 48px 20px; }
     .section-label { margin-bottom: 24px; }
     .activity-featured { padding: 24px 20px; }
@@ -381,20 +428,12 @@
     .card-title { font-size: 22px; }
     .card-desc { font-size: 13px; line-height: 1.8; }
 
-    .cta-section { padding: 56px 20px; }
-    .cta-heading { font-size: clamp(22px, 6vw, 30px); }
-    .cta-body { font-size: 13px; line-height: 1.8; }
-    .cta-section > div[style*="inline-flex"] { display: flex !important; width: 100%; }
-    .deadline-bar {
-      flex-wrap: wrap;
-      gap: 8px 12px;
-      padding: 12px 16px;
-    }
-    .deadline-date { font-size: 11px; }
-
     .contact-section { padding: 40px 20px; }
     .contact-grid { grid-template-columns: 1fr; }
     .contact-card { padding: 22px 20px; }
+
+    .badge-section { padding: 48px 20px; }
+    .badge-grid { grid-template-columns: 1fr; }
 
     footer {
       flex-direction: column;
@@ -430,38 +469,126 @@
     <strong>Real robots. Real exploits.</strong><br>
     Come break things.
   </p>
+  <div class="room-banner">
+    <span class="room-banner-label">Find us at</span>
+    <span class="room-banner-value">Room 1309</span>
+    <span class="room-banner-sub">West Hall 4 · Level 1</span>
+  </div>
   <div class="info-bar">
     <div class="info-item"><span class="info-label">Date</span><span class="info-value">Aug 6–9, 2026</span></div>
     <div class="info-item"><span class="info-label">Venue</span><span class="info-value">Las Vegas Convention Center</span></div>
-    <div class="info-item"><span class="info-label">Room</span><span class="info-value">West Hall 4 · Level 1 · Room 1309</span></div>
   </div>
   <div class="hero-buttons">
-    <a href="program.html" class="btn-green">View Activities</a>
-    <a href="cfp.html" class="btn-outline">CFP Closed</a>
+    <div class="hero-win-headline">GET AN AI-Connected Badge</div>
+    <div class="hero-ctas">
+      <a href="ctf.html" class="hero-promo-card">
+        <div class="hero-promo-big">Participate in CTF</div>
+        <div class="hero-promo-sub">Hack the Robot. Capture the Flag.</div>
+      </a>
+      <a href="program.html" class="hero-promo-card hero-promo-card--secondary">
+        <div class="hero-promo-big">Join Workshop</div>
+        <div class="hero-promo-sub">Hands-on Open Workshop</div>
+      </a>
+      <a href="https://x.com/RobotHackComm" target="_blank" class="hero-promo-card hero-promo-card--secondary">
+        <div class="hero-promo-big">Promote Socials</div>
+        <div class="hero-promo-sub">Share &amp; Tag Us on Social Media</div>
+      </a>
+    </div>
+    <div style="margin-top:18px;font-size:13px;color:#39ff14;letter-spacing:0.1em;text-transform:uppercase;opacity:0.85;">Register on-site to receive your <strong style="color:#fff;">AI-Connected RHC Badge</strong> — required to participate in the CTF.</div>
   </div>
 </div>
+
+<section class="badge-section">
+  <div class="section-label">// rhc badge</div>
+  <div class="badge-intro">
+    <p>The RHC Badge isn't swag — it's a hacking platform. Every badge shipped to DEF CON 34 attendees is a programmable device loaded with sensors, radios, and a CTF challenge baked into firmware. Here's what's inside.</p>
+  </div>
+  <div class="badge-grid">
+
+    <div class="badge-feature badge-feature--highlight">
+      <span class="badge-feature-icon">🤖</span>
+      <div class="badge-feature-title">AI Interactive Mode</div>
+      <div class="badge-feature-desc">
+        The badge exposes AI Skills, MCP, and WebAPI interfaces so your AI agent can control it directly — no human in the loop required.
+        <br><br>
+        <a href="https://github.com/robotichackingcommunity/rhc-badge-ai-control" target="_blank" rel="noopener">rhc-badge-ai-control on GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="badge-feature">
+      <span class="badge-feature-icon">💡</span>
+      <div class="badge-feature-title">RGB LEDs</div>
+      <div class="badge-feature-desc">
+        RGB eye LED and arm LEDs. Build light shows, encode signals, or just make it look threatening.
+      </div>
+    </div>
+
+    <div class="badge-feature">
+      <span class="badge-feature-icon">🔊</span>
+      <div class="badge-feature-title">Buzzer / Sound</div>
+      <div class="badge-feature-desc">
+        Onboard buzzer capable of playing tones and melodies. Useful for alerts, feedback loops, or annoying your neighbors at the con.
+      </div>
+    </div>
+
+    <div class="badge-feature">
+      <span class="badge-feature-icon">🖥️</span>
+      <div class="badge-feature-title">E-Paper Display</div>
+      <div class="badge-feature-desc">
+        Push any image or text message to the e-paper screen. Wear your CTF handle. Display a QR code. Show a flag.
+      </div>
+    </div>
+
+    <div class="badge-feature">
+      <span class="badge-feature-icon">📡</span>
+      <div class="badge-feature-title">Infrared TX/RX</div>
+      <div class="badge-feature-desc">
+        Infrared send and receive module. Communicate with other badges on the floor — or take control of nearby TVs and air conditioners.
+      </div>
+    </div>
+
+    <div class="badge-feature badge-feature--highlight">
+      <span class="badge-feature-icon">🚩</span>
+      <div class="badge-feature-title">CTF Challenge Inside</div>
+      <div class="badge-feature-desc">
+        A hardware CTF challenge is embedded in the badge firmware. Solve it. Earn your place on the board.
+      </div>
+    </div>
+
+    <div class="badge-feature" style="grid-column: 1 / -1;">
+      <span class="badge-feature-icon">⚙️</span>
+      <div class="badge-feature-title">Fully Programmable — Firmware Released</div>
+      <div class="badge-feature-desc">
+        We will release the firmware after DEF CON 34. Mod it, extend it, build on it. It's yours.
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <section class="activities">
   <div class="section-label">// activities</div>
 
   <div class="activity-featured">
-    <div class="card-type">Workshop</div>
-    <div class="card-title">Hands-on Hacking</div>
-    <div class="card-desc">Get your hands on real robotic systems. No lecture-only sessions. Scheduled sessions walk you from first principles to live exploitation. Pick your entry point and go.</div>
+    <div class="card-type">CTF</div>
+    <div class="card-title">RoboHack AI CTF</div>
+    <div class="card-desc">Attack an AI robot inside a physics-based digital-twin simulation. Register on-site, get your own isolated environment, and interact with it only through the application API. No SSH. No shell. Bring your own AI agent and go.<br><br>Register at the venue to receive your <strong>physical RHC badge</strong> — required to participate in the CTF.</div>
     <div class="card-pills">
-      <span class="pill">101: How robots work</span>
-      <span class="pill">Robot Exploitation</span>
-      <span class="pill">AI Model Attacks</span>
+      <span class="pill">1st Place — Lekiwi Full Set + Reachy Mini Lite + Jetson Orin Nano Super Dev Kit</span>
+      <span class="pill">2nd Place — Reachy Mini Lite + Jetson Orin Nano Super Dev Kit</span>
+      <span class="pill">3rd Place — Reachy Mini Lite</span>
     </div>
   </div>
 
   <div class="activity-row">
     <div class="activity-card">
-      <div class="card-type">CTF</div>
-      <div class="card-title">Robotic Hacking CTF</div>
-      <div class="card-desc">Attack the stack. Find the flag.</div>
+      <div class="card-type">Workshop</div>
+      <div class="card-title">Open Workshop</div>
+      <div class="card-desc">Hands-on sessions covering robot exploitation and AI model attacks. No lecture-only sessions — pick your entry point and go. At the end of each workshop, attendees can join the Rogue Robot Challenge and apply what they've learned.</div>
       <div class="card-pills">
-        <span class="pill">All experience levels · Details coming soon</span>
+        <span class="pill">Robot Exploitation</span>
+        <span class="pill">AI Model Attacks</span>
+        <span class="pill">+ Rogue Robot Challenge</span>
       </div>
     </div>
     <div class="activity-card">
@@ -473,17 +600,6 @@
       </div>
     </div>
   </div>
-</section>
-
-<section class="cta-section">
-  <div class="cta-eyebrow">// speak at DEF CON 34</div>
-  <h2 class="cta-heading">You spent the last year breaking robot systems and told no one.</h2>
-  <div class="cta-body">
-    <p>That stops here.</p>
-    <p>Submit your research to Robotic Hacking Community at DEF CON 34. We want to hear it.</p>
-  </div>
-  <a href="cfp.html" class="btn-outline">View the CFP</a>
-  <p style="margin-top:32px;font-size:12px;color:#555;letter-spacing:0.05em;">Submissions are closed. We'll reach out to all applicants by email.</p>
 </section>
 
 <section class="contact-section">
