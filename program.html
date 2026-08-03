@@ -283,20 +283,24 @@
     <div class="sessions-col">
 
       <div class="day-title first">Day 0 &nbsp;·&nbsp; Thursday, August 6</div>
-      <div class="session-card ctf">
+      <div class="session-card logistics">
         <span class="session-time">13:00</span>
-        <div class="session-type">CTF</div>
-        <div class="session-name">Venue Setup / Registration Open (Subject to On-site Readiness)</div>
-        <div class="session-note">Registration availability will depend on the progress of the venue setup. If staff members are available, they will be happy to answer participants' questions and provide assistance where possible.</div>
+        <div class="session-type">Set-up</div>
+        <div class="session-name">Venue Set-Up</div>
       </div>
 
       <div class="day-separator"></div>
 
       <div class="day-title">Day 1 &nbsp;·&nbsp; Friday, August 7</div>
       <div class="session-card opening">
-        <span class="session-time">9:30</span>
+        <span class="session-time">10:00</span>
         <div class="session-type">Opening</div>
         <div class="session-name">Community Opens</div>
+      </div>
+      <div class="session-card ctf">
+        <span class="session-time">10:00</span>
+        <div class="session-type">CTF</div>
+        <div class="session-name">CTF Registration</div>
       </div>
       <div class="session-card special">
         <span class="session-time">10:00</span>
@@ -350,7 +354,7 @@
 
       <div class="day-title">Day 2 &nbsp;·&nbsp; Saturday, August 8</div>
       <div class="session-card opening">
-        <span class="session-time">9:30</span>
+        <span class="session-time">10:00</span>
         <div class="session-type">Opening</div>
         <div class="session-name">Community Opens</div>
       </div>
@@ -372,8 +376,7 @@
       <div class="session-card workshop">
         <span class="session-time">13:00</span>
         <div class="session-type">Workshop</div>
-        <div class="session-name">Workshop &amp; Tengu Marauders</div>
-        <div class="session-note">Featuring the <span style="color:#bf5fff;cursor:pointer;" onclick="openModal('tengu')">Tengu Marauders: Hack My Bot</span> interactive workshop.</div>
+        <div class="session-name">Workshop</div>
       </div>
       <div class="session-card special">
         <span class="session-time">15:30</span>
@@ -396,7 +399,7 @@
 
       <div class="day-title">Day 3 &nbsp;·&nbsp; Sunday, August 9</div>
       <div class="session-card opening">
-        <span class="session-time">9:30</span>
+        <span class="session-time">10:00</span>
         <div class="session-type">Opening</div>
         <div class="session-name">Community Opens</div>
       </div>
@@ -470,7 +473,7 @@
 <script>
 const modals = {
   spoofbuster: {
-    eyebrow: 'Research Presentation · Day 1 · 15:00',
+    eyebrow: 'Research Presentation · Day 1 · 15:30',
     title: 'SpoofBuster: GPS Spoofing Detection via Hierarchical LTE Identity Analysis',
     abstract: `GPS spoofing attacks displace vehicle navigation using counterfeit signals costing under $300. SpoofBuster is a hierarchical GPS spoofing detection algorithm combining three LTE cellular identifiers — eNodeB (eNB) coverage, uplink band, and cell identifier — without device access, software on the target, or network cooperation.
 <br><br>
@@ -483,21 +486,6 @@ The cascade's value is architectural: the eNB tier catches large-offset spoofs t
 He is the founder and CEO of Mobile Defender Inc. and the inventor of affordable, portable, and scalable cybersecurity solutions to protect vehicles from hidden GPS trackers and GPS spoofing.
 <br><br>
 Moshe is a PhD candidate in Computer Science at the NYU Center for Cybersecurity and NYU Tandon School of Engineering, where he conducts research on privacy and security. He also teaches graduate and undergraduate courses in application security, computer security, network security, and information security and privacy. He holds multiple certifications including C|CISO, CISSP, and CISM, and is a member of the SANS CISO Network.`
-  },
-  tengu: {
-    eyebrow: 'Hands-On Workshop · Day 1 & Day 2 · 10:00–18:00 (Tentative)',
-    title: 'Tengu Marauders: Hack My Bot',
-    abstract: `A full-scale hands-on lab where participants use Tengu Marauder units to attack commercially available robots — including robot dogs, hexapods, and WiFi-controlled mini drones. There is also a virtualized IoT range where participants use the bots to bypass doors and barriers.
-<br><br>
-The arena is approximately 4×4 feet. Each Tengu Marauder unit is a different generation of build: the <strong>Vanguard</strong> for basic defense and learning, and the <strong>Stryker</strong> units, which are larger and more complex in their attack methods. All units have an ESP32 Marauder, with some featuring the C5 chip for 5GHz and WPA3 attacks.
-<br><br>
-This is a BYOD lab — anyone with a device capable of connecting to WiFi or wiring into a switch can access a unit. Setup takes approximately 45 minutes. Winners receive a custom SAO badge (the game Cyclone).
-<br><br>
-<strong>GitHub:</strong> <a href="https://github.com/ExMachinaParlor/HackMyBot" target="_blank" style="color:rgba(57,255,20,0.7);text-decoration:none;">ExMachinaParlor/HackMyBot</a>`,
-    speakerName: 'L3xiC0n (Lexie)',
-    speakerBio: `Lexie has worked in cybersecurity for ten years in various positions, developing a strong affinity for electrical engineering, programming, and robotics engineering. Despite not having a traditional academic background, she has extensive hands-on experience from eight years in the US Air Force, specializing in cybersecurity and tactical networks for aircraft missions and operations.
-<br><br>
-Her focus on securing and testing the security of autonomous systems stems from these experiences, and she is passionate about sharing the techniques she has learned. She currently runs a local hackerspace in Philadelphia in support of DC215, called the Ex Machina Parlor.`
   }
 };
 
