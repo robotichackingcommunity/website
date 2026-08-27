@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<title>RHC Badge — Robotic Hacking Community @ DEF CON 34</title>
+<meta name="description" content="The RHC Badge is an AI-connected hacking platform, not swag — sensors, radios, and a CTF challenge baked into the firmware. Robotic Hacking Community at DEF CON 34.">
+<meta name="keywords" content="RHC Badge, Robotic Hacking Community, DEF CON 34, AI-connected badge, CTF badge, hardware hacking, badgelife, Las Vegas">
+<meta name="author" content="Robotic Hacking Community">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://robotichackingcommunity.com/badge.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Robotic Hacking Community">
+<meta property="og:title" content="RHC Badge — Robotic Hacking Community @ DEF CON 34">
+<meta property="og:description" content="An AI-connected hacking platform, not swag. Sensors, radios, and a CTF challenge baked into the firmware.">
+<meta property="og:url" content="https://robotichackingcommunity.com/badge.html">
+<meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RHC Badge — Robotic Hacking Community @ DEF CON 34">
+<meta name="twitter:description" content="An AI-connected hacking platform, not swag. Sensors, radios, and a CTF challenge baked into the firmware.">
+<meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 64px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
+  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; margin-bottom: 32px; }
+  .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .intro-text p { margin-bottom: 16px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+  /* GET PROJECT CTA */
+  .get-project-wrap { padding: 32px 48px 0; }
+  .get-project-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid #39ff14;
+    color: #39ff14;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .get-project-btn:hover { background: #39ff14; color: #050505; }
+
+  /* SECTIONS */
+  .section { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .section-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 24px; opacity: 0.8; }
+  .section-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .section-text p { margin-bottom: 16px; }
+  .section-text p:last-child { margin-bottom: 0; }
+  .section-heading { font-family: 'Courier New', Courier, monospace; font-size: 28px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; }
+
+  /* FEATURE GRID */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .feature-card {
+    padding: 28px 32px;
+    border: 1px solid rgba(57,255,20,0.25);
+    border-top: 2px solid #39ff14;
+    background: rgba(57,255,20,0.03);
+    transition: background 0.2s;
+  }
+  .feature-card:hover { background: rgba(57,255,20,0.05); }
+  .feature-icon { font-size: 22px; margin-bottom: 14px; }
+  .feature-name { font-family: 'Courier New', Courier, monospace; font-size: 16px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+  .feature-desc { font-size: 13px; line-height: 1.8; color: #888; }
+
+  /* PIN TABLE */
+  .pin-table {
+    width: 100%;
+    max-width: 620px;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .pin-table th {
+    text-align: left;
+    padding: 12px 16px;
+    background: rgba(57,255,20,0.06);
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(57,255,20,0.2);
+    vertical-align: bottom;
+  }
+  .pin-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(57,255,20,0.08);
+    color: #ccc;
+    line-height: 1.9;
+    vertical-align: top;
+  }
+  /* wider variant for tables with long syntax / description cells */
+  .pin-table--wide { max-width: 920px; }
+  .pin-table tr:nth-child(even) td { background: rgba(57,255,20,0.02); }
+  .pin-table code {
+    background: rgba(57,255,20,0.08);
+    color: #39ff14;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+
+  /* INLINE CODE (prose) */
+  .intro-text code, .section-text code, .prose-note code {
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background: rgba(57,255,20,0.08);
+    color: #39ff14;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 0.9em;
+    word-break: break-word;
+  }
+
+  /* CODE BLOCKS */
+  .code-block {
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background: rgba(57,255,20,0.03);
+    border: 1px solid rgba(57,255,20,0.25);
+    padding: 16px 20px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #e0e0e0;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    margin: 12px 0;
+  }
+
+  .prose-note { font-size: 14px; color: #888; margin-top: 24px; }
+  .prose-note strong { color: #e0e0e0; }
+
+  .notes-list { list-style: none; max-width: 680px; margin-top: 20px; }
+  .notes-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #888;
+  }
+  .notes-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #39ff14;
+  }
+  .notes-list strong { color: #e0e0e0; }
+  .notes-list code {
+    background: rgba(57,255,20,0.08);
+    color: #39ff14;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+  .notes-list .sub-list { list-style: none; margin-top: 10px; margin-bottom: 0; }
+  .notes-list .sub-list li {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  .notes-list .sub-list li::before { content: "◦"; color: #39ff14; opacity: 0.7; }
+  .callout-note {
+    max-width: 680px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #888;
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-left: 2px solid rgba(57,255,20,0.4);
+    background: rgba(57,255,20,0.02);
+  }
+  .callout-note strong { color: #e0e0e0; }
+  .callout-note code {
+    background: rgba(57,255,20,0.08);
+    color: #39ff14;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+  .callout-spoiler {
+    max-width: 680px;
+    font-size: 13px;
+    line-height: 1.8;
+    color: #ccc;
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-left: 2px solid rgba(255, 90, 90, 0.5);
+    background: rgba(255, 90, 90, 0.04);
+  }
+  .callout-spoiler code {
+    background: rgba(255, 90, 90, 0.1);
+    color: #ff8a8a;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 12px;
+  }
+
+  /* CONTACT / CONNECT */
+  .contact-section { padding: 56px 48px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 680px; }
+  .contact-card {
+    padding: 28px 32px;
+    border: 1px solid rgba(57,255,20,0.25);
+    border-top: 2px solid #39ff14;
+    background: rgba(57,255,20,0.03);
+    transition: background 0.2s;
+  }
+  .contact-card:hover { background: rgba(57,255,20,0.05); }
+  .contact-type { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.8; }
+  .contact-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-decoration: none;
+    display: block;
+    word-break: break-all;
+  }
+  .contact-value:hover { color: #39ff14; }
+  .contact-note { font-size: 11px; color: #555; margin-top: 8px; line-height: 1.6; }
+
+  /* FOOTER */
+  footer { padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.04); }
+  .footer-text { font-size: 11px; color: #2a2a2a; letter-spacing: 0.08em; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      gap: 14px;
+      padding: 14px 20px;
+    }
+    .nav-logo-img { height: 40px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+
+    .page-header { padding: 48px 20px 40px; }
+    .get-project-wrap { padding: 24px 20px 0; }
+    .page-title { font-size: clamp(40px, 12vw, 64px); margin-bottom: 24px; }
+    .intro-text { font-size: 13px; line-height: 1.8; }
+
+    .section { padding: 40px 20px; }
+    .section-heading { font-size: 22px; }
+    .section-text { font-size: 13px; line-height: 1.8; }
+
+    .feature-grid { grid-template-columns: 1fr; }
+    .feature-card { padding: 22px 20px; }
+    .pin-table { font-size: 12px; display: block; overflow-x: auto; white-space: nowrap; }
+    .pin-table th, .pin-table td { padding: 10px 12px; }
+
+    .contact-section { padding: 40px 20px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-card { padding: 22px 20px; }
+
+    footer {
+      flex-direction: column;
+      gap: 10px;
+      padding: 24px 20px;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-nav.png" alt="Robotic Hacking Community" class="nav-logo-img" width="144" height="144">
+    [ RHC ]
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="cfp.html">Call for Papers</a>
+    <a href="ctf.html">CTF</a>
+    <a href="rrc.html">RRC</a>
+    <a href="program.html">Program</a>
+    <a href="badge.html" class="active">Badge</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="eyebrow">// DEF CON 34 · Las Vegas, NV</div>
+  <h1 class="page-title">RHC Badge</h1>
+  <div class="intro-text">
+    <p>The unified firmware for the Robotic Hacking Community (RHC) DEF CON badge. It combines an on-device menu UI on the e-paper display, an RGB "eye" LED engine, badge-to-badge infrared interaction, a set of on-badge CTF challenges, and a full AI Interactive Mode that hands the badge to a host AI over the USB-serial link using a line-based JSON protocol.</p>
+    <p>Firmware version: 2.0.0 · MCU: STMicroelectronics STM32U073CBT6 (LQFP48, Cortex-M0+, GENERIC_U073CBTX) · Toolchain: Arduino (Arduino core for STM32 / STM32duino) · Main sketch: <code>rhc_badge/rhc_badge.ino</code> · License: MIT</p>
+  </div>
+</header>
+
+<div class="get-project-wrap">
+  <a href="https://github.com/robotichackingcommunity/rhc-badge-firmware" target="_blank" rel="noopener" class="get-project-btn">Get Project ↗</a>
+</div>
+
+<section class="section">
+  <div class="section-label">// features</div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">💡</div>
+      <div class="feature-name">RGB "eye" LEDs</div>
+      <div class="feature-desc">Two WS2812 LEDs with a runtime colour/style/brightness engine (Rainbow/Red/Green/Blue × None/Breathe/Crazy × 25/50/75/100%), configured from the LED submenu.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📡</div>
+      <div class="feature-name">Badge-to-badge IR interaction</div>
+      <div class="feature-desc">A received NEC frame beeps 3× and shows a "someone's looking for you" note. On by default; toggleable from the menu. Sending from the menu blinks the arm LED.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚩</div>
+      <div class="feature-name">CTF challenges</div>
+      <div class="feature-desc">An on-badge Konami-code "Easy" challenge and a snake-style "Hard" game, plus hidden serial-only challenges.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🖥️</div>
+      <div class="feature-name">On-device menu UI</div>
+      <div class="feature-desc">On the e-paper display.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <div class="feature-name">AI Interactive Mode</div>
+      <div class="feature-desc">A host AI drives the badge over the CH340 UART using a line-based JSON protocol.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔊</div>
+      <div class="feature-name">Buzzer / motor / arm LED effects</div>
+      <div class="feature-desc">Including a few built-in songs.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <div class="feature-name">CTF registration QR</div>
+      <div class="feature-desc">Shows a QR (registration URL + badge serial) for staff.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">// menu &amp; buttons</div>
+  <table class="pin-table">
+    <thead>
+      <tr><th>Button</th><th>Pin</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>BUTTON1</td><td><code>PB12</code></td><td>UP</td></tr>
+      <tr><td>BUTTON2</td><td><code>PB13</code></td><td>DOWN</td></tr>
+      <tr><td>BUTTON3</td><td><code>PB14</code></td><td>SELECT</td></tr>
+      <tr><td>BUTTON4</td><td><code>PB15</code></td><td>CANCEL / BACK / EXIT</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-text">
+    <p><strong>Menu structure:</strong><br>
+    Main: AI · CTF · LED · IR · Motor · Music<br>
+    CTF → Register · Challenges<br>
+    Challenges → Easy (Konami) · Hard (game)<br>
+    LED → Eye LED · Arm LED<br>
+    IR → IR Send · IR Recv · IR Interact</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">// hardware &amp; firmware</div>
+  <h2 class="section-heading">Pin Map<br>(STM32U073CBT6, LQFP48)</h2>
+
+  <table class="pin-table">
+    <thead>
+      <tr><th>Function</th><th>Pin</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Buzzer PWM</td><td><code>PB0</code></td></tr>
+      <tr><td>IR emitter (NEC TX)</td><td><code>PB1</code></td></tr>
+      <tr><td>Vibration motor PWM</td><td><code>PB3</code></td></tr>
+      <tr><td>Arm backlight LED PWM</td><td><code>PB4</code></td></tr>
+      <tr><td>Eye WS2812 data</td><td><code>PB5</code></td></tr>
+      <tr><td>IR receiver (NEC RX)</td><td><code>PB11</code></td></tr>
+      <tr><td>Button 1 — UP</td><td><code>PB12</code></td></tr>
+      <tr><td>Button 2 — DOWN</td><td><code>PB13</code></td></tr>
+      <tr><td>Button 3 — SELECT</td><td><code>PB14</code></td></tr>
+      <tr><td>Button 4 — CANCEL / BACK</td><td><code>PB15</code></td></tr>
+      <tr><td>Debug / AI UART RX</td><td><code>PA3</code></td></tr>
+      <tr><td>Debug / AI UART TX</td><td><code>PA2</code></td></tr>
+      <tr><td>E-paper display</td><td>SPI</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="notes-list">
+    <li><strong>Eyes</strong> are 2× WS2812 LEDs on <code>PB5</code> (early prototype used <code>PB2</code>).</li>
+    <li><strong>IR receiver</strong> is a TSOP38438; buzzer/motor/IR emitter/arm LED are driven through switching transistors on the PCB.</li>
+    <li><strong>Buttons</strong> are active-low with internal pull-ups (<code>INPUT_PULLUP</code>), debounced (50 ms).</li>
+    <li><strong>E-paper</strong> is a 1.54" 200×200 monochrome bistable panel (<code>epd1in54_V2</code>); the framebuffer (<code>uiBuffer</code>, 5000 bytes) is pushed with fast flash-free partial updates during menu navigation.</li>
+    <li><strong>UART</strong> runs over CH340 USB-serial at <strong>115200 baud</strong> and carries both boot/log events and the AI control protocol.</li>
+  </ul>
+
+  <h3 class="section-heading" style="font-size: 20px; margin-top: 40px;">Unique ID</h3>
+  <div class="section-text">
+    <p>A unique 8-byte serial is derived from the STM32U073's 96-bit UID via FNV-1a and embedded in the CTF registration QR code.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">// building &amp; flashing</div>
+  <h2 class="section-heading">SWD programming header</h2>
+  <div class="section-text">
+    <p>The badge is programmed over SWD with an ST-LINK. The SWD pads are on the back of the badge, on the left side of the body, in a single vertical column. From top to bottom:</p>
+  </div>
+
+  <table class="pin-table">
+    <thead>
+      <tr><th>Order (top → bottom)</th><th>Signal</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><code>GND</code></td></tr>
+      <tr><td>2</td><td><code>SWCLK</code></td></tr>
+      <tr><td>3</td><td><code>SWDIO</code></td></tr>
+      <tr><td>4</td><td><code>+3V</code></td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-text">
+    <p>Wire these to the matching pins on an ST-LINK (V2/V3), then flash with the Arduino IDE, arduino-cli, or STM32CubeProgrammer.</p>
+  </div>
+
+  <h2 class="section-heading" style="margin-top: 40px;">Unlocking RDP (Readout Protection)</h2>
+  <div class="section-text">
+    <p>The badge MCU ships with RDP Level 1 enabled and password-protected, so once the ST-LINK is wired up you must unlock it before you can flash. Use STMicroelectronics' STM32CubeProgrammer CLI (<code>STM32_Programmer_CLI</code>) with the RDP password below.</p>
+    <p><strong>RDP unlock password:</strong></p>
+    <pre class="code-block">0x52484320 0x56316330 0x6E33204C 0x34385237</pre>
+    <p><strong>Unlock procedure</strong> — run the following commands in order (STM32CubeProgrammer over SWD):</p>
+    <pre class="code-block"># 1. Provide the RDP password on access port 0 (locks/authenticates AP0)
+STM32_Programmer_CLI -c port=SWD mode=HOTPLUG ap=0 -lockRDP1 0x52484320 0x56316330 0x6E33204C 0x34385237
+
+# 2. Set RDP to level 1 (0xBB) — regression/handshake step
+STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -ob RDP=0xBB
+
+# 3. Provide the password on access port 1 to unlock RDP
+STM32_Programmer_CLI -c port=SWD mode=HOTPLUG ap=1 -unlockRDP1 0x52484320 0x56316330 0x6E33204C 0x34385237
+
+# 4. Drop RDP back to level 0 (0xAA) — full read/write access restored
+STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -ob RDP=0xAA</pre>
+    <p class="callout-spoiler">⚠️ <strong>Warning:</strong> Regressing RDP from Level 1 to Level 0 (RDP=0xAA) triggers a full mass erase of the flash. Back up anything you need before unlocking, and re-flash the firmware afterwards.</p>
+  </div>
+
+  <h2 class="section-heading" style="margin-top: 40px;">Building from source</h2>
+  <div class="section-text">
+    <p>1. Install the Arduino IDE (or arduino-cli) with the STM32 core (STM32duino).<br>
+    2. Select the board: Generic STM32U0 series, variant GENERIC_U073CBTX.<br>
+    3. Install the required libraries:<br>
+    &nbsp;&nbsp;&nbsp;— Adafruit NeoPixel — WS2812 eye LEDs<br>
+    &nbsp;&nbsp;&nbsp;— Arduino-IRremote (4.x) — NEC send/receive<br>
+    &nbsp;&nbsp;&nbsp;— QRCode (ricmoo qrcode.h) — CTF registration / flag QR codes<br>
+    4. Open <code>rhc_badge/rhc_badge.ino</code> and compile/upload over SWD or the built-in bootloader.</p>
+    <p>Adafruit NeoPixel needs a one-line patch — see <em>Patching Adafruit NeoPixel</em> below. Without it, the first (left-eye) WS2812B latches a stuck random colour.</p>
+  </div>
+
+  <h2 class="section-heading" style="margin-top: 40px;">Patching Adafruit NeoPixel (WS2812B first-pixel fix)</h2>
+  <div class="section-text">
+    <p>The WS2812B-V6 eyes need a small patch to Adafruit NeoPixel 1.15.5's STM32 bit-bang path. Without it, the first LED in the chain (left eye) latches a stuck random colour at power-up (usually green/blue) and can't be turned off, because the first data pulse is emitted slightly distorted and misread as a 1 on the green MSB. (Downstream LEDs re-shape the signal, so only the first is affected.)</p>
+    <p><strong>Fix:</strong> hold the data line low and align to a SysTick reload boundary for ~20 µs before the first bit. Edit the installed library file <code>…/Arduino/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp</code>, in the STM32 800 kHz section (the <code>ARDUINO_ARCH_STM32</code> block, ~line 2882) right after <code>SysTick->VAL = 0;</code> and before <code>for (;;) {</code>, insert:</p>
+    <pre class="code-block">// WS2812B-V6 first-pixel workaround: force data LOW for ~20us (16 bit
+// periods) and align the first rising edge to a reload boundary, so the
+// first pulse width isn't distorted and the first pixel latches correctly.
+LL_GPIO_ResetOutputPin(gpioPort, gpioPin);
+for (uint8_t w = 0; w &lt; 16; w++) {
+  while (SysTick->VAL > t0) ;
+  while (SysTick->VAL &lt;= t0) ;
+}</pre>
+  </div>
+
+  <p class="prose-note"><strong>Notes:</strong></p>
+  <ul class="notes-list">
+    <li>The patch lives in the installed library dir and is wiped by a library update — re-apply it (search the file for "first-pixel workaround" to check it's present).</li>
+    <li>After patching you must recompile and reflash the badge.</li>
+    <li>Quick verify: an all-off frame turns both eyes fully off, and commanding blue on the left eye shows pure blue (not cyan).</li>
+    <li>If the first LED lights on its own during a data-free power-up window, that LED is genuinely damaged — run that test before reaching for the soldering iron.</li>
+  </ul>
+
+  <h2 class="section-heading" style="margin-top: 40px;">Flashing the prebuilt binary</h2>
+  <div class="section-text">
+    <p>A prebuilt image of the initial release is included as <code>rhc_badge.ino.bin</code>, so you can flash the badge without building from source. Load it at the flash base address (<code>0x08000000</code>) with STM32CubeProgrammer over SWD:</p>
+    <pre class="code-block">STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -d rhc_badge.ino.bin 0x08000000 -v</pre>
+    <p>If the target still has RDP Level 1 enabled, unlock it first — see <em>Unlocking RDP</em> above. Programming a fresh <code>.bin</code> does not by itself clear readout protection.</p>
+  </div>
+
+  <h2 class="section-heading" style="margin-top: 40px;">Build-time feature switches (top of rhc_badge.ino)</h2>
+
+  <table class="pin-table pin-table--wide">
+    <thead>
+      <tr><th>Macro</th><th>Default</th><th>Effect</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ENABLE_LED_MOTOR_LOCK</code></td><td>On</td><td>Forbids an LED and the vibration motor being on at the same time</td></tr>
+      <tr><td><code>ENABLE_IDLE_LED_FX</code></td><td>On</td><td>"Worn badge" idle effect: short random-colour eye blink every 5 min</td></tr>
+      <tr><td><code>ENABLE_MCU_DEEP_SLEEP</code></td><td>Off</td><td>Deep-sleeps the MCU when idle (disabled by default — IR interaction needs the CPU)</td></tr>
+      <tr><td><code>ADMIN</code></td><td>Off</td><td>Builds an admin badge with an extra privileged "IR Send – ADMIN" item</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <div class="section-label">// ai interactive mode</div>
+  <h2 class="section-heading">Serial Protocol</h2>
+  <div class="section-text">
+    <p>Entered from the main menu (or the host holds the link). Commands are plain-text lines over the 115200-baud UART, interpreted only in AI mode. Lines may be prefixed with a numeric request id (echoed back). Responses are single-line JSON. At boot, the badge emits: <code>{"event":"boot","version":"2.0.0"}</code></p>
+  </div>
+
+  <table class="pin-table pin-table--wide">
+    <thead>
+      <tr><th>Command</th><th>Syntax / subcommands</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ping</code></td><td><code>ping</code> → <code>{"pong":true}</code></td></tr>
+      <tr><td><code>info</code></td><td>Name, version, capability list</td></tr>
+      <tr><td><code>status</code></td><td>Current motor/arm/buzzer/IR/buttons/epaper state</td></tr>
+      <tr><td><code>eyes</code></td><td><code>color &lt;r&gt; &lt;g&gt; &lt;b&gt;</code> · <code>color2 &lt;lr lg lb rr rg rb&gt;</code> · <code>effect &lt;name&gt;</code> · <code>bright &lt;pct&gt;</code> · <code>off</code></td></tr>
+      <tr><td><code>buzzer</code></td><td><code>beep [freq] [ms]</code> · <code>tone &lt;freq&gt; &lt;ms&gt;</code> · <code>song &lt;rowboat|scale|alarm&gt;</code> · <code>off</code></td></tr>
+      <tr><td><code>motor</code></td><td><code>&lt;0..100&gt;</code> · <code>off</code></td></tr>
+      <tr><td><code>arm</code></td><td><code>&lt;0..100&gt;</code> · <code>off</code></td></tr>
+      <tr><td><code>ir</code></td><td><code>send [addr] [cmd]</code> · <code>recv &lt;on|off&gt;</code></td></tr>
+      <tr><td><code>display</code></td><td><code>text [size x y] &lt;text…&gt;</code> · <code>image &lt;0|1&gt;</code> · <code>clear</code> · <code>sleep</code></td></tr>
+      <tr><td><code>image</code></td><td><code>begin</code> · <code>data &lt;hex…&gt;</code> · <code>raw &lt;len&gt;</code> · <code>show</code> · <code>peek &lt;off&gt; [len]</code> — stage/show a full 200×200 frame</td></tr>
+      <tr><td><code>region</code></td><td><code>begin &lt;x&gt; &lt;y&gt; &lt;w&gt; &lt;h&gt;</code> · <code>data &lt;hex…&gt;</code> · <code>show</code> — partial-region blit</td></tr>
+      <tr><td><code>buttons</code></td><td><code>&lt;on|off&gt;</code> — stream button press/release as JSON events</td></tr>
+      <tr><td><code>exit</code></td><td>Leave AI mode</td></tr>
+    </tbody>
+  </table>
+
+  <p class="prose-note"><strong>Notes:</strong></p>
+  <ul class="notes-list">
+    <li><code>eyes effect</code> names are rainbow/red/green/blue (colour), none/breathe/crazy (style), off.</li>
+    <li>Eye brightness snaps to the nearest of 25/50/75/100%.</li>
+    <li>With <code>buttons on</code>, presses stream as <code>{"event":"button","button":N,"action":"down|up"}</code>.</li>
+  </ul>
+
+</section>
+
+<section class="section">
+  <div class="section-label">// ctf challenges</div>
+  <ul class="notes-list">
+    <li><strong>Easy (Konami):</strong> shows a banner; enter the Konami code to reveal a flag QR.</li>
+    <li><strong>Hard (game):</strong> a snake-style path game on the e-paper; completing it authenticates and reveals the flag.</li>
+    <li><strong>Register:</strong> shows a QR encoding the registration URL plus the badge's derived 8-byte serial, printed below the QR for staff registration.</li>
+    <li><strong>Hidden serial challenges</strong> (not advertised in <code>info</code>/<code>status</code>):
+      <ul class="sub-list">
+        <li><code>solve &lt;n&gt; &lt;b&gt;</code> — an RSA-style challenge (<code>base^0x10001 mod n</code>) whose base is derived by decrypting the second argument with a key drawn from the chip's system memory. A correct solution prints the flag.</li>
+        <li><code>m3mdump &lt;addr&gt; [len]</code> — a canonical hex-dump over the UART. It deliberately redacts the admin-IR secret and the system-memory key window (they read back as <code>--</code> / <code>.</code>), so those bytes cannot be exfiltrated through the dump.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p class="callout-note"><strong>Note:</strong> the firmware contains a hardening theme around keeping certain secrets (the admin IR frame and the sysmem key window) unreadable through the debug/AI surfaces, including flash-alias folding so the same bytes can't be read via a mirror address.</p>
+
+  <p class="callout-spoiler">⚠️ <strong>Spoilers:</strong> a full solution walkthrough — including the maze rule, the <code>image peek</code> OOB key leak, and the RSA break — lives in <code>writeup/</code>, with runnable solver scripts and a firmware dump under <code>writeup/solve/</code>.</p>
+
+</section>
+
+<section class="section">
+  <div class="section-label">// power management</div>
+  <div class="section-text">
+    <p>The e-paper is bistable, so the image persists without power. After 30s of inactivity the badge enters a standby screen and sleeps the panel; the next button press wakes and redraws it. Eye LEDs stay off in standby to keep coin-cell drain low. IR interaction (on by default) keeps the CPU running so incoming NEC frames can be decoded.</p>
+  </div>
+
+</section>
+
+<section class="section">
+  <div class="section-label">// source layout</div>
+
+  <table class="pin-table pin-table--wide">
+    <thead>
+      <tr><th>Path</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>rhc_badge/rhc_badge.ino</code></td><td>Main firmware: UI, LEDs, IR, buzzer/motor, AI protocol</td></tr>
+      <tr><td><code>rhc_badge/epd1in54_V2.{cpp,h}</code>, <code>epdif.{cpp,h}</code></td><td>1.54" e-paper driver + interface</td></tr>
+      <tr><td><code>rhc_badge/epdpaint.{cpp,h}</code></td><td>Framebuffer drawing primitives</td></tr>
+      <tr><td><code>rhc_badge/fonts.h</code>, <code>font8/12/16/20/24.c</code></td><td>Bitmap fonts</td></tr>
+      <tr><td><code>rhc_badge/imagedata.{cpp,h}</code></td><td>Built-in images (QR, etc.)</td></tr>
+      <tr><td><code>rhc_badge/ctf_q1.{cpp,h}</code>, <code>ctf_q2.{cpp,h}</code></td><td>CTF challenge assets/logic</td></tr>
+      <tr><td><code>rhc_badge/demo_path.h</code></td><td>Demo path for the Hard-challenge game</td></tr>
+      <tr><td><code>rhc_badge.ino.bin</code></td><td>Prebuilt image of the initial release (flash @ <code>0x08000000</code>)</td></tr>
+      <tr><td><code>image/rhc-badge-front.jpg</code>, <code>rhc-badge-back.jpg</code></td><td>Badge photos shown in the README</td></tr>
+      <tr><td><code>writeup/</code></td><td>CTF solution walkthrough (write-up, slides, solvers) — spoilers</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="contact-section">
+  <div class="section-label">// get in touch</div>
+  <h2 class="section-heading" style="margin-bottom: 8px;">Contact</h2>
+  <p style="font-size: 14px; color: #555; margin-bottom: 28px; max-width: 480px; line-height: 1.7;">Questions about the badge, firmware, or the CTF it unlocks?</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-type">Email</div>
+      <a class="contact-value" href="mailto:robotichackingcommunity@proton.me">robotichackingcommunity<br>@proton.me</a>
+      <div class="contact-note">Speaking, sponsorship, CTF inquiries</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-type">X / Twitter</div>
+      <a class="contact-value" href="https://x.com/RobotHackComm" target="_blank" rel="noopener">@RobotHackComm</a>
+      <div class="contact-note">Announcements and updates</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-text">ROBOTIC HACKING COMMUNITY · DEF CON 34</div>
+  <div class="footer-text">A community-driven, vendor-neutral Village</div>
+</footer>
+
+</body>
+</html>
