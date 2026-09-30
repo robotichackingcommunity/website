@@ -52,14 +52,6 @@
   }
   .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
   .nav-logo-img { height: 48px; width: auto; display: block; }
-  .visually-hidden {
-    position: absolute;
-    width: 1px; height: 1px;
-    margin: -1px; padding: 0; border: 0;
-    clip-path: inset(50%);
-    overflow: hidden;
-    white-space: nowrap;
-  }
   .nav-links { display: flex; gap: 40px; }
   .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a.active { color: #39ff14; }
@@ -291,36 +283,6 @@
     color: #050505;
   }
 
-  /* RECORD BROWSER */
-  .vdb-controls { display: flex; flex-wrap: wrap; gap: 12px; max-width: 1000px; margin-top: 32px; }
-  .vdb-controls input, .vdb-controls select {
-    font-family: inherit;
-    font-size: 13px;
-    color: #e0e0e0;
-    background: #0a0a0a;
-    border: 1px solid rgba(57,255,20,0.3);
-    padding: 10px 14px;
-    border-radius: 0;
-  }
-  .vdb-controls input { flex: 1; min-width: 220px; }
-  .vdb-controls select { max-width: 100%; }
-  .vdb-controls input:focus, .vdb-controls select:focus { outline: 2px solid #39ff14; outline-offset: 0; }
-  .vdb-status { max-width: 1000px; margin-top: 16px; font-size: 12px; color: #666; letter-spacing: 0.05em; }
-  .vdb-table { max-width: 1000px; margin-top: 16px; }
-  .vdb-table td { font-size: 12.5px; }
-  .vdb-table td:first-child { white-space: nowrap; font-weight: 400; }
-  .vdb-table td a { color: #39ff14; text-decoration: none; border-bottom: 1px dotted rgba(57,255,20,0.5); }
-  .vdb-table td a:hover { border-bottom-style: solid; }
-  .vdb-table .vdb-title { color: #ccc; }
-  .vdb-table .vdb-sub { display: block; margin-top: 4px; font-size: 11px; color: #666; }
-  .vdb-sev { white-space: nowrap; font-weight: 700; }
-  .vdb-table td.vdb-hide-sm { white-space: nowrap; }
-  .vdb-sev.critical { color: #ff5a7a; }
-  .vdb-sev.high { color: #ffb84d; }
-  .vdb-sev.medium { color: #39ff14; }
-  .vdb-sev.low { color: #888; }
-  .vdb-more { margin-top: 24px; }
-
   /* FOOTER */
   footer {
     padding: 48px;
@@ -343,13 +305,10 @@
     .section { padding: 40px 24px; }
     .section-heading { font-size: 20px; }
     .feature-grid { grid-template-columns: minmax(0, 1fr); }
-    .vdb-controls input { min-width: 0; flex-basis: 100%; }
     .stat-grid { grid-template-columns: repeat(2, 1fr); }
     .case-study-grid { grid-template-columns: 1fr; }
     .compare-table { font-size: 11px; display: block; overflow-x: auto; }
     .compare-table th, .compare-table td { padding: 10px 8px; }
-    .vdb-table .vdb-hide-sm { display: none; }
-    .vdb-table td:first-child { white-space: normal; }
     .code-block { font-size: 11px; padding: 16px; }
     .workflow-item { gap: 12px; }
     .cta-section { padding: 40px 24px; }
@@ -420,45 +379,6 @@
     <p><strong style="color:#ccc;">Top Physical AI domains:</strong> <span id="vdb-top-domains">Cross-Domain Components (92) · Physical AI Infrastructure (86) · Robot Operating Systems &amp; Middleware (56) · Embodied AI Agent (51) · Service &amp; Companion Robot (35) · Mobile Robot &amp; AMR (30) · Drone &amp; Aerial Robotics (25) · Industrial Robot (22) · Humanoid Robot (14)</span></p>
     <p><strong style="color:#ccc;">Notable vendors/projects tracked:</strong> NVIDIA, OpenClaw, ABB, eProsima (Fast DDS), Unitree Robotics, ECOVACS, RTI Connext DDS, PX4/ArduPilot, Mobile Industrial Robots, Ghost Robotics, SICK, Open Robotics/ROS, Yarbo, and more.</p>
   </div>
-</section>
-
-<!-- RECORD BROWSER -->
-<section class="section">
-  <div class="section-label">// browse the records</div>
-  <h2 class="section-heading">Search FaultLine</h2>
-  <div class="section-text">
-    <p>Every record below is loaded from <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD/blob/main/index.json" target="_blank" rel="noopener" class="press-link" style="color:#39ff14;">index.json</a>. Search by CVE, vendor, product, or tag; open a CVE to read the full enriched record on GitHub.</p>
-  </div>
-  <div class="vdb-controls">
-    <label class="visually-hidden" for="vdb-search">Search records</label>
-    <input type="search" id="vdb-search" placeholder="Search CVE, vendor, keyword…" autocomplete="off">
-    <label class="visually-hidden" for="vdb-severity">Severity</label>
-    <select id="vdb-severity">
-      <option value="">All severities</option>
-      <option value="CRITICAL">Critical</option>
-      <option value="HIGH">High</option>
-      <option value="MEDIUM">Medium</option>
-      <option value="LOW">Low</option>
-    </select>
-    <label class="visually-hidden" for="vdb-domain">Domain</label>
-    <select id="vdb-domain">
-      <option value="">All domains</option>
-    </select>
-  </div>
-  <div class="vdb-status" id="vdb-status" aria-live="polite">Loading records…</div>
-  <noscript><div class="vdb-status">Enable JavaScript to search the records here, or <a href="https://physicalaivulnerabilitydatabase.github.io/PA_VD/" style="color:#39ff14;">browse the Vulnerability Explorer</a>.</div></noscript>
-  <table class="compare-table vdb-table" id="vdb-table" hidden>
-    <thead>
-      <tr>
-        <th scope="col">CVE</th>
-        <th scope="col">Title</th>
-        <th scope="col">Severity</th>
-        <th scope="col" class="vdb-hide-sm">Published</th>
-      </tr>
-    </thead>
-    <tbody id="vdb-rows"></tbody>
-  </table>
-  <button type="button" class="cta-button vdb-more" id="vdb-more" hidden>Show more</button>
 </section>
 
 <!-- WHY SECTION -->
@@ -862,27 +782,13 @@ python3 -m http.server 8000
 
 <script>
 // FaultLine records live in the PA_VD repo; index.json is the source of truth
-// for the stats and the record browser. The numbers in the markup are the
-// fallback shown if the fetch fails.
+// for the numbers below. The numbers in the markup are the fallback shown if
+// the fetch fails.
 (function () {
   var SOURCES = [
     'https://physicalaivulnerabilitydatabase.github.io/PA_VD/index.json',
     'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/index.json'
   ];
-  var RECORD_URL = 'https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD/blob/main/CVE-json/';
-  var PAGE = 25;
-
-  var search = document.getElementById('vdb-search');
-  var sevSelect = document.getElementById('vdb-severity');
-  var domSelect = document.getElementById('vdb-domain');
-  var status = document.getElementById('vdb-status');
-  var table = document.getElementById('vdb-table');
-  var rows = document.getElementById('vdb-rows');
-  var more = document.getElementById('vdb-more');
-
-  var records = [];
-  var matches = [];
-  var shown = 0;
 
   function load(i) {
     if (i >= SOURCES.length) return Promise.reject(new Error('unavailable'));
@@ -901,109 +807,18 @@ python3 -m http.server 8000
       .sort(function (a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); });
   }
 
-  function renderStats() {
+  load(0).then(function (data) {
+    var records = (Array.isArray(data) ? data : []).filter(function (r) { return r && r.cve_id; });
+    if (!records.length) return;
     var sev = {};
     countBy(records, 'severity').forEach(function (p) { sev[p[0]] = p[1]; });
     document.querySelectorAll('[data-stat]').forEach(function (el) {
       var key = el.getAttribute('data-stat');
       el.textContent = key === 'total' ? records.length : (sev[key] || 0);
     });
-    var domains = countBy(records, 'domains');
-    document.getElementById('vdb-top-domains').textContent = domains.slice(0, 9)
+    document.getElementById('vdb-top-domains').textContent = countBy(records, 'domains').slice(0, 9)
       .map(function (p) { return p[0] + ' (' + p[1] + ')'; }).join(' · ');
-    domains.forEach(function (p) {
-      var opt = document.createElement('option');
-      opt.value = p[0];
-      opt.textContent = p[0] + ' (' + p[1] + ')';
-      domSelect.appendChild(opt);
-    });
-  }
-
-  function cell(tr, text, className) {
-    var td = document.createElement('td');
-    if (className) td.className = className;
-    if (text !== undefined) td.textContent = text;
-    tr.appendChild(td);
-    return td;
-  }
-
-  function renderRow(r) {
-    var tr = document.createElement('tr');
-    var a = document.createElement('a');
-    a.href = RECORD_URL + encodeURIComponent(r.file_name || r.cve_id + '.pavd.json');
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = r.cve_id;
-    cell(tr).appendChild(a);
-
-    var title = cell(tr);
-    var t = document.createElement('span');
-    t.className = 'vdb-title';
-    t.textContent = r.title || '';
-    title.appendChild(t);
-    var sub = [].concat(r.vendors || [], r.domains || []).join(' · ');
-    if (sub) {
-      var s = document.createElement('span');
-      s.className = 'vdb-sub';
-      s.textContent = sub;
-      title.appendChild(s);
-    }
-
-    var sev = r.severity || '';
-    var score = typeof r.score === 'number' ? r.score.toFixed(1) : '';
-    cell(tr, [score, sev].filter(Boolean).join(' ') || '—', 'vdb-sev ' + sev.toLowerCase());
-    cell(tr, r.published || '—', 'vdb-hide-sm');
-    return tr;
-  }
-
-  function showMore() {
-    var frag = document.createDocumentFragment();
-    matches.slice(shown, shown + PAGE).forEach(function (r) { frag.appendChild(renderRow(r)); });
-    rows.appendChild(frag);
-    shown = Math.min(shown + PAGE, matches.length);
-    table.hidden = matches.length === 0;
-    more.hidden = shown >= matches.length;
-    status.textContent = matches.length
-      ? 'Showing ' + shown + ' of ' + matches.length + ' records'
-      : 'No records match.';
-  }
-
-  function applyFilters() {
-    var q = search.value.trim().toLowerCase();
-    var sev = sevSelect.value;
-    var dom = domSelect.value;
-    matches = records.filter(function (r) {
-      if (sev && r.severity !== sev) return false;
-      if (dom && (r.domains || []).indexOf(dom) === -1) return false;
-      return !q || r._text.indexOf(q) !== -1;
-    });
-    rows.textContent = '';
-    shown = 0;
-    showMore();
-  }
-
-  load(0).then(function (data) {
-    records = (Array.isArray(data) ? data : []).filter(function (r) { return r && r.cve_id; });
-    records.forEach(function (r) {
-      r._text = [r.cve_id, r.title].concat(r.vendors || [], r.domains || [], r.tags || []).join(' ').toLowerCase();
-    });
-    // newest first; records without a date go last
-    records.sort(function (a, b) { return (b.published || '').localeCompare(a.published || ''); });
-    renderStats();
-    applyFilters();
-    search.addEventListener('input', applyFilters);
-    sevSelect.addEventListener('change', applyFilters);
-    domSelect.addEventListener('change', applyFilters);
-    more.addEventListener('click', showMore);
-  }).catch(function () {
-    status.textContent = '';
-    status.appendChild(document.createTextNode('Could not load the records right now. '));
-    var a = document.createElement('a');
-    a.href = 'https://physicalaivulnerabilitydatabase.github.io/PA_VD/';
-    a.style.color = '#39ff14';
-    a.textContent = 'Browse the Vulnerability Explorer instead.';
-    status.appendChild(a);
-  });
+  }).catch(function () { /* keep the static numbers */ });
 })();
 </script>
 

@@ -22,7 +22,9 @@ CNAME                   Custom domain config (GitHub Pages)
 
 FaultLine records are not stored here: `vuln-db.html` fetches `index.json`
 from the [PA_VD repo](https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD)
-at page load, so new records show up without touching this site.
+at page load and recomputes the record, severity and domain counts, so they
+stay current without touching this site. The numbers in the markup are the
+fallback if the fetch fails.
 
 Logos are WebP (`images/logo-nav.webp`, `images/logo-hero.webp`, generated
 from `images/logo.png`). Don't inline images as base64.
