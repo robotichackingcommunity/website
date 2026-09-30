@@ -1,19 +1,31 @@
 # website
 
-Official static website for the Robotic Hacking Community — DEF CON 34.
+Official static website for the Robotic Hacking Community and the FaultLine Physical AI Vulnerability Database.
 
 A plain HTML/CSS static site with no build tools or backend dependencies.
 
 ## Project Structure
 
 ```
-index.html      Home
-about.html      About
-program.html    Program
-cfp.html        Call for Papers
-images/         Images and favicon assets
-CNAME           Custom domain config (GitHub Pages)
+index.html              Home
+vuln-db.html            FaultLine vulnerability database
+research-hub.html       Research Hub (coming soon)
+open-source-badge.html  RHC open-source badge
+def-con-34.html         DEF CON 34 recap, links to the event pages below
+news-and-updates.html   News and updates
+about.html              About
+program.html, cfp.html, ctf.html, rrc.html, badge.html
+                        DEF CON 34 event pages (kept, linked from def-con-34.html)
+images/                 Images and favicon assets
+CNAME                   Custom domain config (GitHub Pages)
 ```
+
+FaultLine records are not stored here: `vuln-db.html` fetches `index.json`
+from the [PA_VD repo](https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD)
+at page load, so new records show up without touching this site.
+
+Logos are WebP (`images/logo-nav.webp`, `images/logo-hero.webp`, generated
+from `images/logo.png`). Don't inline images as base64.
 
 ## Running Locally
 

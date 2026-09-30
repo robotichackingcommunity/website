@@ -7,25 +7,25 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<title>Program — Robotic Hacking Community @ DEF CON 34</title>
-<meta name="description" content="Program and activities for the Robotic Hacking Community at DEF CON 34 — workshops, CTF, and talks on robot exploitation and AI model attacks in Las Vegas.">
-<meta name="keywords" content="Robotic Hacking Community, DEF CON 34, program, schedule, workshops, CTF, talks, robot exploitation, AI model attacks, Las Vegas">
+<title>DEF CON 34 — Robotic Hacking Community</title>
+<meta name="description" content="DEF CON 34 program recap for the Robotic Hacking Community — workshops, CTF, Rogue Robot Challenge, and talks on robot exploitation and AI model attacks in Las Vegas. Event wrapped.">
+<meta name="keywords" content="Robotic Hacking Community, DEF CON 34, program, schedule, workshops, CTF, Rogue Robot Challenge, talks, robot exploitation, AI model attacks, Las Vegas">
 <meta name="author" content="Robotic Hacking Community">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://robotichackingcommunity.com/program.html">
+<link rel="canonical" href="https://robotichackingcommunity.com/def-con-34.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Robotic Hacking Community">
-<meta property="og:title" content="Program — Robotic Hacking Community @ DEF CON 34">
-<meta property="og:description" content="Workshops, CTF, and talks on robot exploitation and AI model attacks in Las Vegas.">
-<meta property="og:url" content="https://robotichackingcommunity.com/program.html">
+<meta property="og:title" content="DEF CON 34 — Robotic Hacking Community">
+<meta property="og:description" content="Workshops, CTF, Rogue Robot Challenge, and talks on robot exploitation and AI model attacks in Las Vegas. Event wrapped.">
+<meta property="og:url" content="https://robotichackingcommunity.com/def-con-34.html">
 <meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Program — Robotic Hacking Community @ DEF CON 34">
-<meta name="twitter:description" content="Workshops, CTF, and talks on robot exploitation and AI model attacks in Las Vegas.">
+<meta name="twitter:title" content="DEF CON 34 — Robotic Hacking Community">
+<meta name="twitter:description" content="Workshops, CTF, Rogue Robot Challenge, and talks on robot exploitation and AI model attacks in Las Vegas. Event wrapped.">
 <meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,11 +59,13 @@
 
   /* PAGE HEADER */
   .page-header { padding: 64px 48px 48px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .event-status-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; margin-bottom: 20px; border: 1px solid rgba(153,153,153,0.35); color: #999; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+  .event-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #999; flex-shrink: 0; }
   .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
   .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; }
   .tbd-note { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 10px 18px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
   .tbd-dot { width: 6px; height: 6px; background: #39ff14; border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0; }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; }}
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
   .tbd-text { font-size: 13px; color: #555; }
   .tbd-text span { color: #888; }
 
@@ -77,6 +79,7 @@
   .ctf-divider { width: 1px; background: rgba(57,255,20,0.15); margin: 0 40px 0 0; }
   .day-title { font-size: 12px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; padding: 24px 0 4px; opacity: 0.85; }
   .day-title.first { padding-top: 0; }
+  .day-subtitle { font-size: 11px; color: #555; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
   .session-card { padding: 18px 20px; border: 1px solid rgba(57,255,20,0.2); background: rgba(255,255,255,0.02); margin-bottom: 6px; border-left-width: 3px; border-left-style: solid; }
   .session-card.workshop   { border-left-color: rgba(57,255,20,0.6); }
   .session-card.talk       { border-left-color: rgba(100,180,255,0.6); }
@@ -114,10 +117,17 @@
     text-align: center;
     width: 100%;
   }
+  .ctf-inner.secondary { border-color: rgba(57,255,20,0.25); background: rgba(57,255,20,0.04); }
+  .ctf-inner.clickable { cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+  .ctf-inner.clickable:hover { background: rgba(57,255,20,0.08); border-color: rgba(57,255,20,0.5); }
+  .ctf-inner.clickable:focus-visible { outline: 2px solid #39ff14; outline-offset: 2px; }
+  .ctf-inner.clickable .ctf-name::after { content: " ↗"; font-size: 14px; color: rgba(57,255,20,0.5); }
   .ctf-runs-label { font-size: 9px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; opacity: 0.7; }
+  .ctf-inner.secondary .ctf-runs-label { color: #39ff14; }
   .ctf-name { font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px; text-transform: uppercase; }
   .ctf-desc { font-size: 12px; color: #aaa; line-height: 1.8; max-width: 170px; margin-bottom: 16px; }
   .ctf-span { display: inline-block; font-size: 9px; color: rgba(57,255,20,0.5); letter-spacing: 0.15em; border: 1px solid rgba(57,255,20,0.2); padding: 4px 12px; }
+  .ctf-inner.secondary .ctf-span { color: rgba(57,255,20,0.5); border-color: rgba(57,255,20,0.2); }
 
   /* MODAL */
   .modal-overlay {
@@ -171,6 +181,8 @@
   .session-card.clickable .session-name::after { content: " ↗"; font-size: 10px; color: rgba(57,255,20,0.5); }
   .ongoing-list { display: flex; flex-wrap: wrap; gap: 10px; max-width: 900px; }
   .ongoing-pill { font-size: 12px; color: #888; border: 1px solid rgba(57,255,20,0.2); padding: 10px 18px; letter-spacing: 0.03em; background: rgba(255,255,255,0.02); }
+  a.ongoing-pill { color: #39ff14; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
+  a.ongoing-pill:hover { background: rgba(57,255,20,0.08); border-color: rgba(57,255,20,0.5); }
 
 
   /* CONTACT */
@@ -245,7 +257,9 @@
       gap: 10px;
       padding: 24px 20px;
       text-align: center;
-    }}</style>
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -255,22 +269,22 @@
     [ RHC ]
   </a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="cfp.html">Call for Papers</a>
-    <a href="ctf.html">CTF</a>
-    <a href="rrc.html">RRC</a>
-    <a href="program.html" class="active">Program</a>
-    <a href="badge.html">Badge</a>
+    <a href="vuln-db.html">Vuln DB</a>
+    <a href="research-hub.html">Research Hub</a>
+    <a href="open-source-badge.html">RHC OSS Badge</a>
+    <a href="def-con-34.html" class="active">DEF CON 34</a>
+    <a href="news-and-updates.html">News and Updates</a>
     <a href="about.html">About</a>
   </div>
 </nav>
 
 <header class="page-header">
-  <div class="eyebrow">// DEF CON 34 · August 2026 · Las Vegas</div>
-  <h1 class="page-title">Program</h1>
+  <div class="event-status-tag"><div class="event-status-dot"></div>Event Wrapped</div>
+  <div class="eyebrow">// August 6–9, 2026 · Las Vegas</div>
+  <h1 class="page-title">DEF CON 34</h1>
   <div class="tbd-note">
-    <div class="tbd-dot"></div>
-    <div class="tbd-text"><span>Updated schedule</span> — times and activities below, subject to minor changes</div>
+    <div class="tbd-dot" style="background:#666; animation:none;"></div>
+    <div class="tbd-text"><span>This event has concluded</span> — schedule below reflects what took place</div>
   </div>
 </header>
 
@@ -297,7 +311,7 @@
       <div class="session-card ctf">
         <span class="session-time">10:00</span>
         <div class="session-type">CTF</div>
-        <div class="session-name">CTF Registration</div>
+        <div class="session-name"><a href="ctf.html" style="color: inherit; text-decoration: none;">CTF Registration</a></div>
       </div>
       <div class="session-card special">
         <span class="session-time">10:30</span>
@@ -323,7 +337,7 @@
       <div class="session-card ctf">
         <span class="session-time">14:00</span>
         <div class="session-type">CTF</div>
-        <div class="session-name">CTF Competition Begins</div>
+        <div class="session-name"><a href="ctf.html" style="color: inherit; text-decoration: none;">CTF Competition Begins</a></div>
       </div>
       <div class="session-card talk">
         <span class="session-time">14:00</span>
@@ -332,10 +346,13 @@
         <div class="session-note">With Joman Chu, Product Security Engineer Lead at Boston Dynamics, and Jason Yueh, CTO of VicOne.</div>
       </div>
       <div class="session-card talk clickable" onclick="openModal('spoofbuster')">
-        <span class="session-time">15:00</span>
+        <span class="session-time">15:30</span>
         <div class="session-type">Talk</div>
         <div class="session-name">SpoofBuster: GPS Spoofing Detection via Hierarchical LTE Identity Analysis</div>
         <div class="session-note">A research presentation by Moshe "Mo" Satt.</div>
+      </div>
+      <div style="padding: 6px 0 4px; font-size: 11px; color: rgba(57,255,20,0.6); letter-spacing: 0.05em;">
+        Want to speak next year? <a href="cfp.html" style="color: #39ff14; text-decoration: underline;">See our Call for Papers</a>.
       </div>
       <div class="session-card workshop">
         <span class="session-time">16:15</span>
@@ -371,6 +388,9 @@
         <div class="session-type">Workshop</div>
         <div class="session-name">Tengu Marauders: Hack My Bot</div>
       </div>
+      <div style="padding: 6px 0 4px; font-size: 11px; color: rgba(57,255,20,0.6); letter-spacing: 0.05em;">
+        Want to run a workshop or give a talk next year? <a href="cfp.html" style="color: #39ff14; text-decoration: underline;">See our Call for Papers</a>.
+      </div>
       <div class="session-card special">
         <span class="session-time">15:30</span>
         <div class="session-type">Community</div>
@@ -384,7 +404,7 @@
       <div class="session-card ctf">
         <span class="session-time">18:00</span>
         <div class="session-type">CTF</div>
-        <div class="session-name">CTF Competition Ends</div>
+        <div class="session-name"><a href="ctf.html" style="color: inherit; text-decoration: none;">CTF Competition Ends</a></div>
         <div class="session-note">Score finalization begins.</div>
       </div>
 
@@ -404,7 +424,7 @@
       <div class="session-card ceremony">
         <span class="session-time">10:30</span>
         <div class="session-type">Closing</div>
-        <div class="session-name">CTF Awards, Community Celebration, and Closing Remarks</div>
+        <div class="session-name"><a href="ctf.html" style="color: inherit; text-decoration: none;">CTF Awards</a>, Community Celebration, and Closing Remarks</div>
       </div>
 
     </div>
@@ -413,11 +433,27 @@
 
     <div class="ctf-col">
       <div class="ctf-block">
-        <div class="ctf-inner">
+        <div class="ctf-inner clickable" onclick="openModal('ctf')">
           <div class="ctf-runs-label">Runs throughout</div>
           <div class="ctf-name">Robotic<br>Hacking<br>CTF</div>
           <div class="ctf-desc">Open from Day 1 registration close through Day 2 score finalization. Attack, score, repeat.</div>
           <div class="ctf-span">Day 1, 14:00 → Day 2, 18:00</div>
+        </div>
+      </div>
+      <div class="ctf-block">
+        <div class="ctf-inner secondary clickable" onclick="openModal('cfp')">
+          <div class="ctf-runs-label">Qualifications</div>
+          <div class="ctf-name">Call for<br>Papers</div>
+          <div class="ctf-desc">Robot systems are everywhere. The security research is not. Submit what you found.</div>
+          <div class="ctf-span">See details</div>
+        </div>
+      </div>
+      <div class="ctf-block">
+        <div class="ctf-inner secondary clickable" onclick="openModal('rrc')">
+          <div class="ctf-runs-label">Community Challenge</div>
+          <div class="ctf-name">Rogue Robot<br>Challenge</div>
+          <div class="ctf-desc">Make any AI-powered robot break its own rules, on camera. New challenge every 2 weeks.</div>
+          <div class="ctf-span">See details</div>
         </div>
       </div>
     </div>
@@ -431,6 +467,17 @@
     <div class="ongoing-pill">Robot Demonstrations</div>
     <div class="ongoing-pill">Sponsor Showcase</div>
     <div class="ongoing-pill">Community Networking</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">// event archive</div>
+  <div class="ongoing-list">
+    <a href="program.html" class="ongoing-pill">Program →</a>
+    <a href="cfp.html" class="ongoing-pill">Call for Papers →</a>
+    <a href="ctf.html" class="ongoing-pill">CTF →</a>
+    <a href="rrc.html" class="ongoing-pill">Rogue Robot Challenge →</a>
+    <a href="badge.html" class="ongoing-pill">RHC Badge →</a>
   </div>
 </section>
 
@@ -497,12 +544,107 @@ Her focus on securing and testing the security of autonomous systems stems from 
   }
 };
 
+const infoModals = {
+  ctf: {
+    eyebrow: 'CTF · DEF CON 34 · Robotic Hacking Community',
+    title: 'RoboHack AI CTF',
+    sections: [
+      { label: 'description', html: `<p>RoboHack AI CTF is an experimental Capture The Flag event hosted by the Robotic Hacking Community at DEF CON 34.</p>
+<p>The target is an <strong>AI robot living inside a physics-based digital-twin simulation</strong>. Teams <strong>register on-site</strong> at the event; on registration, each team is <strong>allocated its own isolated simulation environment</strong> and interacts with it <strong>only through that environment's application API</strong> (REST/WebSocket/ROS 2…etc.) — there is <strong>no SSH, no shell, and no direct machine access</strong>. Solve a challenge to recover a flag, then submit it to a custom scoreboard.</p>
+<p>Registration is <strong>on-site</strong> — teams sign up at the venue and pick up a <strong>physical badge</strong> used for the firmware challenge. Once registered, teams can <strong>play from anywhere</strong>, since the environment is reached over the application API.</p>
+<p>Instead of requiring continuous manual play, the competition <strong>encourages participants to bring their own AI models or agents</strong> to drive the solves, so the experience favors automated reasoning over constant real-time human interaction.</p>
+<p>The challenge scope spans both <strong>AI model security</strong> and <strong>robotics system security</strong> — from how the robot perceives, to how it decides, communicates, and acts.</p>` },
+      { label: 'format & registration', html: `<ul style="margin:0; padding-left: 18px; line-height: 2;">
+<li><strong>On-site registration.</strong> Teams sign up at the venue and pick up a physical badge, used for the firmware reverse-engineering challenge.</li>
+<li><strong>Play from anywhere.</strong> Once registered, each team's isolated environment is reachable over the application API — no need to stay on-site to keep solving.</li>
+<li><strong>No shell access.</strong> Interaction happens only through the environment's application API (REST/WebSocket/ROS 2, etc.) — no SSH, no shell, no direct machine access.</li>
+<li><strong>Bring your own agent.</strong> The format encourages automated solves — autonomous prompt-injection or adversarial-patch search — over constant manual play.</li>
+</ul>` },
+      { label: 'prizes', html: `<p><strong>1st Place:</strong> Lekiwi Full Set, Reachy Mini Lite, Jetson Orin Nano Super Developer Kit</p>
+<p><strong>2nd Place:</strong> Reachy Mini Lite, Jetson Orin Nano Super Developer Kit</p>
+<p><strong>3rd Place:</strong> Reachy Mini Lite</p>` },
+      { label: 'a note on this event', html: `<p style="color:#888;">Experimental &amp; community-driven — details such as rules, scoring, participation format, model submission requirements, challenge categories, target environments, and challenge availability may change as the event develops.</p>` }
+    ]
+  },
+  cfp: {
+    eyebrow: 'Call for Papers · Robotic Hacking Community',
+    title: 'Call for Papers',
+    sections: [
+      { label: 'overview', html: `<p>Robot systems are everywhere. The security research is not. That gap is where you come in. AI and autonomy attacks are our headline area. But if you've broken something in the robot stack, we want to hear about it. ROS 2, DDS, VLM-driven autonomy stacks, sensor pipelines. The attack surface is open. Submit what you found. Talks run 30 or 45 minutes with Q&amp;A, in person, Las Vegas.</p>
+<p style="color: rgba(57,255,20,0.6);"><strong>Submissions for DEF CON 34 are closed.</strong></p>` },
+      { label: 'research areas', html: `<ul style="margin:0; padding-left: 18px; line-height: 2;">
+<li><strong>AI &amp; Autonomy Attacks</strong> (headline area) — VLM/VLA adversarial inputs, LLM prompt injection into task planners, perception manipulation, AI decision-making hijack.</li>
+<li><strong>Robot System &amp; Protocol Exploitation</strong> — ROS 2 / DDS vulnerabilities, RTPS message tampering, middleware privilege escalation, authentication weaknesses in control frameworks.</li>
+<li><strong>Sensor Spoofing &amp; Physical Attacks</strong> — LiDAR, camera, IMU spoofing, GPS manipulation on mobile robots, actuator fault injection, EM/laser side-channel attacks on robot MCUs.</li>
+<li><strong>Firmware, Supply Chain &amp; Cloud API</strong> — firmware reverse engineering, OTA update hijacking, 3rd-party SDK vulnerabilities, cloud API abuse, digital twin and fleet management platform attacks.</li>
+<li><strong>Simulation Platforms &amp; Defensive Design</strong> — sim-to-real attack transfer in Gazebo, NVIDIA Isaac Sim, or Webots; secure robot architecture and threat modeling; runtime anomaly detection on CAN/DDS.</li>
+</ul>` },
+      { label: 'what we looked for', html: `<ul style="margin:0; padding-left: 18px; line-height: 2;">
+<li><strong>Technical depth, new findings.</strong> We prioritize original, first-time research, but also welcome high-quality previously published work.</li>
+<li><strong>A working PoC.</strong> Submissions with a live demo or hands-on component got priority.</li>
+<li><strong>Specificity on platform.</strong> Name the affected platform: ROS 2, a specific robot SDK, hardware, or cloud service.</li>
+<li><strong>No sales pitches.</strong> Vendor-neutral research only.</li>
+</ul>` },
+      { label: 'automatic rejection', html: `<ul style="margin:0; padding-left: 18px; line-height: 2; color: rgba(255,255,255,0.75);">
+<li>No abstract or outline provided</li>
+<li>Outline is not substantially more detailed than the abstract</li>
+<li>Submission is a vendor pitch</li>
+<li>Research cannot be reproduced or demonstrated</li>
+</ul>` },
+      { label: 'timeline', html: `<p>CFP opened, closed <strong>June 14, 2026</strong>. Acceptance notifications sent <strong>July 3, 2026</strong>. Accepted talks presented at DEF CON 34, <strong>August 6–9, 2026</strong>.</p>` }
+    ]
+  },
+  rrc: {
+    eyebrow: 'Community Challenge · Robotic Hacking Community',
+    title: 'Rogue Robot Challenge',
+    sections: [
+      { label: 'overview', html: `<p>Robots are shipping faster than the security around them. Every two weeks, we hand the community a new way to prove it — make any AI-powered robot break its own rules, on camera, in front of everyone.</p>
+<p>The Rogue Robot Challenge takes attack categories that usually live in research papers and turns them into something anyone can watch happen in real time. If a hacker can pull this off for a prize, an attacker can pull it off for profit. The gap between "funny clip" and "security incident" is smaller than most people think.</p>
+<p style="color: rgba(57,255,20,0.6);"><strong>Five challenges. Five real Physical AI attack vectors, made visible. Conquer them. Win a robot.</strong></p>` },
+      { label: 'how it works', html: `<ul style="margin:0; padding-left: 18px; line-height: 2;">
+<li><strong>A new challenge drops.</strong> Every 2 weeks, Robotic Hacking Community (RHC) posts a new challenge on X.</li>
+<li><strong>Make it happen.</strong> Make any AI-powered robot perform the assigned behavior.</li>
+<li><strong>Post your entry.</strong> RHC reposts the best ones.</li>
+<li><strong>Most shares wins.</strong> Engagement on the RHC repost decides the winner of each challenge.</li>
+</ul>` },
+      { label: 'mechanics', html: `<ul style="margin:0; padding-left: 18px; line-height: 2;">
+<li><strong>Any robot, any device.</strong> Any robot. Any AI-powered device.</li>
+<li><strong>Any method.</strong> Prompt injection, sensor manipulation, social engineering — all fair game.</li>
+<li><strong>Record everything.</strong> Sound or movement must be clearly observable on camera.</li>
+<li><strong>Submit on X</strong> with #RogueRobotChallenge, the week's hashtag, and #RHC2026.</li>
+</ul>` },
+      { label: 'prizes', html: `<p>Five weeks, five prizes — built around real Physical AI hardware.</p>
+<p><strong>Week 1:</strong> SO101ARM Kit &nbsp;·&nbsp; <strong>Week 2:</strong> Reachy Mini Lite &nbsp;·&nbsp; <strong>Week 3:</strong> Jetson Orin Nano Super Dev Kit</p>
+<p><strong>Week 4:</strong> SO101ARM Kit &nbsp;·&nbsp; <strong>Week 5:</strong> Lekiwi Full Set</p>` },
+      { label: 'how to join', html: `<p><a href="https://forms.cloud.microsoft/r/xFwzbZCb46" target="_blank" rel="noopener" style="color:rgba(57,255,20,0.7);text-decoration:none;">Get notified when a challenge drops</a>, or follow and submit entries at <a href="https://x.com/RobotHackComm" target="_blank" rel="noopener" style="color:rgba(57,255,20,0.7);text-decoration:none;">@RobotHackComm on X</a>.</p>` }
+    ]
+  }
+};
+
 let lastFocused = null;
 
 function openModal(id) {
+  lastFocused = document.activeElement;
+  if (infoModals[id]) {
+    const m = infoModals[id];
+    let html = `
+    <div class="modal-eyebrow">${m.eyebrow}</div>
+    <div class="modal-title">${m.title}</div>`;
+    m.sections.forEach((s, i) => {
+      html += `
+    <div class="modal-section-label">// ${s.label}</div>
+    <div class="modal-body">${s.html}</div>`;
+      if (i < m.sections.length - 1) html += `
+    <div class="modal-divider"></div>`;
+    });
+    document.getElementById('modal-content').innerHTML = html;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('modal-close').focus();
+    return;
+  }
   const m = modals[id];
   if (!m) return;
-  lastFocused = document.activeElement;
   document.getElementById('modal-content').innerHTML = `
     <div class="modal-eyebrow">${m.eyebrow}</div>
     <div class="modal-title">${m.title}</div>
@@ -530,8 +672,8 @@ function closeModalOutside(e) {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-// the session cards are divs with onclick — make them reachable by keyboard too
-document.querySelectorAll('.session-card.clickable').forEach(card => {
+// the session and CTF cards are divs with onclick — make them reachable by keyboard too
+document.querySelectorAll('.session-card.clickable, .ctf-inner.clickable').forEach(card => {
   card.setAttribute('role', 'button');
   card.setAttribute('tabindex', '0');
   card.addEventListener('keydown', e => {

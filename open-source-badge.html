@@ -7,24 +7,24 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<title>RHC Badge — Robotic Hacking Community @ DEF CON 34</title>
-<meta name="description" content="The RHC Badge is an AI-connected hacking platform, not swag — sensors, radios, and a CTF challenge baked into the firmware. Robotic Hacking Community at DEF CON 34.">
-<meta name="keywords" content="RHC Badge, Robotic Hacking Community, DEF CON 34, AI-connected badge, CTF badge, hardware hacking, badgelife, Las Vegas">
+<title>Open Source Badge — Robotic Hacking Community @ DEF CON 34</title>
+<meta name="description" content="The RHC Open Source Badge is an AI-connected hacking platform, not swag — sensors, radios, and a CTF challenge baked into the firmware. Robotic Hacking Community at DEF CON 34.">
+<meta name="keywords" content="RHC Badge, Open Source Badge, Robotic Hacking Community, DEF CON 34, AI-connected badge, CTF badge, hardware hacking, badgelife, Las Vegas">
 <meta name="author" content="Robotic Hacking Community">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://robotichackingcommunity.com/badge.html">
+<link rel="canonical" href="https://robotichackingcommunity.com/open-source-badge.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Robotic Hacking Community">
-<meta property="og:title" content="RHC Badge — Robotic Hacking Community @ DEF CON 34">
+<meta property="og:title" content="Open Source Badge — Robotic Hacking Community @ DEF CON 34">
 <meta property="og:description" content="An AI-connected hacking platform, not swag. Sensors, radios, and a CTF challenge baked into the firmware.">
-<meta property="og:url" content="https://robotichackingcommunity.com/badge.html">
+<meta property="og:url" content="https://robotichackingcommunity.com/open-source-badge.html">
 <meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RHC Badge — Robotic Hacking Community @ DEF CON 34">
+<meta name="twitter:title" content="Open Source Badge — Robotic Hacking Community @ DEF CON 34">
 <meta name="twitter:description" content="An AI-connected hacking platform, not swag. Sensors, radios, and a CTF challenge baked into the firmware.">
 <meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +64,17 @@
   .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
   .intro-text p { margin-bottom: 16px; }
   .intro-text p:last-child { margin-bottom: 0; }
+  .cta-note {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 14px 20px;
+    border: 1px solid rgba(57,255,20,0.25);
+    background: rgba(57,255,20,0.03);
+    font-size: 13px;
+    color: #fff;
+  }
+  .cta-note strong { color: #39ff14; }
+
   /* GET PROJECT CTA */
   .get-project-wrap { padding: 32px 48px 0; }
   .get-project-btn {
@@ -105,6 +116,8 @@
   .feature-icon { font-size: 22px; margin-bottom: 14px; }
   .feature-name { font-family: 'Courier New', Courier, monospace; font-size: 16px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
   .feature-desc { font-size: 13px; line-height: 1.8; color: #888; }
+  .feature-link { display: inline-block; margin-top: 12px; font-size: 11px; color: #39ff14; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
+  .feature-link:hover { color: #fff; }
 
   /* PIN TABLE */
   .pin-table {
@@ -124,17 +137,12 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(57,255,20,0.2);
-    vertical-align: bottom;
   }
   .pin-table td {
     padding: 12px 16px;
     border-bottom: 1px solid rgba(57,255,20,0.08);
     color: #ccc;
-    line-height: 1.9;
-    vertical-align: top;
   }
-  /* wider variant for tables with long syntax / description cells */
-  .pin-table--wide { max-width: 920px; }
   .pin-table tr:nth-child(even) td { background: rgba(57,255,20,0.02); }
   .pin-table code {
     background: rgba(57,255,20,0.08);
@@ -143,34 +151,6 @@
     border-radius: 2px;
     font-size: 12px;
   }
-
-  /* INLINE CODE (prose) */
-  .intro-text code, .section-text code, .prose-note code {
-    font-family: 'Share Tech Mono', Courier, monospace;
-    background: rgba(57,255,20,0.08);
-    color: #39ff14;
-    padding: 1px 6px;
-    border-radius: 2px;
-    font-size: 0.9em;
-    word-break: break-word;
-  }
-
-  /* CODE BLOCKS */
-  .code-block {
-    font-family: 'Share Tech Mono', Courier, monospace;
-    background: rgba(57,255,20,0.03);
-    border: 1px solid rgba(57,255,20,0.25);
-    padding: 16px 20px;
-    font-size: 12px;
-    line-height: 1.7;
-    color: #e0e0e0;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    margin: 12px 0;
-  }
-
-  .prose-note { font-size: 14px; color: #888; margin-top: 24px; }
-  .prose-note strong { color: #e0e0e0; }
 
   .notes-list { list-style: none; max-width: 680px; margin-top: 20px; }
   .notes-list li {
@@ -238,6 +218,31 @@
     font-size: 12px;
   }
 
+  /* REQUIREMENT BANNER */
+  .requirement-banner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 24px;
+    border: 1px solid rgba(57,255,20,0.25);
+    background: rgba(57,255,20,0.03);
+    margin-top: 32px;
+  }
+  .requirement-tag {
+    font-size: 10px;
+    color: #39ff14;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+  .requirement-text {
+    font-size: 13px;
+    color: #e0e0e0;
+    line-height: 1.7;
+  }
+  .requirement-text strong { color: #fff; }
+
   /* CONTACT / CONNECT */
   .contact-section { padding: 56px 48px; }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 680px; }
@@ -290,6 +295,9 @@
     .feature-card { padding: 22px 20px; }
     .pin-table { font-size: 12px; display: block; overflow-x: auto; white-space: nowrap; }
     .pin-table th, .pin-table td { padding: 10px 12px; }
+    .section-text code, .notes-list code, .callout-note code { overflow-wrap: anywhere; }
+
+    .requirement-banner { flex-direction: column; align-items: flex-start; gap: 10px; }
 
     .contact-section { padding: 40px 20px; }
     .contact-grid { grid-template-columns: 1fr; }
@@ -312,19 +320,18 @@
     [ RHC ]
   </a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="cfp.html">Call for Papers</a>
-    <a href="ctf.html">CTF</a>
-    <a href="rrc.html">RRC</a>
-    <a href="program.html">Program</a>
-    <a href="badge.html" class="active">Badge</a>
+    <a href="vuln-db.html">Vuln DB</a>
+    <a href="research-hub.html">Research Hub</a>
+    <a href="open-source-badge.html" class="active">RHC OSS Badge</a>
+    <a href="def-con-34.html">DEF CON 34</a>
+    <a href="news-and-updates.html">News and Updates</a>
     <a href="about.html">About</a>
   </div>
 </nav>
 
 <header class="page-header">
   <div class="eyebrow">// DEF CON 34 · Las Vegas, NV</div>
-  <h1 class="page-title">RHC Badge</h1>
+  <h1 class="page-title">Open Source Badge</h1>
   <div class="intro-text">
     <p>The unified firmware for the Robotic Hacking Community (RHC) DEF CON badge. It combines an on-device menu UI on the e-paper display, an RGB "eye" LED engine, badge-to-badge infrared interaction, a set of on-badge CTF challenges, and a full AI Interactive Mode that hands the badge to a host AI over the USB-serial link using a line-based JSON protocol.</p>
     <p>Firmware version: 2.0.0 · MCU: STMicroelectronics STM32U073CBT6 (LQFP48, Cortex-M0+, GENERIC_U073CBTX) · Toolchain: Arduino (Arduino core for STM32 / STM32duino) · Main sketch: <code>rhc_badge/rhc_badge.ino</code> · License: MIT</p>
@@ -441,7 +448,7 @@
 
 <section class="section">
   <div class="section-label">// building &amp; flashing</div>
-  <h2 class="section-heading">SWD programming header</h2>
+  <h2 class="section-heading" style="margin-top: 20px;">SWD programming header</h2>
   <div class="section-text">
     <p>The badge is programmed over SWD with an ST-LINK. The SWD pads are on the back of the badge, on the left side of the body, in a single vertical column. From top to bottom:</p>
   </div>
@@ -466,9 +473,9 @@
   <div class="section-text">
     <p>The badge MCU ships with RDP Level 1 enabled and password-protected, so once the ST-LINK is wired up you must unlock it before you can flash. Use STMicroelectronics' STM32CubeProgrammer CLI (<code>STM32_Programmer_CLI</code>) with the RDP password below.</p>
     <p><strong>RDP unlock password:</strong></p>
-    <pre class="code-block">0x52484320 0x56316330 0x6E33204C 0x34385237</pre>
+    <pre style="background: rgba(57,255,20,0.03); border: 1px solid rgba(57,255,20,0.25); padding: 16px 20px; font-size: 13px; color: #e0e0e0; overflow-x: auto; margin: 12px 0;">0x52484320 0x56316330 0x6E33204C 0x34385237</pre>
     <p><strong>Unlock procedure</strong> — run the following commands in order (STM32CubeProgrammer over SWD):</p>
-    <pre class="code-block"># 1. Provide the RDP password on access port 0 (locks/authenticates AP0)
+    <pre style="background: rgba(57,255,20,0.03); border: 1px solid rgba(57,255,20,0.25); padding: 16px 20px; font-size: 12px; color: #e0e0e0; overflow-x: auto; margin: 12px 0; line-height: 1.7;"># 1. Provide the RDP password on access port 0 (locks/authenticates AP0)
 STM32_Programmer_CLI -c port=SWD mode=HOTPLUG ap=0 -lockRDP1 0x52484320 0x56316330 0x6E33204C 0x34385237
 
 # 2. Set RDP to level 1 (0xBB) — regression/handshake step
@@ -498,7 +505,7 @@ STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -ob RDP=0xAA</pre>
   <div class="section-text">
     <p>The WS2812B-V6 eyes need a small patch to Adafruit NeoPixel 1.15.5's STM32 bit-bang path. Without it, the first LED in the chain (left eye) latches a stuck random colour at power-up (usually green/blue) and can't be turned off, because the first data pulse is emitted slightly distorted and misread as a 1 on the green MSB. (Downstream LEDs re-shape the signal, so only the first is affected.)</p>
     <p><strong>Fix:</strong> hold the data line low and align to a SysTick reload boundary for ~20 µs before the first bit. Edit the installed library file <code>…/Arduino/libraries/Adafruit_NeoPixel/Adafruit_NeoPixel.cpp</code>, in the STM32 800 kHz section (the <code>ARDUINO_ARCH_STM32</code> block, ~line 2882) right after <code>SysTick->VAL = 0;</code> and before <code>for (;;) {</code>, insert:</p>
-    <pre class="code-block">// WS2812B-V6 first-pixel workaround: force data LOW for ~20us (16 bit
+    <pre style="background: rgba(57,255,20,0.03); border: 1px solid rgba(57,255,20,0.25); padding: 16px 20px; font-size: 12px; color: #e0e0e0; overflow-x: auto; margin: 12px 0; line-height: 1.7;">// WS2812B-V6 first-pixel workaround: force data LOW for ~20us (16 bit
 // periods) and align the first rising edge to a reload boundary, so the
 // first pulse width isn't distorted and the first pixel latches correctly.
 LL_GPIO_ResetOutputPin(gpioPort, gpioPin);
@@ -508,7 +515,7 @@ for (uint8_t w = 0; w &lt; 16; w++) {
 }</pre>
   </div>
 
-  <p class="prose-note"><strong>Notes:</strong></p>
+  <p style="font-size: 14px; color: #888; margin-top: 24px;"><strong>Notes:</strong></p>
   <ul class="notes-list">
     <li>The patch lives in the installed library dir and is wiped by a library update — re-apply it (search the file for "first-pixel workaround" to check it's present).</li>
     <li>After patching you must recompile and reflash the badge.</li>
@@ -519,13 +526,13 @@ for (uint8_t w = 0; w &lt; 16; w++) {
   <h2 class="section-heading" style="margin-top: 40px;">Flashing the prebuilt binary</h2>
   <div class="section-text">
     <p>A prebuilt image of the initial release is included as <code>rhc_badge.ino.bin</code>, so you can flash the badge without building from source. Load it at the flash base address (<code>0x08000000</code>) with STM32CubeProgrammer over SWD:</p>
-    <pre class="code-block">STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -d rhc_badge.ino.bin 0x08000000 -v</pre>
+    <pre style="background: rgba(57,255,20,0.03); border: 1px solid rgba(57,255,20,0.25); padding: 16px 20px; font-size: 13px; color: #e0e0e0; overflow-x: auto; margin: 12px 0;">STM32_Programmer_CLI -c port=SWD mode=HOTPLUG -d rhc_badge.ino.bin 0x08000000 -v</pre>
     <p>If the target still has RDP Level 1 enabled, unlock it first — see <em>Unlocking RDP</em> above. Programming a fresh <code>.bin</code> does not by itself clear readout protection.</p>
   </div>
 
   <h2 class="section-heading" style="margin-top: 40px;">Build-time feature switches (top of rhc_badge.ino)</h2>
 
-  <table class="pin-table pin-table--wide">
+  <table class="pin-table">
     <thead>
       <tr><th>Macro</th><th>Default</th><th>Effect</th></tr>
     </thead>
@@ -540,12 +547,12 @@ for (uint8_t w = 0; w &lt; 16; w++) {
 
 <section class="section">
   <div class="section-label">// ai interactive mode</div>
-  <h2 class="section-heading">Serial Protocol</h2>
+  <h3 class="section-heading" style="font-size: 20px; margin-top: 40px;">Serial Protocol</h3>
   <div class="section-text">
     <p>Entered from the main menu (or the host holds the link). Commands are plain-text lines over the 115200-baud UART, interpreted only in AI mode. Lines may be prefixed with a numeric request id (echoed back). Responses are single-line JSON. At boot, the badge emits: <code>{"event":"boot","version":"2.0.0"}</code></p>
   </div>
 
-  <table class="pin-table pin-table--wide">
+  <table class="pin-table">
     <thead>
       <tr><th>Command</th><th>Syntax / subcommands</th></tr>
     </thead>
@@ -566,17 +573,14 @@ for (uint8_t w = 0; w &lt; 16; w++) {
     </tbody>
   </table>
 
-  <p class="prose-note"><strong>Notes:</strong></p>
+  <p style="font-size: 14px; color: #888; margin-top: 24px;"><strong>Notes:</strong></p>
   <ul class="notes-list">
     <li><code>eyes effect</code> names are rainbow/red/green/blue (colour), none/breathe/crazy (style), off.</li>
     <li>Eye brightness snaps to the nearest of 25/50/75/100%.</li>
     <li>With <code>buttons on</code>, presses stream as <code>{"event":"button","button":N,"action":"down|up"}</code>.</li>
   </ul>
 
-</section>
-
-<section class="section">
-  <div class="section-label">// ctf challenges</div>
+  <div class="section-label" style="margin-top: 40px;">// ctf challenges</div>
   <ul class="notes-list">
     <li><strong>Easy (Konami):</strong> shows a banner; enter the Konami code to reveal a flag QR.</li>
     <li><strong>Hard (game):</strong> a snake-style path game on the e-paper; completing it authenticates and reveals the flag.</li>
@@ -593,20 +597,14 @@ for (uint8_t w = 0; w &lt; 16; w++) {
 
   <p class="callout-spoiler">⚠️ <strong>Spoilers:</strong> a full solution walkthrough — including the maze rule, the <code>image peek</code> OOB key leak, and the RSA break — lives in <code>writeup/</code>, with runnable solver scripts and a firmware dump under <code>writeup/solve/</code>.</p>
 
-</section>
-
-<section class="section">
-  <div class="section-label">// power management</div>
+  <div class="section-label" style="margin-top: 40px;">// power management</div>
   <div class="section-text">
     <p>The e-paper is bistable, so the image persists without power. After 30s of inactivity the badge enters a standby screen and sleeps the panel; the next button press wakes and redraws it. Eye LEDs stay off in standby to keep coin-cell drain low. IR interaction (on by default) keeps the CPU running so incoming NEC frames can be decoded.</p>
   </div>
 
-</section>
+  <div class="section-label" style="margin-top: 40px;">// source layout</div>
 
-<section class="section">
-  <div class="section-label">// source layout</div>
-
-  <table class="pin-table pin-table--wide">
+  <table class="pin-table">
     <thead>
       <tr><th>Path</th><th>Purpose</th></tr>
     </thead>

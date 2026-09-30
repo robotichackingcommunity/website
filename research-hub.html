@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<title>Research Hub — Robotic Hacking Community @ DEF CON 34</title>
+<meta name="description" content="Research Hub for the Robotic Hacking Community — talks, research presentations, whitepapers, and technical writeups on Physical AI and robotics security.">
+<meta name="keywords" content="Robotic Hacking Community, DEF CON 34, research hub, robotics security research, physical AI, talks, whitepapers, robot hacking">
+<meta name="author" content="Robotic Hacking Community">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://robotichackingcommunity.com/research-hub.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Robotic Hacking Community">
+<meta property="og:title" content="Research Hub — Robotic Hacking Community @ DEF CON 34">
+<meta property="og:description" content="Talks, research presentations, whitepapers, and technical writeups on Physical AI and robotics security.">
+<meta property="og:url" content="https://robotichackingcommunity.com/research-hub.html">
+<meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research Hub — Robotic Hacking Community @ DEF CON 34">
+<meta name="twitter:description" content="Talks, research presentations, whitepapers, and technical writeups on Physical AI and robotics security.">
+<meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 64px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
+  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; margin-bottom: 40px; }
+  .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .intro-text p { margin-bottom: 16px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+
+  /* SECTIONS */
+  .section { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .section-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 24px; opacity: 0.8; text-transform: uppercase; }
+  .section-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .section-text p { margin-bottom: 16px; }
+  .section-text p:last-child { margin-bottom: 0; }
+  .section-heading { font-family: 'Courier New', Courier, monospace; font-size: 28px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; }
+
+  /* FEATURE GRID */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1000px;
+    margin-top: 32px;
+  }
+  .feature-card {
+    padding: 24px;
+    border: 1px solid rgba(57,255,20,0.2);
+    background: rgba(57,255,20,0.02);
+    transition: all 0.2s;
+  }
+  .feature-card:hover {
+    border-color: rgba(57,255,20,0.4);
+    background: rgba(57,255,20,0.05);
+  }
+  .feature-icon {
+    font-size: 24px;
+    color: #39ff14;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .feature-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .feature-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #888;
+  }
+
+  /* COMING SOON BADGE */
+  .coming-soon-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid rgba(57,255,20,0.4);
+    color: #39ff14;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .card-pill {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 4px 10px;
+    border: 1px solid rgba(153,153,153,0.35);
+    color: #999;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 56px 48px;
+    text-align: center;
+  }
+  .cta-heading {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .cta-text {
+    max-width: 680px;
+    margin: 0 auto 32px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #888;
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 12px 32px;
+    background: rgba(57,255,20,0.1);
+    border: 1px solid #39ff14;
+    color: #39ff14;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .cta-button:hover {
+    background: #39ff14;
+    color: #050505;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid rgba(57,255,20,0.1);
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+    .page-header { padding: 48px 24px 40px; }
+    .page-title { font-size: 48px; margin-bottom: 24px; }
+    .intro-text { font-size: 14px; }
+    .section { padding: 40px 24px; }
+    .section-heading { font-size: 20px; }
+    .feature-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 40px 24px; }
+    .cta-heading { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-nav.webp" alt="Robotic Hacking Community" class="nav-logo-img" width="144" height="144">
+    [ RHC ]
+  </a>
+  <div class="nav-links">
+    <a href="vuln-db.html">Vuln DB</a>
+    <a href="research-hub.html" class="active">Research Hub</a>
+    <a href="open-source-badge.html">RHC OSS Badge</a>
+    <a href="def-con-34.html">DEF CON 34</a>
+    <a href="news-and-updates.html">News and Updates</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="coming-soon-tag">Coming Soon</div>
+  <div class="eyebrow">Research & Threat Intelligence</div>
+  <h1 class="page-title">Research Hub</h1>
+  <div class="intro-text">
+    <p>A home for Physical AI and robotics security research — from Lab R7 and from the wider community. We're building this out now; check back soon.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-label">// community research</div>
+  <h2 class="section-heading">Built for the Community</h2>
+  <div class="section-text">
+    <p>The Research Hub will collect research from VicOne's Lab R7 and the wider Physical AI security community in one place — beyond the individual vulnerability entries already tracked in the Vuln DB.</p>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">[R7]</div>
+      <div class="feature-title">Lab R7 Research</div>
+      <div class="feature-desc">Original research from VicOne's Lab R7 on Physical AI and robotics security — findings, deep dives, and technical analysis.</div>
+      <div class="card-pill">Coming Soon</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">[SUB]</div>
+      <div class="feature-title">Community Research Submissions Portal</div>
+      <div class="feature-desc">A place for the community to submit their own Physical AI and robotics security research for review and publication.</div>
+      <div class="card-pill">Coming Soon</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">[TALK]</div>
+      <div class="feature-title">Lab R7 Talks & Presentations</div>
+      <div class="feature-desc">Slides, recordings, and abstracts from Lab R7's research presentations at DEF CON 34 and future events.</div>
+      <div class="card-pill">Coming Soon</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">[LAB]</div>
+      <div class="feature-title">Methodology and Tools</div>
+      <div class="feature-desc">Approaches, frameworks, and open-source tooling used across Lab R7 and community research.</div>
+      <div class="card-pill">Coming Soon</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2 class="cta-heading">Have research to share?</h2>
+  <p class="cta-text">If you're working on Physical AI or robotics security research and want it featured in the Research Hub, get in touch — the community submissions portal is on its way.</p>
+  <a href="mailto:robotichackingcommunity@proton.me" class="cta-button">Get in Touch</a>
+</section>
+
+<footer>
+  <p>Robotic Hacking Community — Research-driven security for Physical AI. <a href="mailto:robotichackingcommunity@proton.me" style="color: #39ff14; text-decoration: none;">Contact us</a>.</p>
+</footer>
+
+</body>
+</html>

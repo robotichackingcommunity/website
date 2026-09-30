@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<title>News and Updates — Robotic Hacking Community @ DEF CON 34</title>
+<meta name="description" content="News, press releases, and community updates from the Robotic Hacking Community — DEF CON 34 announcements, event recaps, and hacker community coverage.">
+<meta name="keywords" content="Robotic Hacking Community, DEF CON 34, news, updates, press release, announcements, robot hacking, cybersecurity">
+<meta name="author" content="Robotic Hacking Community">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://robotichackingcommunity.com/news-and-updates.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Robotic Hacking Community">
+<meta property="og:title" content="News and Updates — Robotic Hacking Community @ DEF CON 34">
+<meta property="og:description" content="News, press releases, and community updates from the Robotic Hacking Community.">
+<meta property="og:url" content="https://robotichackingcommunity.com/news-and-updates.html">
+<meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="News and Updates — Robotic Hacking Community @ DEF CON 34">
+<meta name="twitter:description" content="News, press releases, and community updates from the Robotic Hacking Community.">
+<meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 64px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
+  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; margin-bottom: 40px; }
+  .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .intro-text p { margin-bottom: 16px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+
+  /* PRESS FEED */
+  .press-feed { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .press-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 32px; opacity: 0.8; text-transform: uppercase; }
+  
+  /* PRESS ITEM */
+  .press-item {
+    max-width: 680px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.08);
+  }
+  .press-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .press-meta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .press-date {
+    color: #39ff14;
+    font-weight: 700;
+  }
+  .press-headline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .press-subheading {
+    font-size: 13px;
+    color: #39ff14;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+  }
+  .press-body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #999;
+    margin-bottom: 16px;
+  }
+  .press-body p {
+    margin-bottom: 12px;
+  }
+  .press-body p:last-child {
+    margin-bottom: 0;
+  }
+  .press-byline {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  /* PRESS LINK */
+  .press-link {
+    color: #39ff14;
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid rgba(57,255,20,0.3);
+  }
+  .press-link:hover {
+    color: #fff;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid rgba(57,255,20,0.1);
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+    .page-header { padding: 48px 24px 40px; }
+    .page-title { font-size: 48px; margin-bottom: 24px; }
+    .intro-text { font-size: 14px; }
+    .press-feed { padding: 40px 24px; }
+    .press-headline { font-size: 20px; }
+    .press-meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NewsMediaOrganization",
+      "name": "Robotic Hacking Community",
+      "url": "https://robotichackingcommunity.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://robotichackingcommunity.com/images/og-image.png"
+      }
+    },
+    {
+      "@type": "NewsArticle",
+      "@id": "https://robotichackingcommunity.com/news-and-updates.html#robotic-hacking-community-launches-at-def-con-34",
+      "headline": "Robotic Hacking Community Launches at DEF CON 34",
+      "description": "First dedicated robotics village brings hands-on robot exploitation and physical AI security to the hacker community.",
+      "articleBody": "The Robotic Hacking Community debuted as the official robotics village at DEF CON 34 in Las Vegas, offering hands-on workshops, live demonstrations, hardware challenges, and talks on physical AI and robotics cybersecurity. Participants explored real robot systems, discovered vulnerabilities in autonomous platforms, and collaborated on exploit development in a live lab environment. The village featured talks by leading researchers, CTF competitions with robot hardware prizes, and fireside chats with industry leaders from Boston Dynamics and VicOne discussing the future of Physical AI security.",
+      "articleSection": "Community News",
+      "datePublished": "2026-08-15",
+      "dateModified": "2026-08-15",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Organization",
+        "name": "Robotic Hacking Community",
+        "url": "https://robotichackingcommunity.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Robotic Hacking Community",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://robotichackingcommunity.com/images/og-image.png"
+        }
+      },
+      "image": "https://robotichackingcommunity.com/images/og-image.png",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://robotichackingcommunity.com/news-and-updates.html#robotic-hacking-community-launches-at-def-con-34"
+      },
+      "url": "https://robotichackingcommunity.com/news-and-updates.html#robotic-hacking-community-launches-at-def-con-34"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-nav.webp" alt="Robotic Hacking Community" class="nav-logo-img" width="144" height="144">
+    [ RHC ]
+  </a>
+  <div class="nav-links">
+    <a href="vuln-db.html">Vuln DB</a>
+    <a href="research-hub.html">Research Hub</a>
+    <a href="open-source-badge.html">RHC OSS Badge</a>
+    <a href="def-con-34.html">DEF CON 34</a>
+    <a href="news-and-updates.html" class="active">News and Updates</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="eyebrow">News & Announcements</div>
+  <h1 class="page-title">News and Updates</h1>
+  <div class="intro-text">
+    <p>Announcements from the Robotic Hacking Community — DEF CON recaps, event news, and coverage from the hacker community ecosystem.</p>
+  </div>
+</header>
+
+<section class="press-feed">
+  <div class="press-label">Latest News</div>
+
+  <!-- NEWEST FIRST: insert new press items directly below this line, above older entries -->
+
+  <!-- PRESS ITEM TEMPLATE -->
+  <article class="press-item" id="robotic-hacking-community-launches-at-def-con-34">
+    <div class="press-meta">
+      <time class="press-date" datetime="2026-08-15">August 15, 2026</time>
+      <span class="press-source">Community News</span>
+    </div>
+    <h2 class="press-headline">Robotic Hacking Community Launches at DEF CON 34</h2>
+    <div class="press-subheading">First dedicated robotics village brings hands-on robot exploitation and physical AI security to the hacker community.</div>
+    <div class="press-body">
+      <p>The Robotic Hacking Community debuted as the official robotics village at DEF CON 34 in Las Vegas, offering hands-on workshops, live demonstrations, hardware challenges, and talks on physical AI and robotics cybersecurity. Participants explored real robot systems, discovered vulnerabilities in autonomous platforms, and collaborated on exploit development in a live lab environment.</p>
+      <p>The village featured talks by leading researchers, CTF competitions with robot hardware prizes, and fireside chats with industry leaders from Boston Dynamics and VicOne discussing the future of Physical AI security.</p>
+    </div>
+    <div class="press-byline">Source: Robotic Hacking Community</div>
+  </article>
+
+  <!-- PRESS ITEM PLACEHOLDER -->
+  <article class="press-item">
+    <div class="press-meta">
+      <time class="press-date" datetime="2026-09-XX">Coming Soon</time>
+      <span class="press-source">Placeholder</span>
+    </div>
+    <h2 class="press-headline">Press items will appear here</h2>
+    <div class="press-subheading">DEF CON 34 event recap, community news, and external coverage as they are published.</div>
+    <div class="press-body">
+      <p>This section will feature structured press releases, news coverage, and announcements for the hacker community — as DEF CON 35 approaches, DEF CON 34 recaps will be featured here alongside ongoing community news.</p>
+    </div>
+    <div class="press-byline">Source: Robotic Hacking Community</div>
+  </article>
+
+</section>
+
+<footer>
+  <p>Robotic Hacking Community — Part of the DEF CON village network. <a href="mailto:robotichackingcommunity@proton.me" class="press-link">Contact us</a>.</p>
+</footer>
+
+</body>
+</html>
