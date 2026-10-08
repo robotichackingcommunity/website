@@ -622,9 +622,9 @@
     var el = document.getElementById('vuln-db-count');
     if (!el) return;
     var SOURCES = [
-      { url: 'https://api.github.com/repos/PhysicalAIVulnerabilityDatabase/PA_VD/contents/index.json', headers: { Accept: 'application/vnd.github.raw' } },
-      'https://physicalaivulnerabilitydatabase.github.io/PA_VD/index.json',
-      'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/index.json'
+      { url: 'https://api.github.com/repos/robotichackingcommunity/PA_VD/contents/index.json', headers: { Accept: 'application/vnd.github.raw' } },
+      'https://robotichackingcommunity.github.io/PA_VD/index.json',
+      'https://raw.githubusercontent.com/robotichackingcommunity/PA_VD/main/index.json'
     ];
     function load(i) {
       if (i >= SOURCES.length) return Promise.reject(new Error('unavailable'));

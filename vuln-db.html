@@ -229,7 +229,7 @@
 <header class="page-header">
   <div class="eyebrow-row">
     <div class="eyebrow">Research & Threat Intelligence · Sponsored by VicOne Inc.</div>
-    <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener" class="eyebrow-link">What is FaultLine? &#8599;</a>
+    <a href="https://github.com/robotichackingcommunity/PA_VD" target="_blank" rel="noopener" class="eyebrow-link">What is FaultLine? &#8599;</a>
   </div>
   <h1 class="page-title page-title--long">FaultLine : Physical AI Vulnerability Database</h1>
 </header>
@@ -254,10 +254,10 @@
       </div>
       <div id="ex-status" class="ex-status">Loading database…</div>
       <div id="ex-grid" class="ex-grid"></div>
-      <noscript><div class="ex-status">JavaScript is required to browse the database here. <a href="https://physicalaivulnerabilitydatabase.github.io/PA_VD/" target="_blank" rel="noopener">Open the FaultLine Explorer</a> or <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener">view the dataset on GitHub</a>.</div></noscript>
+      <noscript><div class="ex-status">JavaScript is required to browse the database here. <a href="https://github.com/robotichackingcommunity/PA_VD" target="_blank" rel="noopener">View the dataset on GitHub</a>.</div></noscript>
     </div>
   </div>
-  <div class="explorer-note">Data is pulled live from the FaultLine repository &mdash; <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener">PhysicalAIVulnerabilityDatabase/PA_VD &#8599;</a></div>
+  <div class="explorer-note">Data is pulled live from the FaultLine repository &mdash; <a href="https://github.com/robotichackingcommunity/PA_VD" target="_blank" rel="noopener">robotichackingcommunity/PA_VD &#8599;</a></div>
 </section>
 
 <div class="ex-modal" id="ex-modal" role="dialog" aria-modal="true" aria-labelledby="ex-d-title">
@@ -273,8 +273,8 @@
   <h2 class="cta-heading">Explore or Contribute</h2>
   <p class="cta-text">Browse the full, searchable dataset in the FaultLine Vulnerability Explorer, or contribute a new enriched record via pull request on GitHub. Found a vulnerability in a robotic or Physical AI system? The Robotic Hacking Community also welcomes responsible disclosures directly.</p>
   <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
-    <a href="https://physicalaivulnerabilitydatabase.github.io/PA_VD/" target="_blank" rel="noopener" class="cta-button" style="background: #39ff14; color: #050505;">Browse the Explorer</a>
-    <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener" class="cta-button">Contribute on GitHub</a>
+    <a href="#explorer" class="cta-button" style="background: #39ff14; color: #050505;">Browse the Explorer</a>
+    <a href="https://github.com/robotichackingcommunity/PA_VD" target="_blank" rel="noopener" class="cta-button">Contribute on GitHub</a>
     <a href="mailto:robotichackingcommunity@proton.me" class="cta-button">Get in Touch</a>
   </div>
 </section>
@@ -289,11 +289,12 @@
   // FaultLine records live in the PA_VD repo. The GitHub API serves the latest
   // commit within a minute; GitHub Pages (CDN-cached ~10 min) and raw files
   // (~5 min) are the fallbacks once a visitor hits the API's 60 requests/hour.
-  var BASE = 'https://physicalaivulnerabilitydatabase.github.io/PA_VD/';
+  var REPO = 'https://github.com/robotichackingcommunity/PA_VD';
+  var BASE = 'https://robotichackingcommunity.github.io/PA_VD/';
   var SOURCES = [
-    { url: 'https://api.github.com/repos/PhysicalAIVulnerabilityDatabase/PA_VD/contents/', headers: { Accept: 'application/vnd.github.raw' } },
+    { url: 'https://api.github.com/repos/robotichackingcommunity/PA_VD/contents/', headers: { Accept: 'application/vnd.github.raw' } },
     { url: BASE },
-    { url: 'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/' }
+    { url: 'https://raw.githubusercontent.com/robotichackingcommunity/PA_VD/main/' }
   ];
   var all = [], current = [], timer, lastFocus = null;
   var SEV_ORDER = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'];
@@ -337,7 +338,7 @@
         apply();
       })
       .catch(function () {
-        $('ex-status').innerHTML = 'Could not load the database right now. <a href="' + BASE + '" target="_blank" rel="noopener">Open the FaultLine Explorer &#8599;</a>';
+        $('ex-status').innerHTML = 'Could not load the database right now. <a href="' + REPO + '" target="_blank" rel="noopener">View the dataset on GitHub &#8599;</a>';
       });
   }
 
@@ -476,7 +477,7 @@
       .then(function (d) { if ($('ex-modal').classList.contains('open')) $('ex-detail').innerHTML = detailHtml(it, d); })
       .catch(function () {
         $('ex-detail').innerHTML = '<div class="ex-d-head"><span class="ex-cve">' + esc(it.cve_id) + '</span></div><h2 class="ex-d-title" id="ex-d-title">' + esc(it.title) + '</h2>' +
-          '<div class="ex-status">Could not load the full record. <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD/blob/main/CVE-json/' + encodeURIComponent(file) + '" target="_blank" rel="noopener">View it on GitHub &#8599;</a></div>';
+          '<div class="ex-status">Could not load the full record. <a href="' + REPO + '/blob/main/CVE-json/' + encodeURIComponent(file) + '" target="_blank" rel="noopener">View it on GitHub &#8599;</a></div>';
       });
   }
   function closeDetail() {

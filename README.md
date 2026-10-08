@@ -24,7 +24,7 @@ CNAME                   Custom domain config (GitHub Pages)
 
 FaultLine records are not stored here: `vuln-db.html` is a search/filter
 explorer that fetches `index.json` from the
-[PA_VD repo](https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD) at page
+[PA_VD repo](https://github.com/robotichackingcommunity/PA_VD) at page
 load, and each record's `CVE-json/*.pavd.json` when its detail is opened
 through the GitHub contents API, so a push to PA_VD shows up within about a
 minute. If a visitor runs out of the API's 60 unauthenticated requests per
