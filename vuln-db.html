@@ -286,9 +286,15 @@
 
 <script>
 (function () {
-  // FaultLine records live in the PA_VD repo; GitHub Pages first, raw files as the fallback.
+  // FaultLine records live in the PA_VD repo. The GitHub API serves the latest
+  // commit within a minute; GitHub Pages (CDN-cached ~10 min) and raw files
+  // (~5 min) are the fallbacks once a visitor hits the API's 60 requests/hour.
   var BASE = 'https://physicalaivulnerabilitydatabase.github.io/PA_VD/';
-  var SOURCES = [BASE, 'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/'];
+  var SOURCES = [
+    { url: 'https://api.github.com/repos/PhysicalAIVulnerabilityDatabase/PA_VD/contents/', headers: { Accept: 'application/vnd.github.raw' } },
+    { url: BASE },
+    { url: 'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/' }
+  ];
   var all = [], current = [], timer, lastFocus = null;
   var SEV_ORDER = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'];
 
@@ -316,7 +322,7 @@
   function getJSON(path, i) {
     i = i || 0;
     if (i >= SOURCES.length) return Promise.reject(new Error('unavailable'));
-    return fetch(SOURCES[i] + path, { cache: 'no-cache' }).then(function (r) {
+    return fetch(SOURCES[i].url + path, { cache: 'no-cache', headers: SOURCES[i].headers || {} }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     }).catch(function () { return getJSON(path, i + 1); });

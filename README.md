@@ -24,8 +24,11 @@ FaultLine records are not stored here: `vuln-db.html` is a search/filter
 explorer that fetches `index.json` from the
 [PA_VD repo](https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD) at page
 load, and each record's `CVE-json/*.pavd.json` when its detail is opened
-(GitHub Pages first, raw.githubusercontent.com as the fallback). New records
-show up without touching this site.
+through the GitHub contents API, so a push to PA_VD shows up within about a
+minute. If a visitor runs out of the API's 60 unauthenticated requests per
+hour, it falls back to GitHub Pages and then raw.githubusercontent.com, which
+CDN-cache for up to 10 and 5 minutes. The homepage Vuln DB card reads its
+record count the same way.
 
 Logos are WebP (`images/logo-nav.webp`, `images/logo-hero.webp`, generated
 from `images/logo.png`). Don't inline images as base64.

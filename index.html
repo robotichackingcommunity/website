@@ -616,17 +616,20 @@
 </script>
 
 <script>
-  // Live record count for the Vuln DB card; keeps the static text if both sources fail.
+  // Live record count for the Vuln DB card; keeps the static text if every source fails.
+  // GitHub API first (latest commit within a minute), then the CDN-cached copies.
   (function () {
     var el = document.getElementById('vuln-db-count');
     if (!el) return;
     var SOURCES = [
+      { url: 'https://api.github.com/repos/PhysicalAIVulnerabilityDatabase/PA_VD/contents/index.json', headers: { Accept: 'application/vnd.github.raw' } },
       'https://physicalaivulnerabilitydatabase.github.io/PA_VD/index.json',
       'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/index.json'
     ];
     function load(i) {
       if (i >= SOURCES.length) return Promise.reject(new Error('unavailable'));
-      return fetch(SOURCES[i], { cache: 'no-cache' }).then(function (res) {
+      var src = typeof SOURCES[i] === 'string' ? { url: SOURCES[i] } : SOURCES[i];
+      return fetch(src.url, { cache: 'no-cache', headers: src.headers || {} }).then(function (res) {
         if (!res.ok) throw new Error(res.status);
         return res.json();
       }).catch(function () { return load(i + 1); });
