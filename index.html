@@ -160,11 +160,6 @@
     text-align: center;
     letter-spacing: 0.04em;
   }
-  .hero-tagline strong {
-    color: #fff;
-    font-weight: 400;
-    text-shadow: 0 0 18px rgba(57,255,20,0.35);
-  }
   .info-bar {
     display: flex;
     justify-content: center;
@@ -516,6 +511,13 @@
       text-align: center;
     }
   }
+  /* NAV: keep the longer label readable on mid-size screens */
+  @media (max-width: 1200px) and (min-width: 769px) {
+    nav { flex-wrap: wrap; row-gap: 12px; }
+    .nav-logo { flex-shrink: 0; white-space: nowrap; }
+    .nav-links { gap: 12px 24px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { white-space: nowrap; }
+  }
 </style>
 </head>
 <body>
@@ -526,7 +528,7 @@
     [ RHC ]
   </a>
   <div class="nav-links">
-    <a href="vuln-db.html">Vuln DB</a>
+    <a href="vuln-db.html">Physical AI Vulnerability Database</a>
     <a href="research-hub.html">Research Hub</a>
     <a href="open-source-badge.html">RHC OSS Badge</a>
     <a href="def-con-34.html">DEF CON 34</a>
@@ -539,8 +541,7 @@
   <img src="images/logo-hero.webp" alt="Robotic Hacking Community" class="hero-logo" width="800" height="800">
   <h1 class="visually-hidden">Robotic Hacking Community</h1>
   <p class="hero-tagline">
-    <strong>Real robots. Real exploits.</strong><br>
-    Thanks for breaking things with us.
+    Welcome to the Robotic Hacking Community
   </p>
   <div class="hero-buttons">
     <div class="video-row">

@@ -9,3 +9,6 @@ id_rsa*
 
 # macOS
 .DS_Store
+
+# Marketing reference pages (local only)
+tsak/

@@ -7,16 +7,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<title>Vulnerability Database — FaultLine · Robotic Hacking Community @ DEF CON 34</title>
-<meta name="description" content="FaultLine — the Physical AI Vulnerability Database. 300+ enriched CVE records with attack chains and physical-consequence analysis for robots, drones, AMRs, and autonomous vehicles.">
+<title>FaultLine : Physical AI Vulnerability Database — Robotic Hacking Community</title>
+<meta name="description" content="FaultLine — the Physical AI Vulnerability Database. Hundreds of enriched CVE records with attack chains and physical-consequence analysis for robots, drones, AMRs, and autonomous vehicles.">
 <meta name="keywords" content="Robotic Hacking Community, FaultLine, Physical AI Vulnerability Database, vulnerability database, robotics security, physical AI, CVE, threat intelligence, robot hacking">
 <meta name="author" content="Robotic Hacking Community">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://robotichackingcommunity.com/vuln-db.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Robotic Hacking Community">
-<meta property="og:title" content="Vulnerability Database — FaultLine · Robotic Hacking Community @ DEF CON 34">
-<meta property="og:description" content="FaultLine — the Physical AI Vulnerability Database. 300+ enriched CVE records for robots, drones, AMRs, and autonomous vehicles.">
+<meta property="og:title" content="FaultLine : Physical AI Vulnerability Database — Robotic Hacking Community">
+<meta property="og:description" content="FaultLine — the Physical AI Vulnerability Database. Hundreds of enriched CVE records for robots, drones, AMRs, and autonomous vehicles.">
 <meta property="og:url" content="https://robotichackingcommunity.com/vuln-db.html">
 <meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <meta property="og:image:type" content="image/png">
@@ -24,8 +24,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vulnerability Database — FaultLine · Robotic Hacking Community @ DEF CON 34">
-<meta name="twitter:description" content="FaultLine — the Physical AI Vulnerability Database. 300+ enriched CVE records for robots, drones, AMRs, and autonomous vehicles.">
+<meta name="twitter:title" content="FaultLine : Physical AI Vulnerability Database — Robotic Hacking Community">
+<meta name="twitter:description" content="FaultLine — the Physical AI Vulnerability Database. Hundreds of enriched CVE records for robots, drones, AMRs, and autonomous vehicles.">
 <meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,188 +61,76 @@
   .page-header { padding: 64px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.1); }
   .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
   .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; margin-bottom: 40px; }
-  .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
-  .intro-text p { margin-bottom: 16px; }
-  .intro-text p:last-child { margin-bottom: 0; }
+  .eyebrow-row { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+  .eyebrow-row .eyebrow { margin-bottom: 0; }
+  .eyebrow-link { display: inline-block; padding: 5px 12px; border: 1px solid rgba(57,255,20,0.5); color: #39ff14; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .eyebrow-link:hover { background: #39ff14; color: #050505; }
+  .page-title--long { font-size: 52px; line-height: 1.1; max-width: 1000px; margin-bottom: 32px; }
+  .explorer-note { margin-top: 28px; font-size: 11px; letter-spacing: 0.1em; color: #666; }
+  .explorer-note a { color: #39ff14; text-decoration: none; border-bottom: 1px solid rgba(57,255,20,0.3); }
 
-  /* SECTIONS */
-  .section { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
-  .section-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 24px; opacity: 0.8; text-transform: uppercase; }
-  .section-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
-  .section-text p { margin-bottom: 16px; }
-  .section-text p:last-child { margin-bottom: 0; }
-  .section-heading { font-family: 'Courier New', Courier, monospace; font-size: 28px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; }
+  /* EXPLORER */
+  .explorer { padding: 40px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .explorer-layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 28px; align-items: start; }
+  .ex-sidebar { position: sticky; top: 20px; padding: 20px; border: 1px solid rgba(57,255,20,0.2); background: rgba(57,255,20,0.02); max-height: calc(100vh - 40px); overflow-y: auto; }
+  .ex-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; margin-bottom: 14px; }
+  .ex-search, .ex-sidebar input[type="text"] { width: 100%; padding: 11px 12px; background: #0a0a0a; border: 1px solid rgba(57,255,20,0.3); color: #e0e0e0; font-family: inherit; font-size: 13px; outline: none; margin-bottom: 20px; }
+  .ex-search:focus { border-color: #39ff14; box-shadow: 0 0 0 1px rgba(57,255,20,0.3); }
+  .ex-search::placeholder { color: #555; }
+  .ex-group { margin-bottom: 20px; }
+  .ex-group-title { font-family: 'Courier New', Courier, monospace; font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .ex-checks { max-height: 190px; overflow-y: auto; padding-right: 6px; scrollbar-width: thin; scrollbar-color: rgba(57,255,20,0.35) transparent; }
+  .ex-checks label { display: flex; align-items: flex-start; gap: 8px; padding: 5px 6px; font-size: 12px; line-height: 1.4; color: #999; cursor: pointer; }
+  .ex-checks label:hover { background: rgba(57,255,20,0.06); color: #ddd; }
+  .ex-checks input { accent-color: #39ff14; margin-top: 2px; flex-shrink: 0; }
+  .ex-checks .n { margin-left: auto; color: #555; font-size: 11px; padding-left: 8px; }
+  .ex-btn { display: inline-block; padding: 9px 16px; background: rgba(57,255,20,0.1); border: 1px solid #39ff14; color: #39ff14; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+  .ex-btn:hover { background: #39ff14; color: #050505; }
+  .ex-sidebar .ex-btn { width: 100%; }
+  .ex-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(57,255,20,0.12); }
+  .ex-count { font-size: 13px; color: #888; letter-spacing: 0.05em; }
+  .ex-count span { font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 700; color: #39ff14; margin-right: 6px; }
+  .ex-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ex-status { padding: 60px 20px; text-align: center; font-size: 13px; color: #666; letter-spacing: 0.1em; }
+  .ex-status a { color: #39ff14; }
+  .ex-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+  .ex-card { display: flex; flex-direction: column; gap: 10px; padding: 18px; border: 1px solid rgba(57,255,20,0.2); background: rgba(57,255,20,0.02); cursor: pointer; text-align: left; font-family: inherit; color: inherit; transition: all 0.2s; }
+  .ex-card:hover, .ex-card:focus-visible { border-color: rgba(57,255,20,0.55); background: rgba(57,255,20,0.06); transform: translateY(-3px); outline: none; }
+  .ex-card-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .ex-cve { font-family: 'Courier New', Courier, monospace; font-size: 14px; font-weight: 700; color: #39ff14; letter-spacing: 0.05em; }
+  .ex-title { font-size: 13px; line-height: 1.6; color: #ccc; flex: 1; overflow-wrap: anywhere; }
+  .ex-meta { font-size: 11px; color: #666; letter-spacing: 0.05em; line-height: 1.6; }
+  .ex-hl { background: rgba(57,255,20,0.25); color: #fff; padding: 0 2px; }
+  .ex-sev { display: inline-block; padding: 3px 9px; border: 1px solid; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+  .sev-critical { color: #ff5a7a; border-color: rgba(255,90,122,0.55); background: rgba(255,90,122,0.08); }
+  .sev-high { color: #ffb84d; border-color: rgba(255,184,77,0.55); background: rgba(255,184,77,0.08); }
+  .sev-medium { color: #7fd1ff; border-color: rgba(127,209,255,0.5); background: rgba(127,209,255,0.07); }
+  .sev-low { color: #39ff14; border-color: rgba(57,255,20,0.5); background: rgba(57,255,20,0.07); }
+  .sev-unknown { color: #888; border-color: rgba(136,136,136,0.4); }
 
-  /* FEATURE GRID */
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 1000px;
-    margin-top: 32px;
-  }
-  .feature-card {
-    padding: 24px;
-    border: 1px solid rgba(57,255,20,0.2);
-    background: rgba(57,255,20,0.02);
-    transition: all 0.2s;
-  }
-  .feature-card:hover {
-    border-color: rgba(57,255,20,0.4);
-    background: rgba(57,255,20,0.05);
-  }
-  .feature-icon {
-    font-size: 24px;
-    color: #39ff14;
-    margin-bottom: 12px;
-    font-weight: 700;
-  }
-  .feature-title {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-  }
-  .feature-desc {
-    font-size: 13px;
-    line-height: 1.6;
-    color: #888;
-  }
-
-  /* STAT GRID */
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    max-width: 1000px;
-    margin-top: 32px;
-  }
-  .stat-card {
-    padding: 24px 16px;
-    border: 1px solid rgba(57,255,20,0.2);
-    background: rgba(57,255,20,0.02);
-    text-align: center;
-  }
-  .stat-num {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 36px;
-    font-weight: 700;
-    color: #39ff14;
-    margin-bottom: 8px;
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #888;
-  }
-
-  /* CASE STUDY */
-  .case-study-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 1000px;
-    margin-top: 32px;
-  }
-  .case-study-card {
-    padding: 28px;
-    border: 1px solid rgba(57,255,20,0.2);
-    background: rgba(57,255,20,0.02);
-  }
-  .case-study-cve {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 12px;
-    color: #39ff14;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
-  }
-  .case-study-title {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 17px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-  .case-study-body {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #888;
-  }
-  .case-study-body strong { color: #ccc; }
-  .case-study-consequence {
-    margin-top: 14px;
-    padding: 12px 14px;
-    border-left: 2px solid #39ff14;
-    background: rgba(57,255,20,0.04);
-    font-size: 12px;
-    line-height: 1.7;
-    color: #ccc;
-    font-style: italic;
-  }
-
-  /* COMPARISON TABLE */
-  .compare-table {
-    max-width: 1000px;
-    margin-top: 32px;
-    border: 1px solid rgba(57,255,20,0.15);
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 13px;
-  }
-  .compare-table th, .compare-table td {
-    padding: 14px 18px;
-    border-bottom: 1px solid rgba(57,255,20,0.1);
-    text-align: left;
-    vertical-align: top;
-    line-height: 1.6;
-  }
-  .compare-table th {
-    color: #39ff14;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(57,255,20,0.3);
-  }
-  .compare-table td { color: #999; }
-  .compare-table td:first-child { color: #ccc; font-weight: 700; }
-  .compare-table td.faultline-col { color: #39ff14; }
-
-  /* CODE BLOCK */
-  .code-block {
-    max-width: 680px;
-    margin-top: 24px;
-    padding: 20px 24px;
-    border: 1px solid rgba(57,255,20,0.2);
-    background: rgba(57,255,20,0.03);
-    color: #ccc;
-    font-size: 12.5px;
-    line-height: 1.8;
-    white-space: pre-wrap;
-    overflow-x: auto;
-  }
-  .code-block .comment { color: #666; }
-  .code-block .accent { color: #39ff14; }
-
-  /* NUMBERED LIST */
-  .workflow-list { max-width: 720px; margin-top: 24px; }
-  .workflow-item { display: flex; gap: 18px; margin-bottom: 24px; }
-  .workflow-item:last-child { margin-bottom: 0; }
-  .workflow-num {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    font-weight: 700;
-    color: #39ff14;
-    opacity: 0.6;
-    flex-shrink: 0;
-    width: 32px;
-  }
-  .workflow-body { font-size: 14px; line-height: 1.8; color: #888; }
-  .workflow-body strong { color: #ccc; }
+  /* EXPLORER DETAIL MODAL */
+  .ex-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.82); align-items: center; justify-content: center; padding: 24px; }
+  .ex-modal.open { display: flex; }
+  .ex-modal-box { position: relative; width: 100%; max-width: 920px; max-height: 90vh; overflow-y: auto; background: #070707; border: 1px solid rgba(57,255,20,0.45); padding: 32px 36px; box-shadow: 0 0 40px rgba(57,255,20,0.08); scrollbar-width: thin; scrollbar-color: rgba(57,255,20,0.35) transparent; }
+  .ex-close { position: absolute; top: 14px; right: 16px; background: none; border: none; color: #39ff14; font-family: inherit; font-size: 12px; letter-spacing: 0.1em; cursor: pointer; }
+  .ex-close:hover { color: #fff; }
+  .ex-d-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .ex-d-title { font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 700; color: #fff; line-height: 1.3; margin: 8px 0 6px; padding-right: 60px; }
+  .ex-d-meta { font-size: 11px; color: #666; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+  .ex-d-sec { margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(57,255,20,0.15); }
+  .ex-d-sec > .ex-label { margin-bottom: 12px; }
+  .ex-d-body { font-size: 13px; line-height: 1.8; color: #aaa; overflow-wrap: anywhere; }
+  .ex-d-body a { color: #39ff14; text-decoration: none; border-bottom: 1px solid rgba(57,255,20,0.3); }
+  .ex-d-body ul { padding-left: 18px; }
+  .ex-d-body li { margin-bottom: 4px; }
+  .ex-d-body dl { display: grid; grid-template-columns: minmax(110px, 190px) minmax(0, 1fr); gap: 6px 16px; }
+  .ex-d-body dt { color: #39ff14; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; padding-top: 2px; }
+  .ex-d-body dd { margin: 0; min-width: 0; }
+  .ex-obj { padding: 12px 14px; margin-bottom: 10px; border: 1px solid rgba(57,255,20,0.15); background: rgba(57,255,20,0.02); }
+  .ex-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ex-chip { padding: 3px 9px; border: 1px solid rgba(57,255,20,0.3); font-size: 11px; color: #ccc; }
+  .ex-raw summary { cursor: pointer; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #39ff14; opacity: 0.8; }
+  .ex-raw pre { margin-top: 12px; padding: 16px; background: #0a0a0a; border: 1px solid rgba(57,255,20,0.15); color: #aaa; font-size: 12px; line-height: 1.6; overflow: auto; max-height: 50vh; white-space: pre-wrap; overflow-wrap: anywhere; }
 
   /* CTA */
   .cta-section {
@@ -299,20 +187,25 @@
     .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
     .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
     .page-header { padding: 48px 24px 40px; }
-    .page-title { font-size: clamp(30px, 10vw, 48px); margin-bottom: 24px; }
-    .feature-desc { overflow-wrap: anywhere; }
-    .intro-text { font-size: 14px; }
-    .section { padding: 40px 24px; }
-    .section-heading { font-size: 20px; }
-    .feature-grid { grid-template-columns: minmax(0, 1fr); }
-    .stat-grid { grid-template-columns: repeat(2, 1fr); }
-    .case-study-grid { grid-template-columns: 1fr; }
-    .compare-table { font-size: 11px; display: block; overflow-x: auto; }
-    .compare-table th, .compare-table td { padding: 10px 8px; }
-    .code-block { font-size: 11px; padding: 16px; }
-    .workflow-item { gap: 12px; }
+    .page-title--long { font-size: clamp(26px, 8vw, 30px); margin-bottom: 24px; }
+    .explorer { padding: 28px 24px 40px; }
+    .explorer-layout { grid-template-columns: 1fr; }
+    .ex-sidebar { position: static; max-height: none; }
+    .ex-checks { max-height: 150px; }
+    .ex-grid { grid-template-columns: 1fr; }
+    .ex-modal { padding: 12px; }
+    .ex-modal-box { padding: 24px 18px; }
+    .ex-d-body dl { grid-template-columns: 1fr; gap: 2px; }
+    .ex-d-body dd { margin-bottom: 8px; }
     .cta-section { padding: 40px 24px; }
     .cta-heading { font-size: 24px; }
+  }
+  /* NAV: keep the longer label readable on mid-size screens */
+  @media (max-width: 1200px) and (min-width: 769px) {
+    nav { flex-wrap: wrap; row-gap: 12px; }
+    .nav-logo { flex-shrink: 0; white-space: nowrap; }
+    .nav-links { gap: 12px 24px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { white-space: nowrap; }
   }
 </style>
 </head>
@@ -324,7 +217,7 @@
     [ RHC ]
   </a>
   <div class="nav-links">
-    <a href="vuln-db.html" class="active">Vuln DB</a>
+    <a href="vuln-db.html" class="active">Physical AI Vulnerability Database</a>
     <a href="research-hub.html">Research Hub</a>
     <a href="open-source-badge.html">RHC OSS Badge</a>
     <a href="def-con-34.html">DEF CON 34</a>
@@ -334,436 +227,46 @@
 </nav>
 
 <header class="page-header">
-  <div class="eyebrow">Research & Threat Intelligence · Sponsored by VicOne Inc.</div>
-  <h1 class="page-title">Vulnerability Database</h1>
-  <div class="intro-text">
-    <p><strong style="color:#fff;">FaultLine</strong> — where software faults meet the physical world. FaultLine is an open, community-driven vulnerability database focused on <strong>Physical AI</strong> systems: humanoid robots, industrial robots, autonomous mobile robots (AMR), drones, service robots, autonomous vehicles, and the middleware, AI models, and edge hardware that power them.</p>
-    <p>FaultLine is not a mirror of NVD. It takes CVEs sourced from NVD, ZDI, vendor PSIRT advisories, GitHub Security Advisories, and CISA ICS advisories, and re-processes each one with domain-specific enrichment — turning a plain vulnerability advisory into actionable intelligence: how does this actually get exploited on this class of physical system, and what happens in the real world when it does.</p>
+  <div class="eyebrow-row">
+    <div class="eyebrow">Research & Threat Intelligence · Sponsored by VicOne Inc.</div>
+    <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener" class="eyebrow-link">What is FaultLine? &#8599;</a>
   </div>
-  <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px;">
-    <a href="https://physicalaivulnerabilitydatabase.github.io/PA_VD/" target="_blank" rel="noopener" class="cta-button" style="background: #39ff14; color: #050505;">Browse the Vulnerability Explorer &#8599;</a>
-    <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener" class="cta-button">View on GitHub &#8599;</a>
-  </div>
+  <h1 class="page-title page-title--long">FaultLine : Physical AI Vulnerability Database</h1>
 </header>
 
-<!-- BY THE NUMBERS -->
-<section class="section">
-  <div class="section-label">// current coverage</div>
-  <h2 class="section-heading">FaultLine by the numbers</h2>
-  <div class="section-text">
-    <p>This dataset grows continuously as new advisories are triaged and re-classified. Numbers below are pulled live from <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD/blob/main/index.json" target="_blank" rel="noopener" class="press-link" style="color:#39ff14;">index.json</a>, the source of truth for the project.</p>
-  </div>
-  <div class="stat-grid">
-    <div class="stat-card">
-      <div class="stat-num" data-stat="total">262</div>
-      <div class="stat-label">Enriched CVE Records</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" style="color:#ff5a7a;" data-stat="CRITICAL">36</div>
-      <div class="stat-label">Critical Severity</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" style="color:#ffb84d;" data-stat="HIGH">125</div>
-      <div class="stat-label">High Severity</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" data-stat="MEDIUM">90</div>
-      <div class="stat-label">Medium Severity</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" data-stat="LOW">10</div>
-      <div class="stat-label">Low Severity</div>
+<section class="explorer" id="explorer">
+  <div class="explorer-layout">
+    <aside class="ex-sidebar">
+      <div class="ex-label">// search &amp; filter</div>
+      <input type="text" id="ex-keyword" class="ex-search" placeholder="CVE ID, title, vendor..." autocomplete="off" aria-label="Search vulnerabilities">
+      <div class="ex-group"><div class="ex-group-title">Physical AI Domain</div><div id="ex-domain" class="ex-checks"></div></div>
+      <div class="ex-group"><div class="ex-group-title">Vendor</div><div id="ex-vendor" class="ex-checks"></div></div>
+      <div class="ex-group"><div class="ex-group-title">Severity</div><div id="ex-severity" class="ex-checks"></div></div>
+      <button type="button" id="ex-reset" class="ex-btn">Reset all</button>
+    </aside>
+    <div class="ex-main">
+      <div class="ex-toolbar">
+        <div class="ex-count"><span id="ex-count">0</span>vulnerabilities found</div>
+        <div class="ex-actions">
+          <button type="button" id="ex-json" class="ex-btn">Export JSON</button>
+          <button type="button" id="ex-csv" class="ex-btn">Export CSV</button>
+        </div>
+      </div>
+      <div id="ex-status" class="ex-status">Loading database…</div>
+      <div id="ex-grid" class="ex-grid"></div>
+      <noscript><div class="ex-status">JavaScript is required to browse the database here. <a href="https://physicalaivulnerabilitydatabase.github.io/PA_VD/" target="_blank" rel="noopener">Open the FaultLine Explorer</a> or <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener">view the dataset on GitHub</a>.</div></noscript>
     </div>
   </div>
-  <div class="section-text" style="margin-top: 32px;">
-    <p><strong style="color:#ccc;">Top Physical AI domains:</strong> <span id="vdb-top-domains">Cross-Domain Components (92) · Physical AI Infrastructure (86) · Robot Operating Systems &amp; Middleware (56) · Embodied AI Agent (51) · Service &amp; Companion Robot (35) · Mobile Robot &amp; AMR (30) · Drone &amp; Aerial Robotics (25) · Industrial Robot (22) · Humanoid Robot (14)</span></p>
-    <p><strong style="color:#ccc;">Notable vendors/projects tracked:</strong> NVIDIA, OpenClaw, ABB, eProsima (Fast DDS), Unitree Robotics, ECOVACS, RTI Connext DDS, PX4/ArduPilot, Mobile Industrial Robots, Ghost Robotics, SICK, Open Robotics/ROS, Yarbo, and more.</p>
-  </div>
+  <div class="explorer-note">Data is pulled live from the FaultLine repository &mdash; <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD" target="_blank" rel="noopener">PhysicalAIVulnerabilityDatabase/PA_VD &#8599;</a></div>
 </section>
 
-<!-- WHY SECTION -->
-<section class="section">
-  <div class="section-label">Why</div>
-  <h2 class="section-heading">Why a Physical AI Vulnerability Database?</h2>
-  <div class="section-text">
-    <p>Physical AI — robots, drones, autonomous vehicles, and embodied agents that perceive, decide, and act in the physical world — is being deployed at scale across manufacturing, logistics, healthcare, agriculture, and defense. Unlike traditional IT vulnerabilities, a flaw in a Physical AI stack does not just leak data — it can cause a robot to collide, a drone to crash, a manipulator arm to injure someone, or an autonomous vehicle to misjudge the road. That's the fault line FaultLine tracks: the point where a software bug crosses over into physical consequence.</p>
-    <p>Yet today, vulnerability intelligence for this domain is fragmented and shallow:</p>
+<div class="ex-modal" id="ex-modal" role="dialog" aria-modal="true" aria-labelledby="ex-d-title">
+  <div class="ex-modal-box" id="ex-modal-box">
+    <button type="button" class="ex-close" id="ex-close" aria-label="Close details">[ × ]</button>
+    <div id="ex-detail"></div>
   </div>
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon">[SILO]</div>
-      <div class="feature-title">Scattered Across Silos</div>
-      <div class="feature-desc">CVE/NVD, vendor PSIRT advisories, GitHub Security Advisories, academic papers, and conference talks each hold a piece of the picture, with no unified view.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[CTX]</div>
-      <div class="feature-title">Missing Physical-World Context</div>
-      <div class="feature-desc">Standard CVE records describe software impact (confidentiality/integrity/availability) but say nothing about whether the robot falls, the drone loses control, or a safety interlock gets bypassed.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[MAP]</div>
-      <div class="feature-title">No Attack-Surface Mapping</div>
-      <div class="feature-desc">A vulnerability in DDS/ROS 2 middleware, a perception model, a motion planner, or an edge AI chip needs different mitigations — generic feeds don't map CVEs to this architecture.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[FAN]</div>
-      <div class="feature-title">Hard to Correlate</div>
-      <div class="feature-desc">The same ROS 2 / DDS / PX4 / firmware vulnerability can affect dozens of unrelated robot and drone vendors built on the same shared components — invisible in vendor-specific advisories.</div>
-    </div>
-  </div>
-  <div class="section-text" style="margin-top: 28px;">
-    <p>FaultLine closes this gap by re-classifying and enriching public vulnerability data specifically through a Physical AI lens: mapping every CVE to a Physical AI domain and attack surface, reconstructing plausible attack chains, and describing the physical-world consequence — so that manufacturers, researchers, red teams, and defenders can reason about robot and embodied AI security the way they already reason about IT security.</p>
-  </div>
-</section>
+</div>
 
-<!-- HOW SECTION -->
-<section class="section">
-  <div class="section-label">How</div>
-  <h2 class="section-heading" id="whats-inside">What's inside a record?</h2>
-  <div class="section-text">
-    <p>Each record in <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD/tree/main/CVE-json" target="_blank" rel="noopener" class="press-link" style="color:#39ff14;">CVE-json/</a> is a single enriched vulnerability — a plain CVE re-processed with domain-specific, physical-consequence-first analysis.</p>
-  </div>
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon">[CVE]</div>
-      <div class="feature-title">Core Metadata</div>
-      <div class="feature-desc">cve_id, title, description, CWE, and CVSS score — including CVSS 3.1 and an estimated CVSS 4.0 vector where applicable.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[TAX]</div>
-      <div class="feature-title">Taxonomy</div>
-      <div class="feature-desc">Physical AI domain classification (with confidence + rationale), vendor, product, technical layer, attack surface, and vulnerability class.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[CHN]</div>
-      <div class="feature-title">Attack Chain</div>
-      <div class="feature-desc">Step-by-step reconstructed exploitation path(s) and the resulting physical-world consequence.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[IMP]</div>
-      <div class="feature-title">Impact</div>
-      <div class="feature-desc">CIA impact plus robot_safety_impact and a plain-language list of physical_world_impact scenarios.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[OBS]</div>
-      <div class="feature-title">Security Observations</div>
-      <div class="feature-desc">Root cause, underlying design issue, exploit precondition, and the generalizable security pattern.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">[FIX]</div>
-      <div class="feature-title">Mitigation & Configurations</div>
-      <div class="feature-desc">Patch availability, workaround, fix description, and a full vendor/product/version/platform matrix.</div>
-    </div>
-  </div>
-  <div class="section-text" style="margin-top: 28px;">
-    <p>Example — <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD/blob/main/CVE-json/CVE-2024-0112.pavd.json" target="_blank" rel="noopener" class="press-link" style="color:#39ff14;">CVE-2024-0112</a>, an NVIDIA Jetson/IGX Orin privilege escalation, is classified under <strong style="color:#ccc;">Cross-Domain Components</strong> and <strong style="color:#ccc;">Embodied AI Agent</strong>, with the reconstructed physical consequence:</p>
-  </div>
-  <div class="case-study-consequence" style="max-width: 680px; margin-top: 4px;">"Attacker can manipulate perception models, motion planning outputs, or disable safety inference, causing dangerous physical behavior in the robot."</div>
-</section>
-
-<!-- ATTACK SURFACE COVERAGE -->
-<section class="section">
-  <div class="section-label">// attack surface &amp; supply chain coverage</div>
-  <h2 class="section-heading">Sliced by where the flaw lives</h2>
-  <div class="section-text">
-    <p>Beyond top-level domains, every record is tagged with a <code style="color:#39ff14;">technical_layer</code>, so risk can be sliced by where in the stack a flaw actually lives — this is what makes FaultLine useful for supply-chain and SBOM triage, not just "which robot is affected":</p>
-    <p style="color:#ccc;">Middleware / Communication Layer (54, e.g. ROS 2 / DDS / MAVLink) &middot; Network / Connectivity (48) &middot; Hardware / Firmware (42) &middot; Robot OS / Development Tools (37) &middot; Physical AI Infrastructure / MLOps (25) &middot; Distribution / Supply Chain (9) &middot; Mobile Companion App (8) &middot; AI/ML Runtime / Inference (7) &middot; AI/ML Training Pipeline (2)</p>
-    <p>Frequently recurring <code style="color:#39ff14;">cross_domain_tags</code> (useful as ready-made detection/threat-hunting labels) include <code style="color:#ccc;">ROS2</code>, <code style="color:#ccc;">DDS</code>, <code style="color:#ccc;">PX4</code>, <code style="color:#ccc;">ai-agent-framework</code>, <code style="color:#ccc;">RPA</code>, <code style="color:#ccc;">supply-chain</code>, <code style="color:#ccc;">mass-fleet-attack</code>, and <code style="color:#ccc;">map-tampering</code>.</p>
-    <p style="opacity:0.7; font-size: 13px;">Technical-layer figures above are from the project's published snapshot (not present in the lightweight <code>index.json</code> index); domain and severity counts elsewhere on this page are computed live from <code>index.json</code>.</p>
-  </div>
-</section>
-
-<!-- CASE STUDIES -->
-<section class="section">
-  <div class="section-label">Case Studies</div>
-  <h2 class="section-heading">From CVSS score to physical consequence</h2>
-  <div class="section-text">
-    <p>Two examples of how FaultLine turns a generic advisory into a physical-consequence-first record.</p>
-  </div>
-  <div class="case-study-grid">
-    <div class="case-study-card">
-      <div class="case-study-cve">CVE-2024-9876 &middot; CVSS 7.3 HIGH</div>
-      <div class="case-study-title">ABB ANC Navigation Controller — Modification of Assumed-Immutable Data (CWE-471)</div>
-      <div class="case-study-body">An authenticated attacker on the adjacent network can modify navigation data — maps, waypoints, safety-zone boundaries — that the AMR treats as immutable at runtime.</div>
-      <div class="case-study-consequence">"AMRs using the ANC for navigation receive corrupted map/path data... robots may enter restricted areas, fail to avoid obstacles, or collide with workers or infrastructure."</div>
-    </div>
-    <div class="case-study-card">
-      <div class="case-study-cve">CVE-2026-10557 &middot; CVSS 9.3 CRITICAL</div>
-      <div class="case-study-title">Yarbo Mobile App Hard-Coded MQTT Credentials (CWE-798)</div>
-      <div class="case-study-body">A single set of MQTT broker credentials is hard-coded into every copy of the Yarbo companion app and extractable via APK decompilation — granting wildcard-topic access to the entire global fleet's telemetry and command channels.</div>
-      <div class="case-study-consequence">"Attacker gains real-time visibility and command execution over the entire global Yarbo autonomous lawn mower fleet; can direct robots into unsafe zones near children or pets."</div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="section">
-  <div class="section-label">Comparison</div>
-  <h2 class="section-heading">How FaultLine Differs from NVD / Generic CVE Feeds</h2>
-  <table class="compare-table">
-    <tr>
-      <th>Dimension</th>
-      <th>NVD / generic CVE feed</th>
-      <th>FaultLine</th>
-    </tr>
-    <tr>
-      <td>Technical depth</td>
-      <td>Description + CVSS score</td>
-      <td class="faultline-col">+ reconstructed attack path, physical_consequence, robot_safety_impact</td>
-    </tr>
-    <tr>
-      <td>Domain focus</td>
-      <td>Generic, no product-class context</td>
-      <td class="faultline-col">Explicit Physical AI domain + technical_layer tagging (middleware, firmware, MLOps, companion app, cloud, ...)</td>
-    </tr>
-    <tr>
-      <td>Actionability</td>
-      <td>Reader must infer exploitation path and mitigation</td>
-      <td class="faultline-col">Attack chain and mitigation direction are pre-written</td>
-    </tr>
-    <tr>
-      <td>Supply-chain lens</td>
-      <td>Limited</td>
-      <td class="faultline-col">Explicitly covers companion apps, middleware (ROS 2/DDS), cloud MQTT/OTA channels, and shared component fan-out across vendors</td>
-    </tr>
-  </table>
-</section>
-
-<!-- WHO USES IT -->
-<section class="section">
-  <div class="section-label">Use Cases</div>
-  <h2 class="section-heading">Who uses FaultLine?</h2>
-  <div class="section-text">
-    <p>FaultLine is designed to serve every stakeholder who needs to reason about security risk across the Physical AI lifecycle — from the engineer writing robot firmware to the regulator drafting the next AI safety standard.</p>
-  </div>
-  <div style="overflow-x: auto; max-width: 1000px;">
-  <table class="compare-table">
-    <tr>
-      <th>User Role</th>
-      <th>Scenario</th>
-      <th>How FaultLine Helps</th>
-      <th>Business Value</th>
-    </tr>
-    <tr>
-      <td>Robot Manufacturer</td>
-      <td>Assess newly disclosed vulnerabilities affecting products</td>
-      <td>Quickly identify affected robot models, AI components, firmware versions, attack surfaces, and mitigation guidance</td>
-      <td>Reduce vulnerability analysis time and accelerate patch deployment</td>
-    </tr>
-    <tr>
-      <td>Product Security Incident Response Team (PSIRT)</td>
-      <td>Analyze and respond to reported security issues</td>
-      <td>Provide enriched CVE information including root cause, attack path, references, exploit status, and remediation recommendations</td>
-      <td>Improve incident response efficiency and vulnerability prioritization</td>
-    </tr>
-    <tr>
-      <td>Threat Intelligence Team</td>
-      <td>Monitor emerging threats targeting Physical AI systems</td>
-      <td>Correlate CVEs with attack surfaces, AI pipelines, threat actors, exploit techniques, and related vulnerabilities</td>
-      <td>Generate actionable threat intelligence and proactive risk assessments</td>
-    </tr>
-    <tr>
-      <td>Security Researcher</td>
-      <td>Conduct vulnerability research and discover attack trends</td>
-      <td>Access enriched technical analysis, architecture mapping, related research papers, PoCs, and exploit references</td>
-      <td>Accelerate research and identify new attack vectors</td>
-    </tr>
-    <tr>
-      <td>Penetration Tester / Red Team</td>
-      <td>Plan offensive security assessments</td>
-      <td>Search vulnerabilities by robot platform, middleware, communication protocol, AI component, or sensor</td>
-      <td>Build realistic attack chains and prioritize high-impact testing scenarios</td>
-    </tr>
-    <tr>
-      <td>SOC / MDR Team</td>
-      <td>Develop detection and monitoring capabilities</td>
-      <td>Understand attack paths, indicators, affected protocols, and potential detection opportunities</td>
-      <td>Improve monitoring coverage and detection accuracy</td>
-    </tr>
-    <tr>
-      <td>AI Safety Team</td>
-      <td>Evaluate security risks across AI pipelines</td>
-      <td>Identify vulnerabilities affecting perception, planning, localization, manipulation, foundation models, and decision-making systems</td>
-      <td>Strengthen AI safety validation and reduce operational risks</td>
-    </tr>
-    <tr>
-      <td>Robot Software Developer</td>
-      <td>Secure software during development</td>
-      <td>Review historical vulnerabilities, secure coding references, mitigation guidance, and affected software versions</td>
-      <td>Prevent recurring security issues and improve software quality</td>
-    </tr>
-    <tr>
-      <td>System Integrator</td>
-      <td>Assess third-party components before deployment</td>
-      <td>Evaluate vulnerabilities across sensors, middleware, AI frameworks, operating systems, and hardware components</td>
-      <td>Reduce supply chain security risks</td>
-    </tr>
-    <tr>
-      <td>Supply Chain Security Team</td>
-      <td>Assess supplier security posture</td>
-      <td>Determine whether vendors are affected by known Physical AI vulnerabilities and verify mitigation status</td>
-      <td>Improve vendor risk management and procurement decisions</td>
-    </tr>
-    <tr>
-      <td>Risk Management Team</td>
-      <td>Perform product cybersecurity risk assessments</td>
-      <td>Map vulnerabilities to attack surfaces, physical impacts, and affected operational environments</td>
-      <td>Support enterprise risk analysis and investment decisions</td>
-    </tr>
-    <tr>
-      <td>Compliance & Regulatory Team</td>
-      <td>Demonstrate cybersecurity due diligence</td>
-      <td>Use vulnerability intelligence to support compliance with ISO/SAE 21434, IEC 62443, NIST CSF, EU CRA, and future AI regulations</td>
-      <td>Simplify compliance documentation and audit preparation</td>
-    </tr>
-    <tr>
-      <td>Academic Researcher</td>
-      <td>Study Physical AI security</td>
-      <td>Explore categorized vulnerabilities, attack taxonomy, exploit trends, and references to academic publications</td>
-      <td>Facilitate high-quality academic research and collaboration</td>
-    </tr>
-    <tr>
-      <td>University Instructor</td>
-      <td>Teach robot cybersecurity courses</td>
-      <td>Use real-world vulnerability cases, attack paths, mitigation strategies, and architecture diagrams</td>
-      <td>Improve cybersecurity education using practical examples</td>
-    </tr>
-    <tr>
-      <td>Open Source Maintainer</td>
-      <td>Secure robotics frameworks and AI libraries</td>
-      <td>Track vulnerabilities affecting ROS, ROS 2, DDS, AI frameworks, and related open-source components</td>
-      <td>Improve ecosystem security and community collaboration</td>
-    </tr>
-    <tr>
-      <td>Cyber Insurance Provider</td>
-      <td>Evaluate cyber risk for Physical AI products</td>
-      <td>Assess vulnerability exposure, exploit maturity, physical impact, and remediation readiness</td>
-      <td>Improve cyber insurance underwriting and risk modeling</td>
-    </tr>
-    <tr>
-      <td>Government / National CERT</td>
-      <td>Track vulnerabilities impacting national infrastructure</td>
-      <td>Monitor vulnerabilities affecting industrial robots, autonomous systems, healthcare robots, drones, and critical AI infrastructure</td>
-      <td>Support national cyber defense and coordinated vulnerability disclosure</td>
-    </tr>
-    <tr>
-      <td>OEM / Automotive Manufacturer</td>
-      <td>Assess cybersecurity risks in AI-powered vehicles</td>
-      <td>Identify vulnerabilities affecting onboard AI, ADAS, autonomous driving stacks, robotics platforms, and edge AI systems</td>
-      <td>Improve product security throughout the SDV lifecycle</td>
-    </tr>
-    <tr>
-      <td>Digital Twin / Simulation Engineer</td>
-      <td>Validate security before physical deployment</td>
-      <td>Map vulnerabilities into simulation environments to reproduce attack scenarios and verify mitigations</td>
-      <td>Reduce deployment risks through virtual security validation</td>
-    </tr>
-  </table>
-  </div>
-</section>
-
-<!-- RECOMMENDED WORKFLOW -->
-<section class="section">
-  <div class="section-label">Recommended Workflow</div>
-  <h2 class="section-heading">Working FaultLine into your process</h2>
-  <div class="section-text">
-    <p>A few concrete ways to work FaultLine into an existing process, derived from the enrichment fields above.</p>
-  </div>
-  <div class="workflow-list">
-    <div class="workflow-item">
-      <div class="workflow-num">01</div>
-      <div class="workflow-body"><strong>Design-time safety-boundary review.</strong> Filter by attack_surface + technical_layer for your product class (e.g. "adjacent network + authenticated low-privilege → modifies navigation/safety data") and turn recurring patterns into architecture requirements — e.g. safety-critical data must have cryptographic integrity protection and separated write privileges. Feed the attack_chain into a red-team script and reproduce the behavioral deviation in simulation (e.g. Isaac Sim) or on hardware.</div>
-    </div>
-    <div class="workflow-item">
-      <div class="workflow-num">02</div>
-      <div class="workflow-body"><strong>Supply-chain / SBOM triage.</strong> Filter by domain + vendor + product for third-party navigation controllers, ROS 2 packages, MQTT brokers, or companion apps you're integrating — prioritize by physical_consequence, not raw CVSS. A hard-coded-credential pattern like Yarbo's should trigger a design decision (per-device certificates, short-lived tokens) wherever a similar cloud-command channel exists in your own stack.</div>
-    </div>
-    <div class="workflow-item">
-      <div class="workflow-num">03</div>
-      <div class="workflow-body"><strong>Pre-deployment security testing & continuous monitoring.</strong> Convert an attack_chain directly into a penetration-test script (e.g. "unpack companion app → extract broker credentials → command a target serial number"). Map technical_layer and physical_consequence against your threat model's attack layers (physical / perception / AI model / wireless / cloud) to check for coverage gaps.</div>
-    </div>
-    <div class="workflow-item">
-      <div class="workflow-num">04</div>
-      <div class="workflow-body"><strong>Threat hunting & incident response.</strong> Use cross_domain_tags (mass-fleet-attack, map-tampering, ros2-authentication, ...) to seed detection rules; when a new advisory shares an attack surface with an existing FaultLine record (e.g. hard-coded credentials, unauthenticated physical port, writable navigation data), reuse its physical_consequence to triage worst-case impact immediately.</div>
-    </div>
-    <div class="workflow-item">
-      <div class="workflow-num">05</div>
-      <div class="workflow-body"><strong>Academic and open-source research.</strong> Use attack_chain and physical_world_impact as grounded, real-world case material instead of purely theoretical attacks; compare root_cause across domains (AMR vs. humanoid vs. service robot) to surface cross-domain patterns (e.g. "safety-critical data treated as ordinary writable data"). Contribute enrichment for newly found issues back via pull request.</div>
-    </div>
-    <div class="workflow-item">
-      <div class="workflow-num">06</div>
-      <div class="workflow-body"><strong>Risk communication to non-technical stakeholders.</strong> Translate "CVSS 7.3" into "this could let an AMR collide with a warehouse worker" for product, legal, insurance, and customer-facing conversations — and cite systematic Physical-AI-specific coverage in whitepapers, investor materials, or customer security assurances.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ROADMAP -->
-<section class="section">
-  <div class="section-label">Roadmap</div>
-  <h2 class="section-heading">What's next</h2>
-  <div class="section-text">
-    <ul style="margin:0; padding-left: 18px; line-height: 2;">
-      <li>Broader zero-day and recently-disclosed advisory enrichment across all Physical AI domains.</li>
-      <li>Coverage of AI-model-specific attack classes: adversarial examples against perception models, training-data/model poisoning, and backdoors in Vision-Language-Action (VLA) foundation models used for robot control.</li>
-      <li>Continued index/site sync improvements for the <a href="https://physicalaivulnerabilitydatabase.github.io/PA_VD/" target="_blank" rel="noopener" class="press-link" style="color:#39ff14;">Vulnerability Explorer</a>.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- REPOSITORY STRUCTURE & GETTING STARTED -->
-<section class="section">
-  <div class="section-label">For Developers</div>
-  <h2 class="section-heading">Repository structure & getting started</h2>
-  <div class="section-text">
-    <p>Repository structure:</p>
-  </div>
-  <div class="code-block">FaultLine/
-<span class="accent">├── CVE-json/</span>            <span class="comment"># One enriched *.pavd.json record per CVE (the source of truth)</span>
-<span class="accent">├── index.json</span>           <span class="comment"># Lightweight generated index (cve_id, title, severity, domains, vendors, tags)</span>
-<span class="accent">├── generate_index.py</span>    <span class="comment"># Rebuilds index.json by scanning CVE-json/</span>
-<span class="accent">├── index.html</span>           <span class="comment"># Vulnerability Explorer — search & filter UI (GitHub Pages)</span>
-└── <span class="accent">app.js</span>              <span class="comment"># Explorer front-end logic</span></div>
-  <div class="section-text" style="margin-top: 28px;">
-    <p>Getting started:</p>
-  </div>
-  <div class="code-block"><span class="comment"># Clone the repo</span>
-git clone git@github.com:PhysicalAIVulnerabilityDatabase/PA_VD.git
-cd PA_VD
-
-<span class="comment"># Rebuild index.json after adding/editing records in CVE-json/</span>
-pip install tqdm
-python3 generate_index.py
-
-<span class="comment"># Browse the Explorer locally</span>
-python3 -m http.server 8000
-<span class="comment"># then open http://localhost:8000/index.html</span></div>
-</section>
-
-<!-- CONTRIBUTING -->
-<section class="section">
-  <div class="section-label">Contributing</div>
-  <h2 class="section-heading">Add a new record</h2>
-  <div class="section-text">
-    <p>New vulnerability records are welcome. To add one:</p>
-    <ol style="margin:0; padding-left: 18px; line-height: 2;">
-      <li>Create <code style="color:#39ff14;">CVE-json/&lt;CVE-ID&gt;.pavd.json</code> following the schema outlined in <a href="#whats-inside" style="color:#39ff14;text-decoration:none;border-bottom:1px solid rgba(57,255,20,0.3);">What's Inside</a> — use an existing record (e.g. <code style="color:#39ff14;">CVE-2024-0112.pavd.json</code>) as a template.</li>
-      <li>Fill in <code style="color:#39ff14;">taxonomy.physical_ai_domain</code> with a confidence score and a short rationale for each applicable domain.</li>
-      <li>Reconstruct at least one plausible <code style="color:#39ff14;">attack_chain</code> and describe the <code style="color:#39ff14;">physical_consequence</code>.</li>
-      <li>Run <code style="color:#39ff14;">python3 generate_index.py</code> to regenerate <code style="color:#39ff14;">index.json</code>.</li>
-      <li>Open a pull request.</li>
-    </ol>
-    <p style="margin-top: 16px;">Please cite primary sources (NVD, vendor advisories, GitHub Security Advisories) in the source field, and avoid speculative exploit details beyond what is publicly documented.</p>
-  </div>
-</section>
-
-<!-- DISCLAIMER & LICENSE -->
-<section class="section" style="border-bottom: none;">
-  <div class="section-label">Disclaimer & License</div>
-  <div class="section-text">
-    <p><strong style="color:#ccc;">Disclaimer.</strong> FaultLine aggregates and re-classifies publicly disclosed vulnerability information for defensive research, risk assessment, and education. Attack-chain reconstructions and physical-impact scenarios are analytical interpretations, not verified exploit demonstrations. This project does not publish or endorse offensive use against systems without authorization.</p>
-    <p><strong style="color:#ccc;">License.</strong> See individual advisories for source attribution. Unless otherwise noted, the curated taxonomy, enrichment, and tooling in the repository are provided for research and educational use.</p>
-  </div>
-</section>
 
 <!-- CTA SECTION -->
 <section class="cta-section">
@@ -780,45 +283,247 @@ python3 -m http.server 8000
   <p>Robotic Hacking Community — Research-driven security for Physical AI. <a href="mailto:robotichackingcommunity@proton.me" style="color: #39ff14; text-decoration: none;">Contact us</a>.</p>
 </footer>
 
+
 <script>
-// FaultLine records live in the PA_VD repo; index.json is the source of truth
-// for the numbers below. The numbers in the markup are the fallback shown if
-// the fetch fails.
 (function () {
-  var SOURCES = [
-    'https://physicalaivulnerabilitydatabase.github.io/PA_VD/index.json',
-    'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/index.json'
-  ];
+  // FaultLine records live in the PA_VD repo; GitHub Pages first, raw files as the fallback.
+  var BASE = 'https://physicalaivulnerabilitydatabase.github.io/PA_VD/';
+  var SOURCES = [BASE, 'https://raw.githubusercontent.com/PhysicalAIVulnerabilityDatabase/PA_VD/main/'];
+  var all = [], current = [], timer, lastFocus = null;
+  var SEV_ORDER = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'];
 
-  function load(i) {
+  function $(id) { return document.getElementById(id); }
+  function esc(v) {
+    return String(v == null ? '' : v).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function sevClass(s) {
+    var k = String(s || '').toLowerCase();
+    return ['critical', 'high', 'medium', 'low'].indexOf(k) > -1 ? 'sev-' + k : 'sev-unknown';
+  }
+  function highlight(text, kw) {
+    text = String(text || '');
+    if (!kw) return esc(text);
+    var lower = text.toLowerCase(), out = '', i = 0, j;
+    while ((j = lower.indexOf(kw, i)) !== -1) {
+      out += esc(text.slice(i, j)) + '<span class="ex-hl">' + esc(text.slice(j, j + kw.length)) + '</span>';
+      i = j + kw.length;
+    }
+    return out + esc(text.slice(i));
+  }
+  function pretty(k) { return String(k).replace(/_/g, ' '); }
+  function getJSON(path, i) {
+    i = i || 0;
     if (i >= SOURCES.length) return Promise.reject(new Error('unavailable'));
-    return fetch(SOURCES[i]).then(function (res) {
-      if (!res.ok) throw new Error(res.status);
-      return res.json();
-    }).catch(function () { return load(i + 1); });
+    return fetch(SOURCES[i] + path, { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    }).catch(function () { return getJSON(path, i + 1); });
   }
 
-  function countBy(list, key) {
-    var counts = {};
-    list.forEach(function (r) {
-      [].concat(r[key] || []).forEach(function (v) { counts[v] = (counts[v] || 0) + 1; });
-    });
-    return Object.keys(counts).map(function (k) { return [k, counts[k]]; })
-      .sort(function (a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); });
+  function loadIndex() {
+    getJSON('index.json')
+      .then(function (data) {
+        all = Array.isArray(data) ? data : [];
+        $('ex-status').style.display = 'none';
+        renderFilters();
+        apply();
+      })
+      .catch(function () {
+        $('ex-status').innerHTML = 'Could not load the database right now. <a href="' + BASE + '" target="_blank" rel="noopener">Open the FaultLine Explorer &#8599;</a>';
+      });
   }
 
-  load(0).then(function (data) {
-    var records = (Array.isArray(data) ? data : []).filter(function (r) { return r && r.cve_id; });
-    if (!records.length) return;
-    var sev = {};
-    countBy(records, 'severity').forEach(function (p) { sev[p[0]] = p[1]; });
-    document.querySelectorAll('[data-stat]').forEach(function (el) {
-      var key = el.getAttribute('data-stat');
-      el.textContent = key === 'total' ? records.length : (sev[key] || 0);
+  function countBy(list) {
+    var m = {};
+    list.forEach(function (v) { m[v] = (m[v] || 0) + 1; });
+    return m;
+  }
+  function filterHtml(group, entries) {
+    return entries.map(function (e) {
+      return '<label><input type="checkbox" data-group="' + group + '" value="' + esc(e[0]) + '"><span>' + esc(e[0]) + '</span><span class="n">' + e[1] + '</span></label>';
+    }).join('');
+  }
+  function renderFilters() {
+    var dom = countBy([].concat.apply([], all.map(function (i) { return i.domains || []; })));
+    var ven = countBy([].concat.apply([], all.map(function (i) { return i.vendors || []; })));
+    var sev = countBy(all.map(function (i) { return i.severity; }).filter(Boolean));
+    var alpha = function (a, b) { return a[0].toLowerCase() < b[0].toLowerCase() ? -1 : 1; };
+    var sevRank = function (a, b) {
+      var x = SEV_ORDER.indexOf(a[0]), y = SEV_ORDER.indexOf(b[0]);
+      return (x < 0 ? 99 : x) - (y < 0 ? 99 : y);
+    };
+    $('ex-domain').innerHTML = filterHtml('domain', Object.entries(dom).sort(alpha));
+    $('ex-vendor').innerHTML = filterHtml('vendor', Object.entries(ven).sort(alpha));
+    $('ex-severity').innerHTML = filterHtml('severity', Object.entries(sev).sort(sevRank));
+  }
+  function selected(group) {
+    return Array.prototype.map.call(document.querySelectorAll('input[data-group="' + group + '"]:checked'), function (el) { return el.value; });
+  }
+
+  function apply() {
+    var kw = $('ex-keyword').value.toLowerCase().trim();
+    var d = selected('domain'), v = selected('vendor'), s = selected('severity');
+    current = all.filter(function (it) {
+      if (kw) {
+        var hay = [it.cve_id, it.title, (it.domains || []).join(' '), (it.vendors || []).join(' '), (it.tags || []).join(' '), it.severity].join(' ').toLowerCase();
+        if (hay.indexOf(kw) === -1) return false;
+      }
+      if (d.length && !d.some(function (x) { return (it.domains || []).indexOf(x) > -1; })) return false;
+      if (v.length && !v.some(function (x) { return (it.vendors || []).indexOf(x) > -1; })) return false;
+      if (s.length && s.indexOf(it.severity) === -1) return false;
+      return true;
     });
-    document.getElementById('vdb-top-domains').textContent = countBy(records, 'domains').slice(0, 9)
-      .map(function (p) { return p[0] + ' (' + p[1] + ')'; }).join(' · ');
-  }).catch(function () { /* keep the static numbers */ });
+    $('ex-count').textContent = current.length;
+    render(kw);
+  }
+
+  function render(kw) {
+    if (!current.length) {
+      $('ex-grid').innerHTML = '<div class="ex-status" style="grid-column:1/-1">No matching vulnerabilities found</div>';
+      return;
+    }
+    $('ex-grid').innerHTML = current.map(function (it) {
+      var meta = [];
+      if (it.vendors && it.vendors.length) meta.push(esc(it.vendors.slice(0, 2).join(', ')));
+      if (it.published) meta.push(esc(it.published));
+      var score = it.score != null && it.score !== '' ? ' ' + esc(it.score) : '';
+      return '<button type="button" class="ex-card" data-id="' + esc(it.cve_id) + '">' +
+        '<div class="ex-card-top"><span class="ex-cve">' + highlight(it.cve_id, kw) + '</span>' +
+        '<span class="ex-sev ' + sevClass(it.severity) + '">' + esc(it.severity || 'Unknown') + score + '</span></div>' +
+        '<div class="ex-title">' + highlight(it.title, kw) + '</div>' +
+        (meta.length ? '<div class="ex-meta">' + meta.join(' &middot; ') + '</div>' : '') +
+        '</button>';
+    }).join('');
+  }
+
+  /* ---------- detail view ---------- */
+  function linkify(text) {
+    return esc(text).replace(/(https?:\/\/[^\s<]+)/g, function (u) {
+      return '<a href="' + u + '" target="_blank" rel="noopener">' + u + '</a>';
+    });
+  }
+  function isPrim(x) { return x === null || typeof x !== 'object'; }
+  function val(v) {
+    if (v === null || v === undefined || v === '') return '<span style="color:#555">&mdash;</span>';
+    if (typeof v === 'string') return linkify(v);
+    if (typeof v !== 'object') return esc(v);
+    if (Array.isArray(v)) {
+      if (!v.length) return '<span style="color:#555">&mdash;</span>';
+      if (v.every(isPrim)) {
+        if (v.every(function (x) { return String(x).length <= 36; })) {
+          return '<div class="ex-chips">' + v.map(function (x) { return '<span class="ex-chip">' + esc(x) + '</span>'; }).join('') + '</div>';
+        }
+        return '<ul>' + v.map(function (x) { return '<li>' + val(x) + '</li>'; }).join('') + '</ul>';
+      }
+      return v.map(function (x) { return isPrim(x) ? '<div>' + val(x) + '</div>' : '<div class="ex-obj">' + val(x) + '</div>'; }).join('');
+    }
+    return '<dl>' + Object.keys(v).map(function (k) {
+      return '<dt>' + esc(pretty(k)) + '</dt><dd>' + val(v[k]) + '</dd>';
+    }).join('') + '</dl>';
+  }
+
+  var SECTIONS = [
+    ['description', 'Description'], ['taxonomy', 'Taxonomy'], ['attack_chain', 'Attack Chain'],
+    ['impact', 'Impact'], ['security_observations', 'Security Observations'], ['mitigation', 'Mitigation'],
+    ['affected_configurations', 'Affected Configurations'], ['cvss', 'CVSS'], ['cwe', 'Weakness (CWE)'],
+    ['vendor_response', 'Vendor Response'], ['source', 'Sources'], ['cross_domain_tags', 'Cross-Domain Tags'],
+    ['keywords', 'Keywords']
+  ];
+  var SKIP = { cve_id: 1, title: 1, published: 1, last_modified: 1, vuln_status: 1, reporter: 1, mapping_to_pavt: 1, pavt_classification_version: 1 };
+
+  function detailHtml(it, d) {
+    var sev = (d.cvss && d.cvss.severity) || it.severity, score = (d.cvss && d.cvss.score != null) ? d.cvss.score : it.score;
+    var meta = [];
+    if (d.published || it.published) meta.push('Published ' + esc(d.published || it.published));
+    if (d.last_modified) meta.push('Updated ' + esc(d.last_modified));
+    if (d.vuln_status) meta.push(esc(d.vuln_status));
+    var html = '<div class="ex-d-head"><span class="ex-cve" style="font-size:16px">' + esc(it.cve_id) + '</span>' +
+      '<span class="ex-sev ' + sevClass(sev) + '">' + esc(sev || 'Unknown') + (score != null && score !== '' ? ' ' + esc(score) : '') + '</span></div>' +
+      '<h2 class="ex-d-title" id="ex-d-title">' + esc(d.title || it.title) + '</h2>' +
+      (meta.length ? '<div class="ex-d-meta">' + meta.join(' &middot; ') + '</div>' : '');
+    var used = {};
+    SECTIONS.forEach(function (s) {
+      used[s[0]] = 1;
+      if (d[s[0]] == null || d[s[0]] === '' || (Array.isArray(d[s[0]]) && !d[s[0]].length)) return;
+      html += '<div class="ex-d-sec"><div class="ex-label">// ' + esc(s[1]) + '</div><div class="ex-d-body">' + val(d[s[0]]) + '</div></div>';
+    });
+    Object.keys(d).forEach(function (k) {
+      if (used[k] || SKIP[k] || d[k] == null || d[k] === '') return;
+      html += '<div class="ex-d-sec"><div class="ex-label">// ' + esc(pretty(k)) + '</div><div class="ex-d-body">' + val(d[k]) + '</div></div>';
+    });
+    html += '<div class="ex-d-sec ex-raw"><details><summary>View raw JSON</summary><pre>' + esc(JSON.stringify(d, null, 2)) + '</pre></details></div>';
+    return html;
+  }
+
+  function openDetail(id) {
+    var it = all.filter(function (x) { return x.cve_id === id; })[0];
+    if (!it) return;
+    lastFocus = document.activeElement;
+    $('ex-detail').innerHTML = '<div class="ex-d-head"><span class="ex-cve">' + esc(it.cve_id) + '</span></div><h2 class="ex-d-title" id="ex-d-title">' + esc(it.title) + '</h2><div class="ex-status">Loading details…</div>';
+    $('ex-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    $('ex-close').focus();
+    var file = it.file_name || (it.cve_id + '.pavd.json');
+    getJSON('CVE-json/' + encodeURIComponent(file))
+      .then(function (d) { if ($('ex-modal').classList.contains('open')) $('ex-detail').innerHTML = detailHtml(it, d); })
+      .catch(function () {
+        $('ex-detail').innerHTML = '<div class="ex-d-head"><span class="ex-cve">' + esc(it.cve_id) + '</span></div><h2 class="ex-d-title" id="ex-d-title">' + esc(it.title) + '</h2>' +
+          '<div class="ex-status">Could not load the full record. <a href="https://github.com/PhysicalAIVulnerabilityDatabase/PA_VD/blob/main/CVE-json/' + encodeURIComponent(file) + '" target="_blank" rel="noopener">View it on GitHub &#8599;</a></div>';
+      });
+  }
+  function closeDetail() {
+    $('ex-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  /* ---------- export ---------- */
+  function download(content, name, type) {
+    var url = URL.createObjectURL(new Blob([content], { type: type }));
+    var a = document.createElement('a');
+    a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+  function stamp() { return new Date().toISOString().slice(0, 10); }
+  function csvCell(v) {
+    var t = String(v == null ? '' : v);
+    if (/^[=+\-@\t\r]/.test(t)) t = "'" + t;
+    return '"' + t.replace(/"/g, '""') + '"';
+  }
+  function exportJSON() {
+    if (!current.length) return alert('No data to export');
+    download(JSON.stringify(current, null, 2), 'faultline_export_' + stamp() + '.json', 'application/json');
+  }
+  function exportCSV() {
+    if (!current.length) return alert('No data to export');
+    var rows = ['CVE ID,Title,Score,Severity,Published,Domains,Vendors,Tags'];
+    current.forEach(function (i) {
+      rows.push([i.cve_id, i.title, i.score, i.severity, i.published, (i.domains || []).join('; '), (i.vendors || []).join('; '), (i.tags || []).join('; ')].map(csvCell).join(','));
+    });
+    download(rows.join('\n'), 'faultline_export_' + stamp() + '.csv', 'text/csv');
+  }
+
+  /* ---------- wiring ---------- */
+  $('ex-keyword').addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(apply, 180); });
+  document.querySelector('.ex-sidebar').addEventListener('change', function (e) { if (e.target.matches('input[type="checkbox"]')) apply(); });
+  $('ex-reset').addEventListener('click', function () {
+    $('ex-keyword').value = '';
+    Array.prototype.forEach.call(document.querySelectorAll('.ex-sidebar input[type="checkbox"]'), function (c) { c.checked = false; });
+    apply();
+  });
+  $('ex-grid').addEventListener('click', function (e) {
+    var card = e.target.closest('.ex-card');
+    if (card) openDetail(card.getAttribute('data-id'));
+  });
+  $('ex-close').addEventListener('click', closeDetail);
+  $('ex-modal').addEventListener('click', function (e) { if (e.target === $('ex-modal')) closeDetail(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && $('ex-modal').classList.contains('open')) closeDetail(); });
+  $('ex-json').addEventListener('click', exportJSON);
+  $('ex-csv').addEventListener('click', exportCSV);
+
+  loadIndex();
 })();
 </script>
 
