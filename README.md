@@ -8,7 +8,8 @@ A plain HTML/CSS static site with no build tools or backend dependencies.
 
 ```
 index.html              Home
-vuln-db.html            FaultLine vulnerability database explorer
+physical-ai-vulnerability-database.html
+                        FaultLine vulnerability database explorer
 research-hub.html       Research Hub (coming soon)
 open-source-badge.html  RHC open-source badge
 def-con-34.html         DEF CON 34 recap, links to the event pages below
@@ -22,7 +23,7 @@ images/                 Images and favicon assets
 CNAME                   Custom domain config (GitHub Pages)
 ```
 
-FaultLine records are not stored here: `vuln-db.html` is a search/filter
+FaultLine records are not stored here: `physical-ai-vulnerability-database.html` is a search/filter
 explorer that fetches `index.json` from the
 [PA_VD repo](https://github.com/robotichackingcommunity/PA_VD) at page
 load, and each record's `CVE-json/*.pavd.json` when its detail is opened
