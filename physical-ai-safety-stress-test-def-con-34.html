@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<title>VicOne Brings Physical AI Safety Stress Test to DEF CON 34 to Test How Cyber Risk Can Change Robot Behavior — Robotic Hacking Community</title>
+<meta name="description" content="Digital twin CTF challenge helps robotics makers and operators identify cyber-to-safety risks through Physical AI security scenarios before deployment.">
+<meta name="author" content="VicOne">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://robotichackingcommunity.com/physical-ai-safety-stress-test-def-con-34.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Robotic Hacking Community">
+<meta property="og:title" content="VicOne Brings Physical AI Safety Stress Test to DEF CON 34 to Test How Cyber Risk Can Change Robot Behavior">
+<meta property="og:description" content="Digital twin CTF challenge helps robotics makers and operators identify cyber-to-safety risks through Physical AI security scenarios before deployment.">
+<meta property="og:url" content="https://robotichackingcommunity.com/physical-ai-safety-stress-test-def-con-34.html">
+<meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
+<meta property="article:published_time" content="2026-07-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VicOne Brings Physical AI Safety Stress Test to DEF CON 34 to Test How Cyber Risk Can Change Robot Behavior">
+<meta name="twitter:description" content="Digital twin CTF challenge helps robotics makers and operators identify cyber-to-safety risks through Physical AI security scenarios before deployment.">
+<meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 64px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
+  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; margin-bottom: 40px; }
+  .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .intro-text p { margin-bottom: 16px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+
+  /* PRESS FEED */
+  .press-feed { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .press-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 32px; opacity: 0.8; text-transform: uppercase; }
+  
+  /* PRESS ITEM */
+  .press-item {
+    max-width: 680px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.08);
+  }
+  .press-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .press-meta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .press-date {
+    color: #39ff14;
+    font-weight: 700;
+  }
+  .press-headline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .press-subheading {
+    font-size: 13px;
+    color: #39ff14;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+  }
+  .press-body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #999;
+    margin-bottom: 16px;
+  }
+  .press-body p {
+    margin-bottom: 12px;
+  }
+  .press-body p:last-child {
+    margin-bottom: 0;
+  }
+  .press-byline {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  /* PRESS LINK */
+  .press-link {
+    color: #39ff14;
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid rgba(57,255,20,0.3);
+  }
+  .press-link:hover {
+    color: #fff;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid rgba(57,255,20,0.1);
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+    .page-header { padding: 48px 24px 40px; }
+    .page-title { font-size: 48px; margin-bottom: 24px; }
+    .intro-text { font-size: 14px; }
+    .press-feed { padding: 40px 24px; }
+    .press-headline { font-size: 20px; }
+    .press-meta { flex-direction: column; gap: 8px; }
+  }
+  /* NAV: keep the longer label readable on mid-size screens */
+  @media (max-width: 1200px) and (min-width: 769px) {
+    nav { flex-wrap: wrap; row-gap: 12px; }
+    .nav-logo { flex-shrink: 0; white-space: nowrap; }
+    .nav-links { gap: 12px 24px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { white-space: nowrap; }
+  }
+
+  /* ARTICLE PAGE */
+  .article-page { padding: 48px 48px 56px; }
+  .back-link { display: inline-block; margin-bottom: 32px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #39ff14; text-decoration: none; opacity: 0.85; }
+  .back-link:hover { opacity: 1; }
+  .article-title { max-width: 900px; margin-bottom: 20px; font-family: 'Courier New', Courier, monospace; font-size: 38px; font-weight: 700; line-height: 1.2; color: #fff; }
+  .article-sub { max-width: 760px; margin-bottom: 36px; font-size: 16px; line-height: 1.7; color: #39ff14; }
+  .article-body { max-width: 760px; font-size: 15px; line-height: 1.9; color: #999; }
+  .article-body p { margin-bottom: 18px; }
+  .article-body strong { color: #ddd; }
+  .article-body a, .article-source a { color: #39ff14; text-decoration: none; border-bottom: 1px solid rgba(57,255,20,0.3); overflow-wrap: anywhere; }
+  .article-body a:hover, .article-source a:hover { color: #fff; }
+  .article-body blockquote { margin: 26px 0; padding: 14px 20px; border-left: 2px solid #39ff14; background: rgba(57,255,20,0.04); color: #ccc; }
+  .article-body blockquote p:last-child { margin-bottom: 0; }
+  .article-body h2 { margin: 36px 0 12px; padding-top: 24px; border-top: 1px solid rgba(57,255,20,0.12); font-family: 'Courier New', Courier, monospace; font-size: 16px; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; }
+  .article-body ul, .article-body ol { margin-bottom: 18px; padding-left: 22px; }
+  .article-body li { margin-bottom: 8px; }
+  .article-source { max-width: 760px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(57,255,20,0.15); font-size: 12px; letter-spacing: 0.05em; color: #666; }
+  @media (max-width: 768px) {
+    .article-page { padding: 36px 24px 40px; }
+    .article-title { font-size: 26px; }
+    .article-sub { font-size: 14px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NewsArticle",
+      "@id": "https://robotichackingcommunity.com/physical-ai-safety-stress-test-def-con-34.html#article",
+      "headline": "VicOne Brings Physical AI Safety Stress Test to DEF CON 34 to Test How Cyber Risk Can Change Robot Behavior",
+      "description": "Digital twin CTF challenge helps robotics makers and operators identify cyber-to-safety risks through Physical AI security scenarios before deployment.",
+      "datePublished": "2026-07-07",
+      "dateModified": "2026-07-07",
+      "inLanguage": "en",
+      "articleSection": "Press Release",
+      "author": {
+        "@type": "Organization",
+        "name": "VicOne",
+        "url": "https://vicone.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Robotic Hacking Community",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://robotichackingcommunity.com/images/og-image.png"
+        }
+      },
+      "image": "https://robotichackingcommunity.com/images/og-image.png",
+      "isBasedOn": "https://vicone.com/company/press-releases/vicone-brings-physical-ai-safety-stress-test-to-def-con-34-to-test-how-cyber-risk-can-change-robot-behavior/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://robotichackingcommunity.com/physical-ai-safety-stress-test-def-con-34.html"
+      },
+      "url": "https://robotichackingcommunity.com/physical-ai-safety-stress-test-def-con-34.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-nav.webp" alt="Robotic Hacking Community" class="nav-logo-img" width="144" height="144">
+    [ RHC ]
+  </a>
+  <div class="nav-links">
+    <a href="vuln-db.html">Physical AI Vulnerability Database</a>
+    <a href="research-hub.html">Research Hub</a>
+    <a href="open-source-badge.html">RHC OSS Badge</a>
+    <a href="def-con-34.html">DEF CON 34</a>
+    <a href="news-and-updates.html" class="active">News and Updates</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<article class="article-page">
+  <a href="news-and-updates.html" class="back-link">&larr; News and Updates</a>
+  <div class="eyebrow">Press Release &middot; <time datetime="2026-07-07">July 7, 2026</time></div>
+  <h1 class="article-title">VicOne Brings Physical AI Safety Stress Test to DEF CON 34 to Test How Cyber Risk Can Change Robot Behavior</h1>
+  <p class="article-sub">Digital twin CTF challenge helps robotics makers and operators identify cyber-to-safety risks through Physical AI security scenarios before deployment.</p>
+  <div class="article-body">
+<p><strong>DETROIT and TOKYO, July 7, 2026</strong>—<a href="https://vicone.com/" target="_blank" rel="noopener">VicOne</a>, a Physical AI and automotive cybersecurity solutions leader, today announced it will bring the Physical AI Safety Stress Test to the <a href="index.html">DEF CON 34 Robotic Hacking Community (RHC)</a>. The Physical AI Safety Stress Test is a digital-twin capture the flag (CTF) challenge designed to show how cyber risk can affect what AI-driven robots perceive, decide, and do before those systems operate around people, infrastructure, and mission-critical environments. </p>
+<p>As robots move from controlled demonstrations into factories, warehouses, public spaces, and field operations, safety validation is becoming more complex. AI-driven robots no longer rely only on mechanical design and deterministic control logic. They increasingly depend on sensors, APIs, firmware, middleware, AI models, cloud-connected services, and embodied reasoning systems. </p>
+<p>That shift changes the safety question for robotics makers and operators. A robot does not need a broken motor to become unsafe. It may become unsafe if it receives the wrong signal, follows the wrong instruction, trusts the compromised model, exposes an unprotected wrong interface, or executes an unintended control path. </p>
+<p><a href="https://lab-r7.vicone.com/" target="_blank" rel="noopener">VicOne LAB R7</a> has tracked more than 20 public Physical AI security incidents and vulnerability disclosures over the past 18 months, showing how quickly the robot attack surface is expanding as robots become more autonomous, connected, and AI-driven. </p>
+<p>The Physical AI Safety Stress Test brings that challenge into a controlled digital twin environment. Built like a virtual escape room for AI robots, the hands-on CTF translates real-world Physical AI security scenarios into repeatable missions that test and demonstrate how cyberattacks can move from digital compromise to physical behavior risk. </p>
+<blockquote>
+<p><em>“When large language and vision-language models move into the robot brain, prompt injection is no longer just an AI-output problem. It can become a physical-action problem,”</em> said <strong>Max Cheng, Chief Executive Officer of VicOne</strong>. <em>“That is why robot safety cannot stop at mechanical reliability. As Physical AI systems begin to perceive, reason, and act in the real world, cybersecurity becomes part of the safety case.” </em></p>
+</blockquote>
+<p>The challenge includes hands-on missions across six safety-relevant areas: </p>
+<ul>
+<li>prompt injection targeting robot AI reasoning;</li>
+<li>poisoned AI policy models that alter task behavior;</li>
+<li>adversarial visual inputs targeting embodied perception;</li>
+<li>cloud and API security weaknesses;</li>
+<li>security weaknesses in robotics communication protocols, including ROS 2 and DDS; and</li>
+<li>embedded firmware trust-chain weaknesses.</li>
+</ul>
+<p>Each mission demonstrates how a cyber condition can influence robot perception, decision-making, task execution, operational boundaries, or trust assumptions. The goal is not only to challenge security researchers, but also to help robotics makers and operators identify where safety validation must expand as robots become more autonomous, connected, and AI-driven. </p>
+<p>For manufacturers, cyber-to-safety validation affects product safety cases, pre-deployment testing, customer trust, and post-market monitoring. For operators, it affects site safety, restricted-area control, uptime, incident response, and confidence in autonomous systems operating near workers, equipment, and critical assets. </p>
+<p>The Physical AI Safety Stress Test uses a Real2Sim digital twin built in a physics-based robotics simulator. The environment models the Reachy Mini Lite and LeKiwi mobile manipulator, both of which will also be featured in the RHC show-floor environment. Each team receives an isolated environment accessible through the challenge API, enabling participants to explore Physical AI attack paths without exposing live robots to unsafe conditions. </p>
+<p>By turning emerging attack scenarios into repeatable digital twin validation, VicOne is helping define Physical AI cybersecurity as a foundation for real-world robot safety. Drawing on its automotive cybersecurity, vulnerability research, and cyber-physical risk validation expertise, VicOne is extending its security approach to AI-driven machines, helping robotics manufacturers and operators evaluate cyber-to-safety risk across design, pre-deployment validation, and real-world operations. </p>
+<p>The Physical AI Safety Stress Test will be featured at the <a href="ctf.html">Robotic Hacking Community</a> (RHC) in West Hall 4, Level 1, Room 1309 during DEF CON 34, Aug. 6–9, 2026, at the Las Vegas Convention Center in Las Vegas. The hands-on CTF is limited to a maximum of 80 teams. </p>
+<h2><strong>About VicOne </strong></h2>
+<p>VicOne delivers cybersecurity software and services for the automotive industry, with a vision to secure the vehicles of tomorrow. Purpose-built for automotive manufacturers and suppliers, VicOne helps secure connected and software-defined vehicles across the specialized demands of modern mobility. As a Trend Micro subsidiary, VicOne is powered by more than 30 years of cybersecurity expertise and deep automotive threat intelligence. Through LAB R7, its innovation research lab, VicOne is extending its automotive cybersecurity expertise to Physical AI, with research focused on AI robotics cybersecurity and the security of intelligent systems. For more information, visit <a href="https://lab-r7.vicone.com/" target="_blank" rel="noopener">lab-r7.vicone.com</a>.  </p>
+  </div>
+  <div class="article-source">Source: VicOne &mdash; originally published on vicone.com. <a href="https://vicone.com/company/press-releases/vicone-brings-physical-ai-safety-stress-test-to-def-con-34-to-test-how-cyber-risk-can-change-robot-behavior/" target="_blank" rel="noopener">Read the original &#8599;</a></div>
+  <div class="article-source" style="margin-top:20px;padding-top:0;border-top:none;"><a href="news-and-updates.html">&larr; Back to News and Updates</a></div>
+</article>
+
+<footer>
+  <p>Robotic Hacking Community — Part of the DEF CON village network. <a href="mailto:robotichackingcommunity@proton.me" class="press-link">Contact us</a>.</p>
+</footer>
+
+</body>
+</html>

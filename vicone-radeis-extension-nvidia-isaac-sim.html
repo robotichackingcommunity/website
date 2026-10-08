@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<title>VicOne Turns DEF CON 34 Robot Hacking Research into Free NVIDIA Isaac Sim Extension — Robotic Hacking Community</title>
+<meta name="description" content="The VicOne Radeis Extension for NVIDIA Isaac Sim™ lets robotics teams apply curated cyber-safety attack scenarios to their own robot models and identify potential behavior changes before deployment.">
+<meta name="author" content="VicOne">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://robotichackingcommunity.com/vicone-radeis-extension-nvidia-isaac-sim.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Robotic Hacking Community">
+<meta property="og:title" content="VicOne Turns DEF CON 34 Robot Hacking Research into Free NVIDIA Isaac Sim Extension">
+<meta property="og:description" content="The VicOne Radeis Extension for NVIDIA Isaac Sim™ lets robotics teams apply curated cyber-safety attack scenarios to their own robot models and identify potential behavior changes before deployment.">
+<meta property="og:url" content="https://robotichackingcommunity.com/vicone-radeis-extension-nvidia-isaac-sim.html">
+<meta property="og:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Robotic Hacking Community — DEF CON 34">
+<meta property="article:published_time" content="2026-08-09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VicOne Turns DEF CON 34 Robot Hacking Research into Free NVIDIA Isaac Sim Extension">
+<meta name="twitter:description" content="The VicOne Radeis Extension for NVIDIA Isaac Sim™ lets robotics teams apply curated cyber-safety attack scenarios to their own robot models and identify potential behavior changes before deployment.">
+<meta name="twitter:image" content="https://robotichackingcommunity.com/images/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 64px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
+  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; margin-bottom: 40px; }
+  .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .intro-text p { margin-bottom: 16px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+
+  /* PRESS FEED */
+  .press-feed { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .press-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 32px; opacity: 0.8; text-transform: uppercase; }
+  
+  /* PRESS ITEM */
+  .press-item {
+    max-width: 680px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.08);
+  }
+  .press-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .press-meta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .press-date {
+    color: #39ff14;
+    font-weight: 700;
+  }
+  .press-headline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .press-subheading {
+    font-size: 13px;
+    color: #39ff14;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+  }
+  .press-body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #999;
+    margin-bottom: 16px;
+  }
+  .press-body p {
+    margin-bottom: 12px;
+  }
+  .press-body p:last-child {
+    margin-bottom: 0;
+  }
+  .press-byline {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  /* PRESS LINK */
+  .press-link {
+    color: #39ff14;
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid rgba(57,255,20,0.3);
+  }
+  .press-link:hover {
+    color: #fff;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid rgba(57,255,20,0.1);
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+    .page-header { padding: 48px 24px 40px; }
+    .page-title { font-size: 48px; margin-bottom: 24px; }
+    .intro-text { font-size: 14px; }
+    .press-feed { padding: 40px 24px; }
+    .press-headline { font-size: 20px; }
+    .press-meta { flex-direction: column; gap: 8px; }
+  }
+  /* NAV: keep the longer label readable on mid-size screens */
+  @media (max-width: 1200px) and (min-width: 769px) {
+    nav { flex-wrap: wrap; row-gap: 12px; }
+    .nav-logo { flex-shrink: 0; white-space: nowrap; }
+    .nav-links { gap: 12px 24px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { white-space: nowrap; }
+  }
+
+  /* ARTICLE PAGE */
+  .article-page { padding: 48px 48px 56px; }
+  .back-link { display: inline-block; margin-bottom: 32px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #39ff14; text-decoration: none; opacity: 0.85; }
+  .back-link:hover { opacity: 1; }
+  .article-title { max-width: 900px; margin-bottom: 20px; font-family: 'Courier New', Courier, monospace; font-size: 38px; font-weight: 700; line-height: 1.2; color: #fff; }
+  .article-sub { max-width: 760px; margin-bottom: 36px; font-size: 16px; line-height: 1.7; color: #39ff14; }
+  .article-body { max-width: 760px; font-size: 15px; line-height: 1.9; color: #999; }
+  .article-body p { margin-bottom: 18px; }
+  .article-body strong { color: #ddd; }
+  .article-body a, .article-source a { color: #39ff14; text-decoration: none; border-bottom: 1px solid rgba(57,255,20,0.3); overflow-wrap: anywhere; }
+  .article-body a:hover, .article-source a:hover { color: #fff; }
+  .article-body blockquote { margin: 26px 0; padding: 14px 20px; border-left: 2px solid #39ff14; background: rgba(57,255,20,0.04); color: #ccc; }
+  .article-body blockquote p:last-child { margin-bottom: 0; }
+  .article-body h2 { margin: 36px 0 12px; padding-top: 24px; border-top: 1px solid rgba(57,255,20,0.12); font-family: 'Courier New', Courier, monospace; font-size: 16px; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; }
+  .article-body ul, .article-body ol { margin-bottom: 18px; padding-left: 22px; }
+  .article-body li { margin-bottom: 8px; }
+  .article-source { max-width: 760px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(57,255,20,0.15); font-size: 12px; letter-spacing: 0.05em; color: #666; }
+  @media (max-width: 768px) {
+    .article-page { padding: 36px 24px 40px; }
+    .article-title { font-size: 26px; }
+    .article-sub { font-size: 14px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NewsArticle",
+      "@id": "https://robotichackingcommunity.com/vicone-radeis-extension-nvidia-isaac-sim.html#article",
+      "headline": "VicOne Turns DEF CON 34 Robot Hacking Research into Free NVIDIA Isaac Sim Extension",
+      "description": "The VicOne Radeis Extension for NVIDIA Isaac Sim™ lets robotics teams apply curated cyber-safety attack scenarios to their own robot models and identify potential behavior changes before deployment.",
+      "datePublished": "2026-08-09",
+      "dateModified": "2026-08-09",
+      "inLanguage": "en",
+      "articleSection": "Press Release",
+      "author": {
+        "@type": "Organization",
+        "name": "VicOne",
+        "url": "https://vicone.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Robotic Hacking Community",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://robotichackingcommunity.com/images/og-image.png"
+        }
+      },
+      "image": "https://robotichackingcommunity.com/images/og-image.png",
+      "isBasedOn": "https://vicone.com/company/press-releases/vicone-turns-def-con-34-robot-hacking-research-into-free-nvidia-isaac-sim-extension/",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://robotichackingcommunity.com/vicone-radeis-extension-nvidia-isaac-sim.html"
+      },
+      "url": "https://robotichackingcommunity.com/vicone-radeis-extension-nvidia-isaac-sim.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-nav.webp" alt="Robotic Hacking Community" class="nav-logo-img" width="144" height="144">
+    [ RHC ]
+  </a>
+  <div class="nav-links">
+    <a href="vuln-db.html">Physical AI Vulnerability Database</a>
+    <a href="research-hub.html">Research Hub</a>
+    <a href="open-source-badge.html">RHC OSS Badge</a>
+    <a href="def-con-34.html">DEF CON 34</a>
+    <a href="news-and-updates.html" class="active">News and Updates</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+
+<article class="article-page">
+  <a href="news-and-updates.html" class="back-link">&larr; News and Updates</a>
+  <div class="eyebrow">Press Release &middot; <time datetime="2026-08-09">August 9, 2026</time></div>
+  <h1 class="article-title">VicOne Turns DEF CON 34 Robot Hacking Research into Free NVIDIA Isaac Sim Extension</h1>
+  <p class="article-sub">The VicOne Radeis Extension for NVIDIA Isaac Sim™ lets robotics teams apply curated cyber-safety attack scenarios to their own robot models and identify potential behavior changes before deployment.</p>
+  <div class="article-body">
+<p><strong>DETROIT and TOKYO, August 9, 2026</strong>—VicOne, a <a href="https://vicone.com/" target="_blank" rel="noopener">Physical AI cybersecurity solutions leader</a>, today released the free VicOne Radeis Extension for NVIDIA Isaac Sim™, enabling robotics developers to test how selected cyber-safety attack scenarios could affect the behavior of their own robot models in simulation. </p>
+<p>Available now, the extension allows teams to introduce robot cyber-safety attack scenarios into their simulation workflows. Developers can then observe whether the robot deviates from its intended task, operating boundaries, or expected response before exposing physical robots or real operating environments to unnecessary risk. </p>
+<p>The extension was shaped by findings from <a href="physical-ai-safety-stress-test-def-con-34.html">VicOne’s Physical AI Safety Stress Test</a> CTF at DEF CON 34’s Robotic Hacking Village, where security researchers tested how digital compromise could alter robot behavior under controlled conditions. The challenge examined attack paths across AI models, perception, cloud and API services, robotics communications, and embedded systems. </p>
+<p>At DEF CON 34, <strong>16 teams recorded 25 successful solves</strong>. Nearly every core AI and robotics cyber-safety challenge was solved at least once, with only one advanced embedded systems challenge involving cryptography and firmware vulnerabilities remaining unsolved. The results showed that behavior-changing risks can emerge across multiple layers of the robot stack, reinforcing the need to evaluate cybersecurity at the system level rather than assess vulnerabilities only in isolation. </p>
+<p>Robot makers invest heavily in functional testing, safety engineering, and simulation, but cyber-induced conditions can still fall outside conventional test plans. VicOne is using findings from the DEF CON challenge, including unsuccessful attempts and newly observed attack assumptions, to refine scenarios involving manipulated visual inputs, hijacked commands, poisoned AI policies, and exploited connected interfaces. By testing these conditions at the system level, teams can determine whether vulnerabilities in individual components could ultimately alter the behavior of the complete robot. </p>
+<p>The VicOne Radeis Extension helps bring that question into development earlier. Instead of testing only within a generic demonstration environment, developers can use their own robot models, intended tasks, and operating assumptions within NVIDIA Isaac Sim. </p>
+<blockquote>
+<p><em>"Robotics companies are moving from proving individual use cases to deploying robots at scale in real-world environments. As that shift accelerates, the industry must validate not only whether robots function as designed, but whether they remain reliable when the digital systems they depend on are compromised,”</em> said <strong>Max Cheng, Chief Executive Officer of VicOne</strong>. <em>“Cyber-safety validation must become a standard part of robotics development. By turning DEF CON research into repeatable simulation scenarios, we are helping developers address these risks earlier and build more resilient Physical AI at scale.” </em></p>
+</blockquote>
+<h2>From Robot Hacking Research to Repeatable Testing </h2>
+<p>Every attack attempt can contribute to stronger protection. A successful attempt may reveal a path from digital compromise to changed robot behavior. An unsuccessful attempt can still expose attacker assumptions, unexplored control paths, or safeguards that require further validation. </p>
+<p>VicOne translates these findings into structured scenarios that developers can repeat as robot software, sensors, AI models, communications, and control architectures evolve. </p>
+<p>Using the free extension, developers can: </p>
+<ul>
+<li>Bring their robot model and intended task into NVIDIA Isaac Sim. </li>
+<li>Apply curated scenarios informed by VicOne’s Physical AI security research and DEF CON findings. </li>
+<li>Validate whether the VLM (Vision-Language Model) remains resilient against adversarial visual prompts, malicious inputs, and sensor manipulation attempts that could lead to incorrect interpretations or unsafe decision-making. </li>
+<li>Repeat tests as models, software, sensors, communications, and control paths change. </li>
+</ul>
+<p>NVIDIA Isaac Sim provides a physically based environment for designing, simulating, testing, and validating AI-driven robots. The VicOne Radeis Extension adds cyber-safety scenarios and behavioral-impact observation to existing simulation workflows, helping teams examine security-related edge cases before moving into physical testing or deployment. </p>
+<h2>A Free Starting Point for Broader Cyber-Safety Validation </h2>
+<p>The free VicOne Radeis Extension for NVIDIA Isaac Sim gives robotics teams a practical starting point for exploring cyber-to-physical risk. It also helps engineering, safety, and security teams discuss risk through visible robot outcomes rather than treating vulnerabilities only as abstract software findings. </p>
+<p>For organizations requiring broader assessment, VicOne <a href="https://vicone.com/products/radeis/" target="_blank" rel="noopener">Radeis</a> is a pre-deployment cyber-safety validation solution that assesses component, system, and AI model risks, then evaluates how vulnerabilities and attack scenarios could affect the behavior of the integrated robot. The complete Radeis solution supports deeper investigation, remediation planning, release decisions, and compliance readiness. </p>
+<p>The VicOne Radeis Extension for NVIDIA Isaac Sim is available now as a free download for developers using supported versions of NVIDIA Isaac Sim. </p>
+<p>Download the free extension: <a href="https://github.com/VicOne-OSS-TW/labr7-radeis-InSimPhysicalAI" target="_blank" rel="noopener">https://github.com/VicOne-OSS-TW/labr7-radeis-InSimPhysicalAI</a> </p>
+<p>Watch the extension demo:<a href="https://youtu.be/SJH5PFiqQQ8" target="_blank" rel="noopener">https://youtu.be/SJH5PFiqQQ8</a></p>
+<p> Learn more about VicOne Radeis: <a href="https://vicone.com/products/radeis/" target="_blank" rel="noopener">https://vicone.com/products/radeis/</a> </p>
+<h2>About VicOne</h2>
+<p>VicOne is a cybersecurity leader for Physical AI, built on proven automotive cybersecurity expertise. Its software and services protect the digital systems that shape how vehicles and robots see, decide, and act. VicOne helps OEMs, Tier 1 suppliers, robot makers, and operators identify cyber risks early, assess their potential safety impact, and protect systems in operation, helping maintain safe, reliable behavior across real-world deployments. With 180+ zero-days uncovered across automotive and robotics, 100M+ new threat intelligence signals added monthly, and 30 U.S. patent applications pending in AIDV and AI security, VicOne combines specialized Physical AI security research with global threat intelligence. As a Trend Micro subsidiary, VicOne is backed by decades of global cybersecurity expertise. For more information, visit <a href="https://vicone.com/" target="_blank" rel="noopener">vicone.com</a>.  </p>
+  </div>
+  <div class="article-source">Source: VicOne &mdash; originally published on vicone.com. <a href="https://vicone.com/company/press-releases/vicone-turns-def-con-34-robot-hacking-research-into-free-nvidia-isaac-sim-extension/" target="_blank" rel="noopener">Read the original &#8599;</a></div>
+  <div class="article-source" style="margin-top:20px;padding-top:0;border-top:none;"><a href="news-and-updates.html">&larr; Back to News and Updates</a></div>
+</article>
+
+<footer>
+  <p>Robotic Hacking Community — Part of the DEF CON village network. <a href="mailto:robotichackingcommunity@proton.me" class="press-link">Contact us</a>.</p>
+</footer>
+
+</body>
+</html>

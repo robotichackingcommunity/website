@@ -13,6 +13,8 @@ research-hub.html       Research Hub (coming soon)
 open-source-badge.html  RHC open-source badge
 def-con-34.html         DEF CON 34 recap, links to the event pages below
 news-and-updates.html   News and updates
+vicone-radeis-extension-nvidia-isaac-sim.html, physical-ai-safety-stress-test-def-con-34.html
+                        News articles, linked from news-and-updates.html
 about.html              About
 program.html, cfp.html, ctf.html, rrc.html, badge.html
                         DEF CON 34 event pages (kept, linked from def-con-34.html)
