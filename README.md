@@ -55,12 +55,6 @@ Then open <http://localhost:8000> in your browser.
 Install the Live Server extension, then right-click `index.html` →
 "Open with Live Server" for live reload on save.
 
-### Option 3: Open directly
-
-Open `index.html` directly in your browser. Note that when opened via
-`file://`, some browsers are stricter about relative paths and font
-loading, so a local server is preferred.
-
 ## Deployment
 
 Deployed via GitHub Pages, with the domain set by `CNAME`. Pushing to the
