@@ -9,13 +9,16 @@ A plain HTML/CSS static site with no build tools or backend dependencies.
 ```
 index.html              Home
 physical-ai-vulnerability-database.html
-                        FaultLine vulnerability database explorer
+                        FaultLine vulnerability database explorer (unlinked
+                        and noindex while the data is being tuned)
 research-hub.html       Research Hub (coming soon)
 open-source-badge.html  RHC open-source badge
 def-con-34.html         DEF CON 34 recap, links to the event pages below
-news-and-updates.html   News and updates
-vicone-radeis-extension-nvidia-isaac-sim.html, physical-ai-safety-stress-test-def-con-34.html
-                        News articles, linked from news-and-updates.html
+news-and-updates/       News list (news-and-updates.html) and article pages;
+                        article images go in images/news/
+news-and-updates.html, vicone-radeis-extension-nvidia-isaac-sim.html,
+physical-ai-safety-stress-test-def-con-34.html
+                        Redirects from the old root URLs into news-and-updates/
 about.html              About
 program.html, cfp.html, ctf.html, rrc.html, badge.html
                         DEF CON 34 event pages (kept, linked from def-con-34.html)
@@ -30,8 +33,7 @@ load, and each record's `CVE-json/*.pavd.json` when its detail is opened
 through the GitHub contents API, so a push to PA_VD shows up within about a
 minute. If a visitor runs out of the API's 60 unauthenticated requests per
 hour, it falls back to GitHub Pages and then raw.githubusercontent.com, which
-CDN-cache for up to 10 and 5 minutes. The homepage Vuln DB card reads its
-record count the same way.
+CDN-cache for up to 10 and 5 minutes.
 
 Logos are WebP (`images/logo-nav.webp`, `images/logo-hero.webp`, generated
 from `images/logo.png`). Don't inline images as base64.

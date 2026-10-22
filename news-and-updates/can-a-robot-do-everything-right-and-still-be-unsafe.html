@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<title>Can a Robot Do Everything Right and Still Be Unsafe? — Robotic Hacking Community</title>
+<meta name="description" content="What a conversation between Boston Dynamics and VicOne reveals about how manipulated information can turn expected robot operation into an unsafe outcome">
+<meta name="author" content="Robotic Hacking Community">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://robotichackingcommunity.com/news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Robotic Hacking Community">
+<meta property="og:title" content="Can a Robot Do Everything Right and Still Be Unsafe?">
+<meta property="og:description" content="What a conversation between Boston Dynamics and VicOne reveals about how manipulated information can turn expected robot operation into an unsafe outcome">
+<meta property="og:url" content="https://robotichackingcommunity.com/news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html">
+<meta property="og:image" content="https://robotichackingcommunity.com/images/news/fireside-chat-joman-chu-jason-yueh.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1267">
+<meta property="og:image:height" content="714">
+<meta property="og:image:alt" content="Joman Chu of Boston Dynamics and Jason Yueh of VicOne speaking during their fireside conversation at the Robotic Hacking Community at DEF CON 34">
+<meta property="article:published_time" content="2026-10-21">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Can a Robot Do Everything Right and Still Be Unsafe?">
+<meta name="twitter:description" content="What a conversation between Boston Dynamics and VicOne reveals about how manipulated information can turn expected robot operation into an unsafe outcome">
+<meta name="twitter:image" content="https://robotichackingcommunity.com/images/news/fireside-chat-joman-chu-jason-yueh.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #050505;
+    color: #e0e0e0;
+    font-family: 'Share Tech Mono', Courier, monospace;
+    background-image:
+      linear-gradient(rgba(57,255,20,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(57,255,20,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.1);
+  }
+  .nav-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 12px; color: #39ff14; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-img { height: 48px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-links a { color: #444; font-size: 11px; text-decoration: none; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a.active { color: #39ff14; }
+  .nav-links a:hover { color: #ccc; }
+
+  /* PAGE HEADER */
+  .page-header { padding: 64px 48px 56px; border-bottom: 1px solid rgba(57,255,20,0.1); }
+  .eyebrow { font-size: 11px; letter-spacing: 0.2em; color: #39ff14; text-transform: uppercase; margin-bottom: 20px; opacity: 0.8; }
+  .page-title { font-family: 'Courier New', Courier, monospace; font-size: 80px; font-weight: 700; line-height: 1; color: #fff; text-transform: uppercase; margin-bottom: 40px; }
+  .intro-text { max-width: 680px; font-size: 15px; line-height: 1.9; color: #888; }
+  .intro-text p { margin-bottom: 16px; }
+  .intro-text p:last-child { margin-bottom: 0; }
+
+  /* PRESS FEED */
+  .press-feed { padding: 56px 48px; border-bottom: 1px solid rgba(57,255,20,0.08); }
+  .press-label { font-size: 10px; color: #39ff14; letter-spacing: 0.2em; margin-bottom: 32px; opacity: 0.8; text-transform: uppercase; }
+  
+  /* PRESS ITEM */
+  .press-item {
+    max-width: 680px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(57,255,20,0.08);
+  }
+  .press-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .press-meta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .press-date {
+    color: #39ff14;
+    font-weight: 700;
+  }
+  .press-headline {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .press-subheading {
+    font-size: 13px;
+    color: #39ff14;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+  }
+  .press-body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #999;
+    margin-bottom: 16px;
+  }
+  .press-body p {
+    margin-bottom: 12px;
+  }
+  .press-body p:last-child {
+    margin-bottom: 0;
+  }
+  .press-byline {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  /* PRESS LINK */
+  .press-link {
+    color: #39ff14;
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid rgba(57,255,20,0.3);
+  }
+  .press-link:hover {
+    color: #fff;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid rgba(57,255,20,0.1);
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.12em; }
+    .page-header { padding: 48px 24px 40px; }
+    .page-title { font-size: 48px; margin-bottom: 24px; }
+    .intro-text { font-size: 14px; }
+    .press-feed { padding: 40px 24px; }
+    .press-headline { font-size: 20px; }
+    .press-meta { flex-direction: column; gap: 8px; }
+  }
+  /* NAV: keep the longer label readable on mid-size screens */
+  @media (max-width: 1200px) and (min-width: 769px) {
+    nav { flex-wrap: wrap; row-gap: 12px; }
+    .nav-logo { flex-shrink: 0; white-space: nowrap; }
+    .nav-links { gap: 12px 24px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { white-space: nowrap; }
+  }
+
+  /* ARTICLE PAGE */
+  .article-page { padding: 48px 48px 56px; }
+  .back-link { display: inline-block; margin-bottom: 32px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #39ff14; text-decoration: none; opacity: 0.85; }
+  .back-link:hover { opacity: 1; }
+  .article-title { max-width: 900px; margin-bottom: 20px; font-family: 'Courier New', Courier, monospace; font-size: 38px; font-weight: 700; line-height: 1.2; color: #fff; }
+  .article-sub { max-width: 760px; margin-bottom: 36px; font-size: 16px; line-height: 1.7; color: #39ff14; }
+  .article-body { max-width: 760px; font-size: 15px; line-height: 1.9; color: #999; }
+  .article-body p { margin-bottom: 18px; }
+  .article-body strong { color: #ddd; }
+  .article-body a, .article-source a { color: #39ff14; text-decoration: none; border-bottom: 1px solid rgba(57,255,20,0.3); overflow-wrap: anywhere; }
+  .article-body a:hover, .article-source a:hover { color: #fff; }
+  .article-body blockquote { margin: 26px 0; padding: 14px 20px; border-left: 2px solid #39ff14; background: rgba(57,255,20,0.04); color: #ccc; }
+  .article-body blockquote p:last-child { margin-bottom: 0; }
+  .article-body h2 { margin: 36px 0 12px; padding-top: 24px; border-top: 1px solid rgba(57,255,20,0.12); font-family: 'Courier New', Courier, monospace; font-size: 16px; color: #fff; text-transform: uppercase; letter-spacing: 0.05em; }
+  .article-body ul, .article-body ol { margin-bottom: 18px; padding-left: 22px; }
+  .article-body li { margin-bottom: 8px; }
+  .article-source { max-width: 760px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(57,255,20,0.15); font-size: 12px; letter-spacing: 0.05em; color: #666; }
+  @media (max-width: 768px) {
+    .article-page { padding: 36px 24px 40px; }
+    .article-title { font-size: 26px; }
+    .article-sub { font-size: 14px; }
+  }
+
+  /* ARTICLE VIDEO, PHOTOS, QUOTES */
+  .article-video { position: relative; max-width: 760px; aspect-ratio: 16 / 9; margin: 24px 0 18px; border: 1px solid rgba(57,255,20,0.3); background: #000; }
+  .article-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .article-body figure { margin: 32px 0; }
+  .article-body img { display: block; max-width: 100%; height: auto; border: 1px solid rgba(57,255,20,0.3); }
+  .article-body a.fig-link { display: block; border-bottom: none; }
+  .article-body a.fig-link:hover img { border-color: #39ff14; }
+  .article-body figcaption { margin-top: 10px; font-size: 12px; line-height: 1.7; color: #777; }
+  .article-body .quote-by { margin-top: 10px; font-size: 12px; font-style: normal; letter-spacing: 0.05em; color: #39ff14; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NewsArticle",
+      "@id": "https://robotichackingcommunity.com/news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html#article",
+      "headline": "Can a Robot Do Everything Right and Still Be Unsafe?",
+      "description": "What a conversation between Boston Dynamics and VicOne reveals about how manipulated information can turn expected robot operation into an unsafe outcome",
+      "articleBody": "A robot can function as expected relative to the information it receives and still produce an unsafe outcome if that information has been manipulated. Cyber threats add an adversary to the safety equation. They can turn an unlikely event into a repeatable one. Cybersecurity is not only about preventing attacks. It helps robotics teams verify that the digital conditions supporting safe behavior still hold under deliberate manipulation. Expected Operation Is Not the Same as a Safe Outcome A robot receives an authorized command to step to the left. Its software is genuine. The command comes from an approved source. The robot processes that information and executes the movement exactly as expected. But if that step takes the robot off a staircase or an elevated platform, the outcome is still unsafe. Raised during a DEF CON 34 fireside conversation between Boston Dynamics and VicOne, the scenario exposes an important distinction. Authorization can confirm whether an action is permitted. On its own, it cannot establish whether that action is safe in a fleeting physical context. For a mobile robot, safety is not a fixed perimeter. The safety boundary moves with the machine. The same step can be harmless on a warehouse floor and hazardous beside a stairwell. As the environment changes, the context required for a safe decision changes with it. The robot interprets those conditions through cameras and other sensors, AI models, software messages, fleet systems, or human commands. An attacker may not need to disable the robot or seize full control. Manipulating one relevant input may be enough to make an otherwise expected behavior unsafe. This is where cybersecurity contributes to robot safety assurance. It asks how deliberate manipulation could change physical behavior, helps teams reproduce those conditions in simulation, and provides runtime evidence when operation no longer matches what was validated. Cyber Threats Rewrite the Odds Safety engineering already uses simulation to study improbable events that could lead to unsafe conditions. The fireside discussion adds a crucial distinction. An attacker can deliberately create those same conditions. Under normal conditions, a particular image, software state, or sequence of messages may be unlikely. Under attack, rarity is not the same as protection. “The whole goal of hackers, or maybe one of the objectives of hackers, is to turn those low-probability events into deterministic, high-probability, highly reliable events.” — Joman Chu, Product Security Engineering Lead at Boston Dynamics If an attacker learns how to reproduce a low-probability condition, the same event can be triggered repeatedly and, potentially, at a chosen time. Cybersecurity changes the risk question from whether a rare event might happen to whether someone can make it happen. That is the specific contribution security brings to safety analysis: intentionality . It helps teams examine whether inputs or components can be manipulated to create physical conditions that safety engineering already considers hazardous. A Vulnerability Won’t Tell You What the Robot Will Do Cyber threats can turn an unlikely condition into a repeatable one. But identifying a vulnerability still does not tell a safety team what the robot will do if it is exploited. Will it stop safely, continue operating, or cross a safety boundary? To answer that question, teams need to carry the cyber scenario into the safety validation process. Cybersecurity extends the existing safety validation framework by turning a plausible attack path into a test condition. Threat and scenario analysis identifies how the robot could be manipulated. An attack script then injects that condition into the same environment used for functional safety testing, allowing teams to compare normal operation with operation under attack. The results show whether safety requirements are violated, which hazards emerge, and whether the controls designed into the robot still hold. The process begins by separating three questions. Is the vulnerability reachable? Can it be exploited? If it is exploited, which part of the robot’s behavior could change? Reachability analysis establishes the attack path, but it does not establish the physical consequence. A spoofed message, prompt injection, adversarial image patch, or compromised component matters only in relation to the robot behavior it changes. Software-in-the-Loop simulation connects the cyber event to the robot’s physical behavior. Teams can load the robot model and actual software into a digital twin environment such as NVIDIA Isaac Sim or MuJoCo, reproduce the manipulation, and observe how the robot responds. They can then evaluate whether safety controls still work, whether the robot reaches a safe state, and which compensating controls may be needed. This approach begins before deployment and can be repeated when new vulnerabilities emerge in the field. Teams can test known vulnerabilities, prompt injection, adversarial visual inputs, and compromised software components in simulation. When a new vulnerability appears, they can reproduce the exploit, assess its effect on the current robot design, and validate an interim policy before an over-the-air patch is available. Security, robotics, and safety teams each contribute a different part of the assessment. Security teams characterize the exploit. Systems engineers determine how it changes robot behavior. Safety teams evaluate the resulting hazard. Together, they turn a software finding into a decision about the robot and its operation. Deployment Puts Safety Assumptions to the Test “So, inherently, the robots need to be continually learning and training, and they’ll be continually getting updates from the manufacturer.” — Joman Chu, Product Security Engineering Lead at Boston Dynamics That creates a continuous learning and update loop among the robot, its operating environment, and the manufacturer’s training environment. Operational data returns to the training environment, informs an updated model or behavior policy, and reaches the robot through a new update. The same operational data can also serve as security telemetry, helping teams detect attacks or anomalies and carry those findings back into threat modeling, simulation, and protection. Deployment does not freeze the conditions under which a robot was tested. Software and AI models are updated. New vulnerabilities appear. Robots keep collecting data from changing environments. The conditions that supported a safe decision during validation may no longer hold in operation. Runtime telemetry and behavioral monitoring help teams see those changes. A baseline can show how robots in the same fleet normally behave. If one robot begins to diverge from the rest, that difference can prompt investigation. But detection is only the first step. The robot may need to respond before engineers can issue a permanent fix. One implication is that a context-aware runtime response at the edge can connect detection to action. An edge AI layer can be designed to correlate the robot’s system state, commands, sensor inputs, and environmental context in real time, then select among predefined, safety-validated response policies. Its role is bounded. It does not invent a new safety response in the moment. It selects from actions that security, robotics, and safety teams have already evaluated. The fireside discussion offered one example: reducing the permitted speed of an affected robot when people are nearby while teams prepare an over-the-air patch. The response changes what the robot is allowed to do because the operating context no longer matches the conditions under which normal operation was validated. That runtime response addresses the immediate risk. The continuous loop addresses what happens next. The anomaly, the response taken, and the surrounding context are fed back into engineering, where teams can reproduce the condition in simulation, reassess its safety impact, validate a longer-term control, and deliver an updated policy or model to the robot. A new anomaly may expose a threat scenario that was missed during development. A disclosed vulnerability may require fresh reachability analysis or simulation. A temporary policy may reduce risk while teams prepare a permanent fix. Each finding can sharpen later threat modeling, validation, remediation, and compliance work. This is the continuous security loop described in the conversation. Teams assess the product and its risks, harden it, monitor its behavior in operation, and feed new findings back into engineering. The loop provides evidence to determine whether the robot still behaves within the conditions that were validated and whether its safety case needs to be revisited. The Safety Question Has Changed A robot can continue operating and execute its control logic as expected while acting on manipulated information. Expected operation alone therefore does not guarantee a safe outcome. Cybersecurity does not replace functional safety. It broadens the conditions that safety teams can evaluate. Threat modeling identifies how someone might try to mislead the robot. Simulation reveals the physical response before deployment. Runtime monitoring detects when operating conditions begin to diverge from validated assumptions. Context-aware response applies predefined policies while new evidence returns to engineering for revalidation. The point is not to replace the safety case with a security checklist. It is to connect the two through evidence. The stronger question is no longer only whether the robot is functioning as expected. It is whether the information and operating conditions supporting safe behavior can still be trusted. Watch the full fireside conversation between Boston Dynamics and VicOne to hear the discussion behind these insights. https://youtu.be/5w4rCO5Ta4o",
+      "articleSection": "Community News",
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Organization",
+        "name": "Robotic Hacking Community",
+        "url": "https://robotichackingcommunity.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Robotic Hacking Community",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://robotichackingcommunity.com/images/og-image.png"
+        }
+      },
+      "image": [
+        "https://robotichackingcommunity.com/images/news/fireside-chat-joman-chu-jason-yueh.jpg",
+        "https://robotichackingcommunity.com/images/news/safety-validation-framework-adversarial-testing.jpg",
+        "https://robotichackingcommunity.com/images/news/continuous-security-loop.jpg"
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://robotichackingcommunity.com/news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html"
+      },
+      "url": "https://robotichackingcommunity.com/news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html",
+      "video": {
+        "@id": "https://robotichackingcommunity.com/news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html#video"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://robotichackingcommunity.com/news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html#video",
+      "name": "Securing Physical AI: The Future of Robot Safety | Boston Dynamics x VicOne",
+      "description": "A fireside conversation between Boston Dynamics and VicOne at the Robotic Hacking Community at DEF CON 34 on robot safety and cybersecurity.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/5w4rCO5Ta4o/hqdefault.jpg",
+      "uploadDate": "2026-10-14",
+      "embedUrl": "https://www.youtube.com/embed/5w4rCO5Ta4o",
+      "contentUrl": "https://www.youtube.com/watch?v=5w4rCO5Ta4o"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../images/logo-nav.webp" alt="Robotic Hacking Community" class="nav-logo-img" width="144" height="144">
+    [ RHC ]
+  </a>
+  <div class="nav-links">
+    <a href="../research-hub.html">Research Hub</a>
+    <a href="../open-source-badge.html">RHC OSS Badge</a>
+    <a href="../def-con-34.html">DEF CON 34</a>
+    <a href="news-and-updates.html" class="active">News and Updates</a>
+    <a href="../about.html">About</a>
+  </div>
+</nav>
+
+<article class="article-page">
+  <a href="news-and-updates.html" class="back-link">&larr; News and Updates</a>
+  <div class="eyebrow">Fireside Chat &middot; <time datetime="2026-10-21">October 21, 2026</time></div>
+  <h1 class="article-title">Can a Robot Do Everything Right and Still Be Unsafe?</h1>
+  <p class="article-sub">What a conversation between Boston Dynamics and VicOne reveals about how manipulated information can turn expected robot operation into an unsafe outcome</p>
+  <div class="article-body">
+<p>A robot can function as expected relative to the information it receives and still produce an unsafe outcome if that information has been manipulated. Cyber threats add an adversary to the safety equation. They can turn an unlikely event into a repeatable one. Cybersecurity is not only about preventing attacks. It helps robotics teams verify that the digital conditions supporting safe behavior still hold under deliberate manipulation.</p>
+<h2>Expected Operation Is Not the Same as a Safe Outcome</h2>
+<p>A robot receives an authorized command to step to the left.</p>
+<p>Its software is genuine. The command comes from an approved source. The robot processes that information and executes the movement exactly as expected. But if that step takes the robot off a staircase or an elevated platform, the outcome is still unsafe.</p>
+<p>Raised during a DEF CON 34 fireside conversation between Boston Dynamics and VicOne, the scenario exposes an important distinction. Authorization can confirm whether an action is permitted. On its own, it cannot establish whether that action is safe in a fleeting physical context.</p>
+<p>For a mobile robot, safety is not a fixed perimeter. <strong>The safety boundary moves with the machine.</strong> The same step can be harmless on a warehouse floor and hazardous beside a stairwell. As the environment changes, the context required for a safe decision changes with it.</p>
+<p>The robot interprets those conditions through cameras and other sensors, AI models, software messages, fleet systems, or human commands. An attacker may not need to disable the robot or seize full control. Manipulating one relevant input may be enough to make an otherwise expected behavior unsafe.</p>
+<p>This is where cybersecurity contributes to robot safety assurance. It asks how deliberate manipulation could change physical behavior, helps teams reproduce those conditions in simulation, and provides runtime evidence when operation no longer matches what was validated.</p>
+<figure>
+<img src="../images/news/fireside-chat-joman-chu-jason-yueh.jpg" width="1267" height="714" alt="Joman Chu of Boston Dynamics and Jason Yueh of VicOne speaking during their fireside conversation at the Robotic Hacking Community at DEF CON 34" loading="lazy">
+<figcaption>Figure 1. Joman Chu of Boston Dynamics and Jason Yueh of VicOne discuss how cyber threats can change the likelihood of hazardous robot behavior at DEF CON 34.</figcaption>
+</figure>
+<h2>Cyber Threats Rewrite the Odds</h2>
+<p>Safety engineering already uses simulation to study improbable events that could lead to unsafe conditions. The fireside discussion adds a crucial distinction. An attacker can deliberately create those same conditions.</p>
+<p>Under normal conditions, a particular image, software state, or sequence of messages may be unlikely. Under attack, rarity is not the same as protection.</p>
+<blockquote>
+<p>“The whole goal of hackers, or maybe one of the objectives of hackers, is to turn those low-probability events into deterministic, high-probability, highly reliable events.”</p>
+<p class="quote-by">&mdash; Joman Chu, Product Security Engineering Lead at Boston Dynamics</p>
+</blockquote>
+<p>If an attacker learns how to reproduce a low-probability condition, the same event can be triggered repeatedly and, potentially, at a chosen time. Cybersecurity changes the risk question from whether a rare event might happen to whether someone can make it happen.</p>
+<p>That is the specific contribution security brings to safety analysis: <strong>intentionality</strong>. It helps teams examine whether inputs or components can be manipulated to create physical conditions that safety engineering already considers hazardous.</p>
+<h2>A Vulnerability Won’t Tell You What the Robot Will Do</h2>
+<p>Cyber threats can turn an unlikely condition into a repeatable one. But identifying a vulnerability still does not tell a safety team what the robot will do if it is exploited. Will it stop safely, continue operating, or cross a safety boundary? To answer that question, teams need to carry the cyber scenario into the safety validation process.</p>
+<p>Cybersecurity extends the existing safety validation framework by turning a plausible attack path into a test condition. Threat and scenario analysis identifies how the robot could be manipulated. An attack script then injects that condition into the same environment used for functional safety testing, allowing teams to compare normal operation with operation under attack. The results show whether safety requirements are violated, which hazards emerge, and whether the controls designed into the robot still hold.</p>
+<figure>
+<a href="../images/news/safety-validation-framework-adversarial-testing.jpg" target="_blank" rel="noopener" title="Open full-size image" class="fig-link"><img src="../images/news/safety-validation-framework-adversarial-testing.jpg" width="1600" height="900" alt="Diagram of a safety validation framework. A test environment feeds functional safety testing with normal and adversarial scenarios, which produces a test report. VicOne adversarial validation, made up of threat and scenario analysis and attack scripts and tools, injects adversarial scenarios and receives perception scenarios and robot information. Validation results produce a functional safety impact assessment and a cybersecurity report." loading="lazy"></a>
+<figcaption>Figure 2. Security testing adds deliberately manipulated conditions to the functional safety test environment, connecting an attack path to its physical impact.</figcaption>
+</figure>
+<p>The process begins by separating three questions. Is the vulnerability reachable? Can it be exploited? If it is exploited, which part of the robot’s behavior could change? Reachability analysis establishes the attack path, but it does not establish the physical consequence. A spoofed message, prompt injection, adversarial image patch, or compromised component matters only in relation to the robot behavior it changes.</p>
+<p>Software-in-the-Loop simulation connects the cyber event to the robot’s physical behavior. Teams can load the robot model and actual software into a digital twin environment such as NVIDIA Isaac Sim or MuJoCo, reproduce the manipulation, and observe how the robot responds. They can then evaluate whether safety controls still work, whether the robot reaches a safe state, and which compensating controls may be needed.</p>
+<p>This approach begins before deployment and can be repeated when new vulnerabilities emerge in the field. Teams can test known vulnerabilities, prompt injection, adversarial visual inputs, and compromised software components in simulation. When a new vulnerability appears, they can reproduce the exploit, assess its effect on the current robot design, and validate an interim policy before an over-the-air patch is available.</p>
+<p>Security, robotics, and safety teams each contribute a different part of the assessment. Security teams characterize the exploit. Systems engineers determine how it changes robot behavior. Safety teams evaluate the resulting hazard. Together, they turn a software finding into a decision about the robot and its operation.</p>
+<h2>Deployment Puts Safety Assumptions to the Test</h2>
+<blockquote>
+<p>“So, inherently, the robots need to be continually learning and training, and they’ll be continually getting updates from the manufacturer.”</p>
+<p class="quote-by">&mdash; Joman Chu, Product Security Engineering Lead at Boston Dynamics</p>
+</blockquote>
+<p>That creates a continuous learning and update loop among the robot, its operating environment, and the manufacturer’s training environment. Operational data returns to the training environment, informs an updated model or behavior policy, and reaches the robot through a new update. The same operational data can also serve as security telemetry, helping teams detect attacks or anomalies and carry those findings back into threat modeling, simulation, and protection.</p>
+<p>Deployment does not freeze the conditions under which a robot was tested. Software and AI models are updated. New vulnerabilities appear. Robots keep collecting data from changing environments. The conditions that supported a safe decision during validation may no longer hold in operation.</p>
+<p>Runtime telemetry and behavioral monitoring help teams see those changes. A baseline can show how robots in the same fleet normally behave. If one robot begins to diverge from the rest, that difference can prompt investigation. But detection is only the first step. The robot may need to respond before engineers can issue a permanent fix.</p>
+<p>One implication is that a context-aware runtime response at the edge can connect detection to action. An edge AI layer can be designed to correlate the robot’s system state, commands, sensor inputs, and environmental context in real time, then select among predefined, safety-validated response policies. Its role is bounded. It does not invent a new safety response in the moment. It selects from actions that security, robotics, and safety teams have already evaluated.</p>
+<p>The fireside discussion offered one example: reducing the permitted speed of an affected robot when people are nearby while teams prepare an over-the-air patch. The response changes what the robot is allowed to do because the operating context no longer matches the conditions under which normal operation was validated.</p>
+<figure>
+<a href="../images/news/continuous-security-loop.jpg" target="_blank" rel="noopener" title="Open full-size image" class="fig-link"><img src="../images/news/continuous-security-loop.jpg" width="1600" height="900" alt="Continuous security loop diagram with four stages. Assess: know your robot and its risks. Harden: mitigate identified risks. Monitor: continuously monitor in operation. Improve: feed findings back into engineering." loading="lazy"></a>
+<figcaption>Figure 3. A continuous security loop uses operational findings to refine risk assessment, protection, monitoring, and future engineering decisions.</figcaption>
+</figure>
+<p>That runtime response addresses the immediate risk. The continuous loop addresses what happens next. The anomaly, the response taken, and the surrounding context are fed back into engineering, where teams can reproduce the condition in simulation, reassess its safety impact, validate a longer-term control, and deliver an updated policy or model to the robot.</p>
+<p>A new anomaly may expose a threat scenario that was missed during development. A disclosed vulnerability may require fresh reachability analysis or simulation. A temporary policy may reduce risk while teams prepare a permanent fix. Each finding can sharpen later threat modeling, validation, remediation, and compliance work.</p>
+<p>This is the continuous security loop described in the conversation. Teams assess the product and its risks, harden it, monitor its behavior in operation, and feed new findings back into engineering. The loop provides evidence to determine whether the robot still behaves within the conditions that were validated and whether its safety case needs to be revisited.</p>
+<h2>The Safety Question Has Changed</h2>
+<p>A robot can continue operating and execute its control logic as expected while acting on manipulated information. Expected operation alone therefore does not guarantee a safe outcome.</p>
+<p>Cybersecurity does not replace functional safety. It broadens the conditions that safety teams can evaluate. Threat modeling identifies how someone might try to mislead the robot. Simulation reveals the physical response before deployment. Runtime monitoring detects when operating conditions begin to diverge from validated assumptions. Context-aware response applies predefined policies while new evidence returns to engineering for revalidation.</p>
+<p>The point is not to replace the safety case with a security checklist. It is to connect the two through evidence. The stronger question is no longer only whether the robot is functioning as expected. It is whether the information and operating conditions supporting safe behavior can still be trusted.</p>
+<p><strong>Watch the full fireside conversation between Boston Dynamics and VicOne to hear the discussion behind these insights.</strong></p>
+<div class="article-video">
+<iframe src="https://www.youtube.com/embed/5w4rCO5Ta4o" title="Securing Physical AI: The Future of Robot Safety | Boston Dynamics x VicOne" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+</div>
+<p><a href="https://youtu.be/5w4rCO5Ta4o" target="_blank" rel="noopener">https://youtu.be/5w4rCO5Ta4o</a></p>
+  </div>
+  <div class="article-source">Source: Robotic Hacking Community</div>
+  <div class="article-source" style="margin-top:20px;padding-top:0;border-top:none;"><a href="news-and-updates.html">&larr; Back to News and Updates</a></div>
+</article>
+
+<footer>
+  <p>Robotic Hacking Community — Part of the DEF CON village network. <a href="mailto:robotichackingcommunity@proton.me" class="press-link">Contact us</a>.</p>
+</footer>
+
+</body>
+</html>

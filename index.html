@@ -209,8 +209,8 @@
     margin-bottom: 4px;
   }
 
-  /* VIDEO ROW: Event Recap (single centered column) */
-  .video-row { display: grid; grid-template-columns: minmax(0, 720px); justify-content: center; gap: 24px; align-items: start; }
+  /* VIDEO ROW: Event Recap + Fireside Chat side by side */
+  .video-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
   .video-col { display: flex; flex-direction: column; }
   .video-col-title {
     font-family: 'Courier New', Courier, monospace;
@@ -225,33 +225,9 @@
   .video-embed { width: 100%; margin: 0 auto; position: relative; }
   .video-embed iframe { display: block; width: 100%; aspect-ratio: 560 / 315; height: auto; border: 1px solid rgba(57,255,20,0.3); }
   .video-desc { font-size: 13px; color: #bbb; line-height: 1.7; margin-top: 12px; text-align: left; }
-
-  /* Vulnerability Database — bigger, standalone card below the video row */
-  .vuln-db-card {
-    text-decoration: none;
-    display: block;
-    padding: 40px 48px;
-    border: 1px solid rgba(57,255,20,0.25);
-    border-top: 4px solid #39ff14;
-    background: rgba(57,255,20,0.03);
-    text-align: center;
-    transition: background 0.2s, border-color 0.2s;
-    cursor: pointer;
-    opacity: 0.75;
-  }
-  .vuln-db-card:hover { background: rgba(57,255,20,0.06); border-color: rgba(57,255,20,0.5); opacity: 1; }
-  .vuln-db-eyebrow { font-size: 11px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; margin-bottom: 10px; }
-  .vuln-db-title {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 30px;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.25;
-    margin-bottom: 10px;
-  }
-  .vuln-db-sub { font-size: 13px; color: #39ff14; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
-  .vuln-db-card-link { text-decoration: none; display: block; cursor: pointer; transition: opacity 0.2s; }
-  .vuln-db-card-link:hover .vuln-db-card { opacity: 1; }
+  .video-more { margin-top: 10px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-align: left; }
+  .video-more a { color: #39ff14; text-decoration: none; border-bottom: 1px solid rgba(57,255,20,0.4); }
+  .video-more a:hover { color: #fff; border-bottom-color: #fff; }
 
   /* ACTIVITIES */
   .activities { padding: 64px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
@@ -474,8 +450,6 @@
     }
 
     .video-row { grid-template-columns: 1fr; gap: 28px; }
-    .vuln-db-card { padding: 28px 24px; }
-    .vuln-db-title { font-size: 24px; }
 
     .activities { padding: 48px 20px; }
     .section-label { margin-bottom: 24px; }
@@ -528,11 +502,10 @@
     [ RHC ]
   </a>
   <div class="nav-links">
-    <a href="physical-ai-vulnerability-database.html">Physical AI Vulnerability Database</a>
     <a href="research-hub.html">Research Hub</a>
     <a href="open-source-badge.html">RHC OSS Badge</a>
     <a href="def-con-34.html">DEF CON 34</a>
-    <a href="news-and-updates.html">News and Updates</a>
+    <a href="news-and-updates/news-and-updates.html">News and Updates</a>
     <a href="about.html">About</a>
   </div>
 </nav>
@@ -552,15 +525,15 @@
         </div>
         <p class="video-desc">A look back at four days with the Robotic Hacking Community — live robot exploitation, research presentations, live demos, hands-on workshops, CTF runs, dancing robots, sumo-style robot battles, and the community that showed up to break things responsibly.</p>
       </div>
-    </div>
-
-    <a href="physical-ai-vulnerability-database.html" class="vuln-db-card-link">
-      <div class="vuln-db-card">
-        <div class="vuln-db-eyebrow">// resource</div>
-        <div class="vuln-db-title">Physical AI &amp; Robotics<br>Vulnerability Database</div>
-        <div class="vuln-db-sub" id="vuln-db-count">FaultLine · Enriched CVE records</div>
+      <div class="video-col">
+        <div class="video-col-title">Fireside Chat</div>
+        <div class="video-embed">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/5w4rCO5Ta4o" title="Securing Physical AI: The Future of Robot Safety | Boston Dynamics x VicOne" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="video-desc">Physical AI turns cybersecurity into a product safety and business readiness requirement. VicOne CTO Jason Yueh and Boston Dynamics' Joman Chu discuss how cyber-safety assurance holds up across a robot's full lifecycle — from design to deployment.</p>
+        <p class="video-more"><a href="news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html">Read the full story &rarr;</a></p>
       </div>
-    </a>
+    </div>
   </div>
 </div>
 
@@ -615,30 +588,6 @@
 }
 </script>
 
-<script>
-  // Live record count for the Vuln DB card; keeps the static text if every source fails.
-  // GitHub API first (latest commit within a minute), then the CDN-cached copies.
-  (function () {
-    var el = document.getElementById('vuln-db-count');
-    if (!el) return;
-    var SOURCES = [
-      { url: 'https://api.github.com/repos/robotichackingcommunity/PA_VD/contents/index.json', headers: { Accept: 'application/vnd.github.raw' } },
-      'https://robotichackingcommunity.github.io/PA_VD/index.json',
-      'https://raw.githubusercontent.com/robotichackingcommunity/PA_VD/main/index.json'
-    ];
-    function load(i) {
-      if (i >= SOURCES.length) return Promise.reject(new Error('unavailable'));
-      var src = typeof SOURCES[i] === 'string' ? { url: SOURCES[i] } : SOURCES[i];
-      return fetch(src.url, { cache: 'no-cache', headers: src.headers || {} }).then(function (res) {
-        if (!res.ok) throw new Error(res.status);
-        return res.json();
-      }).catch(function () { return load(i + 1); });
-    }
-    load(0).then(function (d) {
-      if (Array.isArray(d) && d.length) el.textContent = 'FaultLine · ' + d.length + ' enriched CVE records';
-    }).catch(function () {});
-  })();
-</script>
 
 </body>
 </html>
