@@ -1,0 +1,8 @@
+{
+  "name": "rhc-website",
+  "private": true,
+  "description": "Robotic Hacking Community static website",
+  "scripts": {
+    "start": "echo 'Serving on http://localhost:8000 (Ctrl+C to stop)' && python3 -m http.server 8000"
+  }
+}

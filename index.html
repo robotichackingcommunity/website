@@ -229,6 +229,33 @@
   .video-more a { color: #39ff14; text-decoration: none; border-bottom: 1px solid rgba(57,255,20,0.4); }
   .video-more a:hover { color: #fff; border-bottom-color: #fff; }
 
+  /* Vulnerability Database — bigger, standalone card below the video row */
+  .vuln-db-card {
+    text-decoration: none;
+    display: block;
+    padding: 40px 48px;
+    border: 1px solid rgba(57,255,20,0.25);
+    border-top: 4px solid #39ff14;
+    background: rgba(57,255,20,0.03);
+    text-align: center;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+    opacity: 0.75;
+  }
+  .vuln-db-card:hover { background: rgba(57,255,20,0.06); border-color: rgba(57,255,20,0.5); opacity: 1; }
+  .vuln-db-eyebrow { font-size: 11px; color: #39ff14; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; margin-bottom: 10px; }
+  .vuln-db-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .vuln-db-sub { font-size: 13px; color: #39ff14; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+  .vuln-db-card-link { text-decoration: none; display: block; cursor: pointer; transition: opacity 0.2s; }
+  .vuln-db-card-link:hover .vuln-db-card { opacity: 1; }
+
   /* ACTIVITIES */
   .activities { padding: 64px 48px; border-top: 1px solid rgba(57,255,20,0.08); }
   .section-label {
@@ -450,6 +477,8 @@
     }
 
     .video-row { grid-template-columns: 1fr; gap: 28px; }
+    .vuln-db-card { padding: 28px 24px; }
+    .vuln-db-title { font-size: 24px; }
 
     .activities { padding: 48px 20px; }
     .section-label { margin-bottom: 24px; }
@@ -502,6 +531,7 @@
     [ RHC ]
   </a>
   <div class="nav-links">
+    <a href="physical-ai-vulnerability-database.html">Physical AI Vulnerability Database</a>
     <a href="research-hub.html">Research Hub</a>
     <a href="open-source-badge.html">RHC OSS Badge</a>
     <a href="def-con-34.html">DEF CON 34</a>
@@ -534,6 +564,14 @@
         <p class="video-more"><a href="news-and-updates/can-a-robot-do-everything-right-and-still-be-unsafe.html">Read the full story &rarr;</a></p>
       </div>
     </div>
+
+    <a href="physical-ai-vulnerability-database.html" class="vuln-db-card-link">
+      <div class="vuln-db-card">
+        <div class="vuln-db-eyebrow">// resource</div>
+        <div class="vuln-db-title">RHC Physical AI<br>Vulnerability Database</div>
+        <div class="vuln-db-sub" id="vuln-db-count">Enriched CVE records for robots &amp; Physical AI</div>
+      </div>
+    </a>
   </div>
 </div>
 
@@ -588,6 +626,30 @@
 }
 </script>
 
+
+<script>
+  // Live record count for the Vuln DB card; keeps the static text if every source fails.
+  // GitHub API first (latest commit within a minute), then the CDN-cached copies.
+  (function () {
+    var el = document.getElementById('vuln-db-count');
+    if (!el) return;
+    var SOURCES = [
+      { url: 'https://api.github.com/repos/robotichackingcommunity/PA_VD/contents/index.json', headers: { Accept: 'application/vnd.github.raw' } },
+      { url: 'https://pa-vd.robotichackingcommunity.com/index.json' },
+      { url: 'https://raw.githubusercontent.com/robotichackingcommunity/PA_VD/main/index.json' }
+    ];
+    function load(i) {
+      if (i >= SOURCES.length) return Promise.reject(new Error('unavailable'));
+      return fetch(SOURCES[i].url, { cache: 'no-cache', headers: SOURCES[i].headers || {} }).then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+      }).catch(function () { return load(i + 1); });
+    }
+    load(0).then(function (d) {
+      if (Array.isArray(d) && d.length) el.textContent = d.length + ' enriched CVE records';
+    }).catch(function () {});
+  })();
+</script>
 
 </body>
 </html>
